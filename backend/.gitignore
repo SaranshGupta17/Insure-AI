@@ -1,0 +1,7 @@
+# Backend .gitignore
+__pycache__/
+.env
+
+venv/
+env/
+service_account.json

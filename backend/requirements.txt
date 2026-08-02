@@ -1,0 +1,26 @@
+# --- Web Framework ---
+fastapi
+uvicorn
+pydantic
+python-dotenv
+
+# --- Core LangChain & LangGraph ---
+langchain
+langchain-core
+langchain-community
+langgraph
+
+# --- Google Cloud & Gemini AI ---
+langchain-google-genai
+langchain-google-community
+google-api-python-client
+google-auth-httplib2
+google-auth-oauthlib
+google-genai
+
+# --- Vector Database & Document Processing ---
+faiss-cpu
+pypdf
+langchain-text-splitters
+supabase
+pinecone

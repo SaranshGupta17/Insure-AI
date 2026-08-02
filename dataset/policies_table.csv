@@ -1,0 +1,1001 @@
+policy_id,car_number,policy_type,idv_sum_insured,status,next_renewal,balance_amount
+1,TN 77 2876,Private Car Package - Standard,350000,Active,2025-08-17,152141
+2,AP 14 4076,Private Car Package - Zero Depreciation,350000,Active,2025-02-02,350000
+3,PB 11 6600,Private Car Package - Zero Depreciation,1050000,Active,2026-09-09,1050000
+4,WB 71 3009,Private Car Package - Zero Depreciation,750000,Active,2026-07-13,750000
+5,MP 37 4554,Private Car Package - Zero Depreciation,550000,Flagged,2025-06-13,227448
+6,RJ 79 8914,Private Car Package - Zero Depreciation,840000,Active,2025-12-11,775091
+7,TN 83 2969,Private Car Package - Zero Depreciation,935000,Active,2025-12-19,935000
+8,GJ 56 6916,Private Car Package - Standard,350000,Active,2025-05-08,309823
+9,MP 03 1188,Private Car Package - Standard,600000,Active,2026-09-26,600000
+10,GJ 25 9486,Private Car Package - Zero Depreciation,750000,Active,2026-11-09,679634
+11,WB 31 9424,Private Car Package - Standard,350000,Active,2026-01-25,291279
+12,KA 73 8850,Private Car Package - Zero Depreciation,840000,Active,2025-12-30,840000
+13,KL 02 7076,Private Car Package - Zero Depreciation,600000,Active,2026-09-16,430642
+14,MP 87 0233,Private Car Package - Zero Depreciation,1050000,Active,2026-01-24,1050000
+15,KL 50 5007,Private Car Package - Zero Depreciation,750000,Active,2025-02-27,750000
+16,GJ 07 3611,Private Car Package - Zero Depreciation,840000,Flagged,2025-08-05,677080
+17,HR 92 7089,Private Car Package - Zero Depreciation,750000,Active,2026-10-21,698771
+18,UP 78 8949,Private Car Package - Zero Depreciation,840000,Active,2026-07-06,683426
+19,TS 11 0479,Private Car Package - Standard,550000,Active,2026-02-13,550000
+20,RJ 38 0395,Private Car Package - Zero Depreciation,1050000,Active,2025-02-18,915590
+21,GJ 96 4904,Private Car Package - Standard,750000,Active,2026-09-03,603422
+22,RJ 20 2168,Private Car Package - Zero Depreciation,550000,Flagged,2026-06-26,331658
+23,AP 39 5434,Private Car Package - Zero Depreciation,350000,Active,2025-04-28,350000
+24,TN 76 3385,Private Car Package - Standard,600000,Active,2025-04-25,545579
+25,PB 84 6413,Private Car Package - Zero Depreciation,1050000,Active,2026-05-28,953253
+26,HR 33 8236,Private Car Package - Standard,350000,Active,2026-10-17,290385
+27,KL 45 6969,Private Car Package - Zero Depreciation,1050000,Active,2025-06-15,1050000
+28,UP 22 2444,Private Car Package - Zero Depreciation,350000,Active,2025-01-20,314421
+29,TS 03 6529,Private Car Package - Zero Depreciation,840000,Flagged,2026-08-04,491334
+30,WB 68 4697,Private Car Package - Standard,550000,Active,2026-06-30,550000
+31,UP 99 6055,Private Car Package - Zero Depreciation,750000,Active,2025-06-19,660700
+32,MH 97 5241,Private Car Package - Standard,550000,Active,2025-07-25,462308
+33,PB 07 3504,Private Car Package - Standard,550000,Active,2026-03-25,475267
+34,MP 12 9552,Private Car Package - Zero Depreciation,489999,Flagged,2025-12-13,307618
+35,RJ 87 7439,Private Car Package - Zero Depreciation,750000,Active,2025-03-14,709641
+36,RJ 27 6301,Private Car Package - Zero Depreciation,489999,Active,2025-02-02,489999
+37,TN 07 7561,Private Car Package - Zero Depreciation,1050000,Active,2026-05-13,1050000
+38,WB 72 1647,Private Car Package - Standard,750000,Active,2026-08-14,655286
+39,PB 47 0100,Private Car Package - Standard,550000,Active,2025-04-07,488644
+40,AP 87 6716,Private Car Package - Zero Depreciation,770000,Active,2026-04-24,722609
+41,HR 88 4099,Private Car Package - Zero Depreciation,595000,Active,2025-12-14,595000
+42,RJ 35 4612,Private Car Package - Zero Depreciation,1050000,Active,2026-04-05,1050000
+43,KL 16 9788,Private Car Package - Zero Depreciation,1050000,Flagged,2025-03-19,84610
+44,AP 07 1252,Private Car Package - Zero Depreciation,595000,Flagged,2025-01-16,476284
+45,HR 35 5942,Private Car Package - Zero Depreciation,1050000,Active,2026-05-08,1050000
+46,HR 25 9522,Private Car Package - Zero Depreciation,489999,Active,2026-02-04,439978
+47,TN 57 3222,Private Car Package - Zero Depreciation,840000,Active,2026-11-09,770015
+48,KL 57 0240,Private Car Package - Zero Depreciation,1050000,Active,2025-08-11,1050000
+49,AP 80 2848,Private Car Package - Standard,350000,Active,2025-02-21,260527
+50,GJ 74 7324,Private Car Package - Zero Depreciation,1275000,Active,2025-03-24,1025397
+51,MP 69 1967,Private Car Package - Zero Depreciation,350000,Active,2026-02-18,306395
+52,GJ 72 5293,Private Car Package - Zero Depreciation,750000,Active,2025-02-10,750000
+53,MP 68 5293,Private Car Package - Zero Depreciation,550000,Active,2026-08-02,550000
+54,WB 54 5449,Private Car Package - Zero Depreciation,840000,Active,2025-11-18,840000
+55,AP 85 8849,Private Car Package - Zero Depreciation,935000,Active,2026-04-14,763340
+56,MH 55 8138,Private Car Package - Zero Depreciation,489999,Active,2025-04-13,454850
+57,WB 37 3528,Private Car Package - Zero Depreciation,1050000,Active,2025-12-24,733278
+58,TN 92 3940,Private Car Package - Zero Depreciation,840000,Active,2026-07-11,706245
+59,TN 77 0512,Private Car Package - Zero Depreciation,350000,Active,2025-11-03,299240
+60,MP 44 6882,Private Car Package - Zero Depreciation,1050000,Active,2026-07-21,865940
+61,PB 84 4643,Private Car Package - Zero Depreciation,600000,Active,2025-07-28,566331
+62,MP 98 1661,Private Car Package - Zero Depreciation,840000,Active,2025-02-22,626953
+63,HR 04 5408,Private Car Package - Standard,550000,Active,2025-02-15,550000
+64,DL 69 9522,Private Car Package - Zero Depreciation,750000,Active,2025-06-15,634770
+65,MH 21 6603,Private Car Package - Zero Depreciation,770000,Active,2025-03-19,614214
+66,DL 98 8033,Private Car Package - Standard,350000,Active,2026-08-20,350000
+67,WB 87 4869,Private Car Package - Zero Depreciation,935000,Active,2026-01-09,656375
+68,RJ 89 1494,Private Car Package - Zero Depreciation,750000,Active,2025-12-29,620584
+69,TN 73 3978,Private Car Package - Standard,550000,Active,2025-06-08,550000
+70,DL 67 3307,Private Car Package - Standard,750000,Flagged,2025-07-03,519642
+71,TN 22 7401,Private Car Package - Standard,550000,Flagged,2025-10-01,412234
+72,WB 02 0084,Private Car Package - Zero Depreciation,489999,Active,2025-02-09,489999
+73,MH 20 4275,Private Car Package - Standard,750000,Active,2025-12-25,652169
+74,MP 04 8833,Private Car Package - Zero Depreciation,1275000,Active,2026-02-13,1180496
+75,MH 53 8582,Private Car Package - Standard,350000,Active,2025-12-26,291452
+76,HR 90 6506,Private Car Package - Zero Depreciation,550000,Active,2025-12-06,495655
+77,AP 89 3498,Private Car Package - Zero Depreciation,840000,Flagged,2025-02-09,499180
+78,PB 30 6437,Private Car Package - Zero Depreciation,770000,Active,2025-11-18,770000
+79,TN 29 1405,Private Car Package - Zero Depreciation,489999,Active,2025-07-14,447566
+80,TN 07 8665,Private Car Package - Zero Depreciation,935000,Flagged,2026-11-18,460334
+81,RJ 56 9701,Private Car Package - Zero Depreciation,935000,Active,2026-10-01,819175
+82,TN 22 4918,Private Car Package - Standard,350000,Active,2025-11-04,350000
+83,RJ 22 0133,Private Car Package - Zero Depreciation,770000,Active,2026-07-22,728692
+84,KL 83 6031,Private Car Package - Zero Depreciation,550000,Active,2026-11-25,444913
+85,TN 96 6425,Private Car Package - Zero Depreciation,840000,Flagged,2025-11-08,363096
+86,AP 89 7954,Private Car Package - Standard,550000,Flagged,2026-11-02,312918
+87,TN 84 4308,Private Car Package - Zero Depreciation,770000,Active,2026-06-08,711924
+88,TN 43 3303,Private Car Package - Zero Depreciation,489999,Flagged,2025-12-10,395072
+89,WB 87 8740,Private Car Package - Zero Depreciation,840000,Active,2025-05-31,625381
+90,HR 86 8426,Private Car Package - Standard,750000,Flagged,2025-03-16,467884
+91,KA 72 9030,Private Car Package - Standard,750000,Flagged,2026-05-22,374318
+92,UP 09 8442,Private Car Package - Zero Depreciation,750000,Flagged,2025-04-20,337124
+93,TN 63 2150,Private Car Package - Zero Depreciation,1050000,Active,2026-04-21,982698
+94,KL 46 9801,Private Car Package - Standard,750000,Active,2026-04-13,660121
+95,UP 18 4857,Private Car Package - Standard,600000,Active,2026-09-20,516826
+96,MH 33 7776,Private Car Package - Standard,550000,Active,2026-07-16,550000
+97,TS 05 7402,Private Car Package - Zero Depreciation,770000,Active,2025-09-11,770000
+98,HR 85 8082,Private Car Package - Zero Depreciation,550000,Active,2026-03-27,512018
+99,MH 39 5772,Private Car Package - Zero Depreciation,1050000,Active,2026-07-08,748790
+100,MP 18 8041,Private Car Package - Zero Depreciation,1050000,Active,2025-06-06,1050000
+101,RJ 31 6074,Private Car Package - Zero Depreciation,489999,Active,2025-12-05,489999
+102,MP 59 8555,Private Car Package - Zero Depreciation,935000,Active,2026-02-03,798851
+103,AP 46 3840,Private Car Package - Standard,350000,Flagged,2026-01-25,172259
+104,MH 38 4379,Private Car Package - Zero Depreciation,840000,Active,2026-02-04,840000
+105,HR 12 1311,Private Car Package - Zero Depreciation,1050000,Active,2026-03-23,993508
+106,MH 36 5448,Private Car Package - Zero Depreciation,770000,Flagged,2025-06-19,594454
+107,MP 90 9283,Private Car Package - Standard,350000,Active,2026-08-30,350000
+108,TN 43 3381,Private Car Package - Zero Depreciation,595000,Active,2026-03-15,595000
+109,MH 06 0119,Private Car Package - Zero Depreciation,1275000,Active,2025-12-02,1040426
+110,MH 31 1712,Private Car Package - Zero Depreciation,840000,Flagged,2025-10-12,555392
+111,TS 86 2923,Private Car Package - Standard,600000,Active,2026-04-27,600000
+112,MH 60 6663,Private Car Package - Standard,350000,Active,2025-08-18,331745
+113,KL 49 2590,Private Car Package - Standard,350000,Active,2025-09-11,350000
+114,HR 90 4589,Private Car Package - Zero Depreciation,1050000,Active,2026-04-30,1050000
+115,KL 29 5233,Private Car Package - Zero Depreciation,1050000,Active,2025-09-20,1050000
+116,WB 86 4161,Private Car Package - Zero Depreciation,750000,Active,2025-06-17,652988
+117,DL 44 5061,Private Car Package - Standard,350000,Active,2026-11-25,323407
+118,TN 60 2349,Private Car Package - Zero Depreciation,1275000,Active,2025-04-15,1093469
+119,MH 65 2875,Private Car Package - Standard,350000,Active,2025-02-12,312833
+120,HR 06 3873,Private Car Package - Zero Depreciation,550000,Active,2026-06-03,386316
+121,KA 63 1760,Private Car Package - Standard,350000,Active,2026-05-17,350000
+122,KL 15 8821,Private Car Package - Zero Depreciation,600000,Active,2026-04-16,600000
+123,GJ 64 1678,Private Car Package - Zero Depreciation,770000,Active,2026-10-29,663843
+124,DL 64 2104,Private Car Package - Zero Depreciation,770000,Active,2025-10-02,544401
+125,MH 45 7673,Private Car Package - Zero Depreciation,489999,Active,2025-09-07,396302
+126,RJ 45 5134,Private Car Package - Zero Depreciation,770000,Flagged,2025-11-29,630467
+127,RJ 33 5084,Private Car Package - Zero Depreciation,1050000,Active,2025-09-22,1050000
+128,KA 90 1505,Private Car Package - Zero Depreciation,840000,Active,2026-06-14,840000
+129,DL 03 9643,Private Car Package - Standard,750000,Active,2026-05-16,750000
+130,PB 46 7953,Private Car Package - Zero Depreciation,550000,Active,2026-04-04,496185
+131,KA 19 7895,Private Car Package - Zero Depreciation,840000,Active,2025-11-10,695377
+132,RJ 07 9044,Private Car Package - Zero Depreciation,840000,Active,2026-06-28,840000
+133,RJ 92 3665,Private Car Package - Zero Depreciation,840000,Active,2026-04-10,840000
+134,KA 83 1547,Private Car Package - Zero Depreciation,840000,Flagged,2025-11-20,410285
+135,PB 06 4947,Private Car Package - Zero Depreciation,1050000,Active,2026-05-11,1050000
+136,PB 86 4326,Private Car Package - Standard,600000,Active,2025-07-18,600000
+137,WB 91 3353,Private Car Package - Zero Depreciation,840000,Flagged,2026-07-01,573378
+138,MP 81 4755,Private Car Package - Standard,350000,Active,2025-10-27,283636
+139,RJ 01 8871,Private Car Package - Zero Depreciation,935000,Active,2026-08-11,629851
+140,TS 54 7989,Private Car Package - Zero Depreciation,770000,Active,2025-07-08,770000
+141,AP 76 8579,Private Car Package - Zero Depreciation,935000,Flagged,2026-02-15,417959
+142,PB 56 6310,Private Car Package - Zero Depreciation,489999,Active,2025-11-08,398954
+143,RJ 55 3680,Private Car Package - Zero Depreciation,489999,Active,2026-03-03,489999
+144,TN 65 2553,Private Car Package - Standard,750000,Active,2026-04-07,545977
+145,DL 89 1787,Private Car Package - Zero Depreciation,770000,Active,2025-03-03,697635
+146,KL 85 8693,Private Car Package - Zero Depreciation,750000,Active,2026-11-08,627858
+147,TN 86 5533,Private Car Package - Zero Depreciation,1050000,Active,2025-06-10,789258
+148,HR 56 9823,Private Car Package - Zero Depreciation,550000,Active,2026-04-27,550000
+149,AP 69 0659,Private Car Package - Zero Depreciation,1050000,Active,2026-04-10,857687
+150,TN 88 4771,Private Car Package - Standard,750000,Active,2026-11-09,696414
+151,UP 59 1681,Private Car Package - Zero Depreciation,489999,Active,2025-09-30,428636
+152,MH 28 8474,Private Car Package - Zero Depreciation,489999,Active,2026-09-02,405093
+153,WB 67 6315,Private Car Package - Zero Depreciation,840000,Active,2025-11-08,787311
+154,PB 73 9288,Private Car Package - Zero Depreciation,840000,Active,2026-03-25,551175
+155,RJ 09 8821,Private Car Package - Standard,350000,Flagged,2026-09-11,284349
+156,RJ 46 6072,Private Car Package - Zero Depreciation,489999,Active,2026-08-25,307766
+157,DL 61 2826,Private Car Package - Zero Depreciation,600000,Active,2025-06-29,600000
+158,HR 87 1156,Private Car Package - Standard,550000,Active,2026-08-23,483836
+159,RJ 38 4829,Private Car Package - Standard,550000,Active,2026-04-27,550000
+160,TS 57 7068,Private Car Package - Zero Depreciation,840000,Active,2025-04-18,840000
+161,DL 96 5673,Private Car Package - Zero Depreciation,550000,Active,2025-10-23,550000
+162,MP 44 2383,Private Car Package - Zero Depreciation,489999,Active,2025-09-16,299561
+163,KL 60 5556,Private Car Package - Standard,550000,Active,2026-11-05,450841
+164,DL 72 7687,Private Car Package - Zero Depreciation,935000,Active,2026-06-15,935000
+165,KL 02 8472,Private Car Package - Zero Depreciation,550000,Active,2025-07-28,442485
+166,PB 42 3276,Private Car Package - Standard,750000,Active,2026-03-25,750000
+167,AP 54 4559,Private Car Package - Zero Depreciation,595000,Flagged,2025-09-03,357456
+168,DL 56 7262,Private Car Package - Zero Depreciation,840000,Flagged,2026-02-22,542184
+169,RJ 21 9248,Private Car Package - Zero Depreciation,489999,Flagged,2026-10-26,354547
+170,DL 49 2360,Private Car Package - Zero Depreciation,840000,Flagged,2026-03-02,609150
+171,RJ 52 0394,Private Car Package - Zero Depreciation,1050000,Active,2025-05-29,1050000
+172,KL 88 2265,Private Car Package - Standard,750000,Active,2026-03-01,646839
+173,WB 87 9838,Private Car Package - Standard,600000,Active,2025-10-17,600000
+174,TS 63 6634,Private Car Package - Standard,550000,Flagged,2026-07-06,171448
+175,MP 57 5329,Private Car Package - Zero Depreciation,840000,Active,2026-01-22,683224
+176,WB 08 0220,Private Car Package - Standard,750000,Flagged,2026-08-09,180273
+177,RJ 95 0683,Private Car Package - Zero Depreciation,935000,Active,2026-01-26,884553
+178,GJ 38 6717,Private Car Package - Zero Depreciation,1050000,Flagged,2025-05-10,611774
+179,AP 94 3041,Private Car Package - Standard,600000,Flagged,2025-04-13,383453
+180,PB 73 3628,Private Car Package - Standard,350000,Active,2026-11-02,329541
+181,MH 57 6146,Private Car Package - Standard,550000,Flagged,2025-12-13,22785
+182,RJ 72 3201,Private Car Package - Zero Depreciation,550000,Active,2026-11-22,485331
+183,UP 39 2389,Private Car Package - Zero Depreciation,600000,Active,2026-05-15,600000
+184,RJ 57 4073,Private Car Package - Zero Depreciation,489999,Active,2025-08-21,342260
+185,DL 53 1646,Private Car Package - Standard,550000,Active,2026-03-31,513132
+186,UP 78 9111,Private Car Package - Standard,600000,Active,2025-11-29,446371
+187,RJ 23 8125,Private Car Package - Zero Depreciation,840000,Active,2025-09-08,535084
+188,UP 37 0725,Private Car Package - Zero Depreciation,1050000,Active,2026-09-17,992967
+189,WB 56 9641,Private Car Package - Zero Depreciation,1050000,Flagged,2025-05-27,828065
+190,TN 30 7674,Private Car Package - Zero Depreciation,840000,Active,2026-11-14,840000
+191,WB 97 0252,Private Car Package - Zero Depreciation,600000,Active,2025-03-17,534699
+192,GJ 88 3410,Private Car Package - Zero Depreciation,600000,Active,2025-09-14,447482
+193,HR 72 2441,Private Car Package - Standard,750000,Active,2025-04-20,480969
+194,WB 45 5160,Private Car Package - Zero Depreciation,600000,Active,2025-01-23,486608
+195,UP 49 7042,Private Car Package - Zero Depreciation,1020000,Active,2026-09-13,898753
+196,DL 01 9071,Private Car Package - Standard,600000,Active,2026-09-14,425988
+197,PB 64 3595,Private Car Package - Zero Depreciation,750000,Active,2026-11-26,750000
+198,MP 77 9386,Private Car Package - Zero Depreciation,750000,Active,2026-10-05,750000
+199,WB 67 0021,Private Car Package - Standard,600000,Active,2025-02-04,600000
+200,RJ 45 1897,Private Car Package - Zero Depreciation,1275000,Active,2025-10-30,1275000
+201,KL 42 0034,Private Car Package - Zero Depreciation,1050000,Active,2026-07-07,1050000
+202,HR 96 0498,Private Car Package - Standard,600000,Active,2025-09-21,600000
+203,AP 78 1648,Private Car Package - Standard,600000,Active,2025-03-19,538890
+204,WB 20 8221,Private Car Package - Standard,550000,Active,2026-01-10,466568
+205,KA 32 3209,Private Car Package - Zero Depreciation,489999,Active,2025-05-07,489999
+206,HR 38 2224,Private Car Package - Zero Depreciation,600000,Active,2026-10-16,600000
+207,HR 01 8941,Private Car Package - Zero Depreciation,1050000,Active,2026-09-27,1050000
+208,GJ 84 7704,Private Car Package - Zero Depreciation,750000,Active,2026-10-13,750000
+209,RJ 03 4685,Private Car Package - Zero Depreciation,600000,Active,2025-04-30,600000
+210,KA 56 1295,Private Car Package - Zero Depreciation,489999,Active,2026-05-20,489999
+211,MP 43 9421,Private Car Package - Standard,750000,Active,2025-05-19,750000
+212,TN 56 2240,Private Car Package - Zero Depreciation,600000,Active,2026-03-06,537216
+213,TN 46 1094,Private Car Package - Zero Depreciation,550000,Active,2026-09-23,363098
+214,HR 97 4748,Private Car Package - Zero Depreciation,350000,Active,2026-03-31,286638
+215,AP 63 7862,Private Car Package - Zero Depreciation,1020000,Active,2026-07-12,926638
+216,WB 94 3519,Private Car Package - Zero Depreciation,489999,Active,2025-05-06,410225
+217,GJ 44 4081,Private Car Package - Zero Depreciation,750000,Active,2025-01-22,642947
+218,MP 45 7249,Private Car Package - Standard,750000,Active,2025-07-30,628410
+219,KL 70 3697,Private Car Package - Zero Depreciation,750000,Active,2025-08-27,750000
+220,RJ 37 3003,Private Car Package - Zero Depreciation,489999,Active,2025-05-29,489999
+221,GJ 90 2332,Private Car Package - Standard,600000,Flagged,2026-11-08,481064
+222,UP 21 4969,Private Car Package - Zero Depreciation,489999,Active,2026-08-26,447678
+223,TN 43 6854,Private Car Package - Zero Depreciation,1050000,Active,2025-05-10,1050000
+224,MP 72 1181,Private Car Package - Standard,350000,Active,2026-04-05,315591
+225,RJ 15 6856,Private Car Package - Zero Depreciation,489999,Active,2025-08-15,489999
+226,AP 79 7776,Private Car Package - Zero Depreciation,840000,Active,2025-03-04,685794
+227,TS 50 3167,Private Car Package - Zero Depreciation,550000,Flagged,2026-03-31,445988
+228,HR 38 5642,Private Car Package - Zero Depreciation,600000,Active,2025-05-10,462302
+229,HR 95 4283,Private Car Package - Zero Depreciation,840000,Active,2026-09-04,840000
+230,HR 01 8128,Private Car Package - Zero Depreciation,770000,Active,2026-03-17,770000
+231,GJ 78 4453,Private Car Package - Standard,350000,Active,2025-08-09,302535
+232,RJ 07 5770,Private Car Package - Zero Depreciation,1050000,Active,2026-02-13,870274
+233,MP 45 7438,Private Car Package - Zero Depreciation,840000,Active,2026-11-13,840000
+234,TN 27 7257,Private Car Package - Zero Depreciation,750000,Active,2026-05-01,750000
+235,DL 47 7953,Private Car Package - Zero Depreciation,595000,Active,2025-04-09,595000
+236,TN 58 2376,Private Car Package - Zero Depreciation,1050000,Active,2026-08-24,1050000
+237,PB 15 4489,Private Car Package - Zero Depreciation,600000,Active,2026-02-25,600000
+238,WB 94 5196,Private Car Package - Standard,550000,Active,2025-02-22,550000
+239,WB 35 6905,Private Car Package - Zero Depreciation,840000,Active,2026-08-15,840000
+240,PB 84 9513,Private Car Package - Zero Depreciation,750000,Active,2025-04-21,653493
+241,MH 50 8816,Private Car Package - Zero Depreciation,1020000,Active,2026-08-11,796257
+242,KL 38 6569,Private Car Package - Zero Depreciation,350000,Flagged,2025-01-30,270586
+243,MH 93 2318,Private Car Package - Standard,600000,Flagged,2025-01-07,434406
+244,TS 25 7829,Private Car Package - Zero Depreciation,935000,Active,2025-04-04,842854
+245,UP 38 5396,Private Car Package - Zero Depreciation,1050000,Active,2025-12-16,959321
+246,KL 87 1627,Private Car Package - Standard,600000,Active,2026-08-05,600000
+247,PB 46 4659,Private Car Package - Zero Depreciation,489999,Active,2025-02-20,422779
+248,HR 84 3146,Private Car Package - Zero Depreciation,840000,Active,2026-03-11,840000
+249,RJ 30 9401,Private Car Package - Zero Depreciation,770000,Active,2026-06-09,725515
+250,PB 39 7997,Private Car Package - Zero Depreciation,935000,Active,2026-05-14,879362
+251,MP 39 9123,Private Car Package - Zero Depreciation,1020000,Active,2026-09-06,840080
+252,UP 50 2187,Private Car Package - Zero Depreciation,1050000,Flagged,2025-05-21,697906
+253,KL 68 6291,Private Car Package - Zero Depreciation,840000,Active,2026-05-25,512814
+254,KA 30 4523,Private Car Package - Zero Depreciation,1275000,Active,2026-06-30,1275000
+255,DL 62 7277,Private Car Package - Zero Depreciation,1020000,Active,2026-03-23,897653
+256,TS 99 3500,Private Car Package - Standard,350000,Flagged,2026-03-16,172246
+257,HR 58 1143,Private Car Package - Zero Depreciation,770000,Active,2026-02-19,770000
+258,KL 44 6086,Private Car Package - Standard,750000,Active,2026-09-25,750000
+259,MP 64 2322,Private Car Package - Zero Depreciation,1020000,Active,2025-04-19,1020000
+260,DL 87 2209,Private Car Package - Zero Depreciation,770000,Active,2025-11-14,610111
+261,TN 91 3213,Private Car Package - Zero Depreciation,1050000,Active,2025-03-20,806673
+262,MH 68 6581,Private Car Package - Zero Depreciation,489999,Active,2025-12-24,443348
+263,AP 28 8722,Private Car Package - Zero Depreciation,1050000,Active,2025-09-20,661635
+264,HR 29 1201,Private Car Package - Standard,750000,Active,2025-07-01,610522
+265,WB 95 3422,Private Car Package - Zero Depreciation,770000,Active,2026-08-17,622950
+266,KL 50 5130,Private Car Package - Standard,600000,Active,2025-06-04,557466
+267,DL 33 7783,Private Car Package - Zero Depreciation,770000,Active,2025-10-09,486511
+268,MP 95 9756,Private Car Package - Zero Depreciation,840000,Active,2026-04-18,758724
+269,KA 44 9503,Private Car Package - Zero Depreciation,489999,Active,2025-10-21,489999
+270,HR 97 6686,Private Car Package - Zero Depreciation,350000,Active,2026-01-29,302581
+271,GJ 30 9741,Private Car Package - Zero Depreciation,489999,Active,2026-10-30,320275
+272,TS 27 5566,Private Car Package - Zero Depreciation,770000,Active,2025-03-05,770000
+273,GJ 91 8199,Private Car Package - Standard,600000,Active,2026-06-01,534245
+274,AP 40 6546,Private Car Package - Zero Depreciation,489999,Active,2026-03-26,448650
+275,DL 89 0118,Private Car Package - Zero Depreciation,1050000,Flagged,2026-02-01,636063
+276,UP 81 2725,Private Car Package - Standard,350000,Active,2026-10-25,350000
+277,HR 38 6176,Private Car Package - Zero Depreciation,1020000,Active,2025-10-18,830008
+278,HR 05 4806,Private Car Package - Zero Depreciation,1050000,Active,2026-11-11,924735
+279,HR 26 8626,Private Car Package - Standard,600000,Active,2025-05-13,517240
+280,HR 32 9346,Private Car Package - Zero Depreciation,840000,Active,2025-05-11,536225
+281,TS 98 1732,Private Car Package - Zero Depreciation,350000,Flagged,2026-06-05,247967
+282,KL 56 1530,Private Car Package - Zero Depreciation,840000,Active,2025-12-16,570417
+283,TN 21 8468,Private Car Package - Zero Depreciation,1050000,Flagged,2025-06-08,427163
+284,MP 61 2518,Private Car Package - Zero Depreciation,489999,Active,2026-06-24,397818
+285,MP 80 9859,Private Car Package - Standard,600000,Active,2025-05-15,468180
+286,MH 45 2736,Private Car Package - Zero Depreciation,1050000,Active,2026-10-02,1050000
+287,AP 59 8020,Private Car Package - Zero Depreciation,489999,Active,2026-03-31,465159
+288,HR 60 2940,Private Car Package - Zero Depreciation,770000,Active,2025-11-13,669431
+289,MP 77 5177,Private Car Package - Zero Depreciation,600000,Active,2026-03-28,407250
+290,MH 98 8732,Private Car Package - Zero Depreciation,770000,Active,2025-06-15,679244
+291,HR 09 7394,Private Car Package - Standard,750000,Active,2025-02-23,750000
+292,KA 45 4213,Private Car Package - Zero Depreciation,840000,Active,2025-04-16,840000
+293,PB 86 6870,Private Car Package - Zero Depreciation,489999,Active,2025-10-07,398259
+294,TS 59 6412,Private Car Package - Standard,750000,Active,2025-08-16,641371
+295,MP 55 7247,Private Car Package - Zero Depreciation,489999,Active,2026-02-10,489999
+296,TS 70 3808,Private Car Package - Zero Depreciation,1050000,Active,2026-01-19,846132
+297,DL 26 6270,Private Car Package - Standard,600000,Active,2026-10-28,600000
+298,MH 04 9596,Private Car Package - Zero Depreciation,1275000,Active,2025-05-23,1020598
+299,MH 66 9368,Private Car Package - Zero Depreciation,550000,Active,2025-01-20,516967
+300,AP 20 2385,Private Car Package - Zero Depreciation,1050000,Active,2026-06-25,856057
+301,WB 19 3803,Private Car Package - Zero Depreciation,840000,Active,2025-05-05,840000
+302,UP 78 7829,Private Car Package - Zero Depreciation,550000,Active,2026-09-30,550000
+303,KA 60 1642,Private Car Package - Standard,350000,Active,2026-05-27,350000
+304,KL 88 2011,Private Car Package - Zero Depreciation,350000,Active,2025-09-05,329051
+305,TN 21 5701,Private Car Package - Zero Depreciation,840000,Active,2025-12-28,644928
+306,GJ 62 6213,Private Car Package - Zero Depreciation,770000,Active,2026-06-21,713570
+307,MH 82 9174,Private Car Package - Zero Depreciation,489999,Active,2026-04-27,489999
+308,PB 37 1959,Private Car Package - Standard,550000,Flagged,2025-01-17,308111
+309,KA 77 4731,Private Car Package - Zero Depreciation,840000,Active,2026-08-19,778325
+310,KL 53 0831,Private Car Package - Zero Depreciation,1275000,Active,2025-12-13,1062596
+311,WB 95 3160,Private Car Package - Standard,550000,Active,2026-05-06,550000
+312,GJ 47 1859,Private Car Package - Zero Depreciation,1275000,Active,2025-02-07,1191340
+313,TN 32 0303,Private Car Package - Standard,350000,Active,2025-11-20,298231
+314,RJ 52 5900,Private Car Package - Standard,550000,Active,2026-07-11,550000
+315,KL 60 7744,Private Car Package - Standard,350000,Active,2025-07-15,350000
+316,UP 30 8988,Private Car Package - Standard,350000,Active,2025-12-06,350000
+317,RJ 26 6853,Private Car Package - Zero Depreciation,840000,Flagged,2026-03-27,461464
+318,UP 63 7415,Private Car Package - Zero Depreciation,1050000,Active,2026-05-25,1050000
+319,DL 09 3769,Private Car Package - Standard,600000,Active,2026-03-11,600000
+320,WB 91 0469,Private Car Package - Zero Depreciation,1050000,Active,2025-04-16,984033
+321,AP 68 9059,Private Car Package - Zero Depreciation,840000,Active,2026-09-10,840000
+322,MP 94 9854,Private Car Package - Zero Depreciation,750000,Active,2025-12-26,750000
+323,UP 31 7336,Private Car Package - Zero Depreciation,600000,Active,2026-03-22,600000
+324,PB 32 7207,Private Car Package - Zero Depreciation,595000,Active,2026-01-08,485580
+325,TN 85 2397,Private Car Package - Standard,750000,Active,2026-09-15,683315
+326,TS 79 6870,Private Car Package - Zero Depreciation,595000,Active,2026-10-23,541326
+327,MH 54 8486,Private Car Package - Standard,550000,Active,2026-09-12,476957
+328,KL 96 9774,Private Car Package - Standard,550000,Active,2026-03-31,444253
+329,WB 78 9671,Private Car Package - Zero Depreciation,1050000,Active,2025-11-18,860717
+330,WB 60 7993,Private Car Package - Standard,750000,Flagged,2025-07-10,629917
+331,MH 68 1488,Private Car Package - Standard,550000,Active,2025-05-01,550000
+332,RJ 96 5193,Private Car Package - Zero Depreciation,770000,Active,2025-10-20,660809
+333,UP 52 2717,Private Car Package - Zero Depreciation,1275000,Flagged,2026-04-08,927514
+334,WB 56 1661,Private Car Package - Standard,350000,Active,2025-11-24,350000
+335,KL 29 6447,Private Car Package - Zero Depreciation,489999,Active,2025-11-04,423126
+336,UP 53 5328,Private Car Package - Standard,750000,Active,2026-06-05,750000
+337,AP 17 8291,Private Car Package - Standard,750000,Active,2026-05-21,628556
+338,KL 12 0530,Private Car Package - Zero Depreciation,840000,Active,2026-07-19,840000
+339,GJ 58 0108,Private Car Package - Zero Depreciation,595000,Active,2026-02-12,595000
+340,PB 81 1729,Private Car Package - Standard,550000,Flagged,2025-03-17,302904
+341,WB 44 2297,Private Car Package - Zero Depreciation,489999,Active,2026-11-28,489999
+342,PB 10 4648,Private Car Package - Standard,750000,Active,2026-10-18,558244
+343,TN 54 5062,Private Car Package - Zero Depreciation,1050000,Active,2025-02-26,1050000
+344,DL 11 4086,Private Car Package - Zero Depreciation,1050000,Active,2025-06-15,1050000
+345,TN 47 5958,Private Car Package - Standard,600000,Active,2025-10-18,515717
+346,KL 75 1148,Private Car Package - Zero Depreciation,750000,Active,2026-07-19,750000
+347,PB 73 3023,Private Car Package - Zero Depreciation,600000,Active,2026-05-30,537990
+348,MP 94 8501,Private Car Package - Zero Depreciation,1050000,Active,2026-09-12,908292
+349,GJ 33 4831,Private Car Package - Standard,350000,Active,2025-03-25,238080
+350,WB 22 9012,Private Car Package - Zero Depreciation,600000,Active,2026-08-09,600000
+351,AP 25 9619,Private Car Package - Zero Depreciation,489999,Active,2026-10-05,489999
+352,KL 46 5461,Private Car Package - Zero Depreciation,840000,Active,2026-02-20,840000
+353,TS 58 4846,Private Car Package - Zero Depreciation,350000,Active,2026-03-27,306441
+354,KA 02 6673,Private Car Package - Zero Depreciation,770000,Active,2025-05-28,642460
+355,MH 96 9273,Private Car Package - Standard,600000,Active,2025-05-14,600000
+356,RJ 32 7687,Private Car Package - Zero Depreciation,489999,Active,2026-04-23,489999
+357,TS 16 9428,Private Car Package - Zero Depreciation,770000,Active,2025-02-21,592555
+358,WB 23 6420,Private Car Package - Zero Depreciation,770000,Active,2025-06-13,770000
+359,TS 09 9657,Private Car Package - Zero Depreciation,840000,Flagged,2026-05-26,490893
+360,TN 75 5644,Private Car Package - Standard,550000,Active,2025-01-24,446822
+361,KA 91 5706,Private Car Package - Standard,550000,Active,2025-08-09,550000
+362,AP 21 2898,Private Car Package - Zero Depreciation,595000,Active,2026-09-04,438771
+363,AP 80 7661,Private Car Package - Zero Depreciation,770000,Flagged,2025-04-21,223672
+364,WB 17 1230,Private Car Package - Standard,600000,Active,2026-02-17,600000
+365,TS 11 3640,Private Car Package - Zero Depreciation,935000,Active,2025-07-19,749730
+366,PB 77 7011,Private Car Package - Zero Depreciation,1020000,Active,2026-04-07,861047
+367,TS 53 7801,Private Car Package - Standard,600000,Active,2026-11-28,518885
+368,UP 77 1106,Private Car Package - Standard,750000,Active,2026-01-18,634041
+369,TN 13 7954,Private Car Package - Standard,600000,Active,2025-07-23,600000
+370,GJ 49 4024,Private Car Package - Zero Depreciation,770000,Flagged,2025-02-09,393220
+371,UP 31 8188,Private Car Package - Zero Depreciation,770000,Active,2026-09-13,662631
+372,TN 77 4580,Private Car Package - Standard,600000,Active,2025-11-23,600000
+373,RJ 73 2969,Private Car Package - Zero Depreciation,600000,Active,2026-06-04,600000
+374,HR 21 7696,Private Car Package - Zero Depreciation,550000,Active,2025-11-03,550000
+375,MH 14 1446,Private Car Package - Zero Depreciation,840000,Active,2026-03-03,706680
+376,GJ 13 8399,Private Car Package - Zero Depreciation,350000,Active,2025-09-29,350000
+377,MH 14 2261,Private Car Package - Standard,750000,Active,2026-05-07,623544
+378,AP 99 8970,Private Car Package - Zero Depreciation,770000,Active,2025-02-02,629170
+379,DL 89 4483,Private Car Package - Zero Depreciation,489999,Active,2025-11-18,463706
+380,PB 73 6511,Private Car Package - Zero Depreciation,550000,Active,2026-05-29,450338
+381,PB 65 6279,Private Car Package - Standard,550000,Flagged,2025-05-22,186828
+382,KA 30 7204,Private Car Package - Standard,600000,Active,2026-06-23,513525
+383,KL 93 3544,Private Car Package - Zero Depreciation,1050000,Flagged,2025-12-17,693409
+384,MP 21 6189,Private Car Package - Zero Depreciation,600000,Active,2025-09-10,560058
+385,PB 32 1682,Private Car Package - Zero Depreciation,840000,Active,2025-10-23,760666
+386,DL 79 4874,Private Car Package - Zero Depreciation,770000,Active,2025-12-24,770000
+387,WB 87 1276,Private Car Package - Zero Depreciation,1020000,Active,2026-11-24,1020000
+388,RJ 78 7073,Private Car Package - Standard,550000,Active,2025-05-30,550000
+389,PB 68 5535,Private Car Package - Standard,600000,Active,2025-12-21,417664
+390,UP 53 3913,Private Car Package - Standard,600000,Active,2025-08-08,600000
+391,UP 40 9909,Private Car Package - Standard,600000,Active,2025-05-21,464836
+392,KA 11 5642,Private Car Package - Zero Depreciation,1050000,Flagged,2025-08-20,813577
+393,RJ 61 5205,Private Car Package - Zero Depreciation,595000,Active,2026-04-29,481112
+394,KL 38 6923,Private Car Package - Zero Depreciation,1275000,Active,2025-06-11,1059269
+395,AP 43 7150,Private Car Package - Zero Depreciation,770000,Active,2025-07-24,770000
+396,AP 27 1529,Private Car Package - Zero Depreciation,840000,Active,2025-03-02,840000
+397,RJ 02 3739,Private Car Package - Zero Depreciation,1050000,Active,2025-02-08,1050000
+398,KL 91 0740,Private Car Package - Standard,750000,Active,2026-02-11,705993
+399,KL 76 4836,Private Car Package - Standard,600000,Flagged,2025-11-02,337353
+400,KA 99 2952,Private Car Package - Standard,350000,Active,2025-10-19,229338
+401,GJ 26 1088,Private Car Package - Standard,550000,Active,2025-05-18,550000
+402,TN 57 4897,Private Car Package - Zero Depreciation,840000,Active,2025-04-26,840000
+403,PB 46 8604,Private Car Package - Zero Depreciation,550000,Active,2025-01-15,479905
+404,MH 12 4157,Private Car Package - Zero Depreciation,840000,Active,2025-06-29,781682
+405,MP 44 7289,Private Car Package - Standard,550000,Flagged,2025-12-02,376618
+406,DL 66 7577,Private Car Package - Zero Depreciation,489999,Active,2026-05-04,446408
+407,GJ 91 5347,Private Car Package - Zero Depreciation,489999,Active,2026-04-03,408633
+408,GJ 76 6267,Private Car Package - Zero Depreciation,840000,Active,2025-01-12,690748
+409,KL 24 1042,Private Car Package - Zero Depreciation,600000,Active,2026-11-15,516684
+410,WB 11 1885,Private Car Package - Zero Depreciation,840000,Active,2025-11-15,712570
+411,MH 10 9746,Private Car Package - Zero Depreciation,840000,Active,2025-08-13,687293
+412,DL 29 5004,Private Car Package - Zero Depreciation,1050000,Flagged,2026-01-18,312682
+413,RJ 50 5922,Private Car Package - Standard,550000,Active,2025-09-11,370802
+414,RJ 43 4662,Private Car Package - Zero Depreciation,489999,Active,2026-06-25,489999
+415,AP 64 0654,Private Car Package - Standard,350000,Active,2025-03-05,228290
+416,MH 67 9564,Private Car Package - Zero Depreciation,750000,Active,2025-06-03,750000
+417,KL 83 4608,Private Car Package - Zero Depreciation,935000,Active,2026-08-21,865704
+418,GJ 48 8998,Private Car Package - Standard,550000,Flagged,2025-05-16,396459
+419,KL 65 2831,Private Car Package - Zero Depreciation,770000,Flagged,2026-04-19,434818
+420,TN 92 0781,Private Car Package - Zero Depreciation,489999,Active,2025-08-12,329129
+421,GJ 07 5709,Private Car Package - Zero Depreciation,489999,Active,2026-07-09,348004
+422,TN 35 4867,Private Car Package - Zero Depreciation,935000,Active,2025-07-04,756804
+423,WB 17 0350,Private Car Package - Zero Depreciation,770000,Active,2026-04-05,696739
+424,MP 60 7718,Private Car Package - Zero Depreciation,350000,Active,2025-05-17,301937
+425,DL 16 0908,Private Car Package - Zero Depreciation,489999,Active,2026-02-07,462138
+426,AP 64 7358,Private Car Package - Standard,750000,Flagged,2025-11-02,258782
+427,TS 92 9270,Private Car Package - Zero Depreciation,770000,Active,2025-08-24,770000
+428,UP 07 3381,Private Car Package - Zero Depreciation,840000,Active,2025-07-13,840000
+429,AP 75 0432,Private Car Package - Standard,350000,Active,2026-09-22,292054
+430,KA 45 9733,Private Car Package - Zero Depreciation,1050000,Active,2026-09-01,630906
+431,MH 79 1352,Private Car Package - Zero Depreciation,489999,Active,2026-02-16,453473
+432,RJ 14 8647,Private Car Package - Standard,750000,Active,2025-05-24,656465
+433,MP 91 4121,Private Car Package - Standard,750000,Active,2025-11-23,461056
+434,RJ 29 2784,Private Car Package - Zero Depreciation,840000,Active,2025-05-27,840000
+435,DL 25 8549,Private Car Package - Zero Depreciation,1050000,Active,2025-03-04,743865
+436,TN 83 5727,Private Car Package - Zero Depreciation,750000,Active,2026-07-24,601803
+437,TS 46 1062,Private Car Package - Standard,600000,Active,2026-06-22,501642
+438,TS 78 7107,Private Car Package - Zero Depreciation,770000,Active,2025-11-04,770000
+439,DL 83 9489,Private Car Package - Zero Depreciation,770000,Active,2025-11-04,631667
+440,GJ 66 3931,Private Car Package - Standard,550000,Active,2026-02-27,351678
+441,KA 82 6122,Private Car Package - Zero Depreciation,1050000,Flagged,2025-07-28,757316
+442,MP 35 5435,Private Car Package - Standard,350000,Active,2026-01-15,350000
+443,DL 68 8110,Private Car Package - Zero Depreciation,1275000,Flagged,2026-11-21,1016445
+444,KL 97 9426,Private Car Package - Standard,350000,Active,2025-07-12,350000
+445,TN 69 8097,Private Car Package - Zero Depreciation,1050000,Active,2025-11-07,965918
+446,TS 88 1785,Private Car Package - Standard,750000,Active,2026-05-06,647029
+447,KA 70 1410,Private Car Package - Zero Depreciation,1050000,Active,2025-09-03,1050000
+448,MH 41 7561,Private Car Package - Zero Depreciation,840000,Active,2026-10-27,740643
+449,MP 56 8592,Private Car Package - Zero Depreciation,840000,Active,2026-05-25,840000
+450,TN 12 6460,Private Car Package - Standard,550000,Active,2025-11-24,550000
+451,GJ 15 2402,Private Car Package - Zero Depreciation,840000,Active,2025-08-15,722398
+452,DL 32 4351,Private Car Package - Zero Depreciation,489999,Active,2026-08-22,489999
+453,UP 04 6912,Private Car Package - Zero Depreciation,840000,Flagged,2025-08-24,532369
+454,DL 56 1691,Private Car Package - Zero Depreciation,1050000,Active,2026-11-02,1050000
+455,GJ 26 8184,Private Car Package - Standard,600000,Active,2026-05-16,600000
+456,GJ 32 9618,Private Car Package - Zero Depreciation,770000,Active,2025-06-23,673879
+457,UP 87 1818,Private Car Package - Zero Depreciation,770000,Active,2026-10-20,690743
+458,RJ 69 6953,Private Car Package - Standard,350000,Active,2026-11-16,327888
+459,MP 28 9965,Private Car Package - Zero Depreciation,935000,Active,2025-03-11,877230
+460,WB 35 0097,Private Car Package - Zero Depreciation,489999,Active,2026-01-18,423785
+461,AP 04 8923,Private Car Package - Zero Depreciation,550000,Active,2025-01-07,467366
+462,KA 90 9106,Private Car Package - Zero Depreciation,935000,Active,2026-06-27,935000
+463,UP 26 4724,Private Car Package - Zero Depreciation,1020000,Active,2025-07-03,631520
+464,RJ 48 3334,Private Car Package - Zero Depreciation,1050000,Active,2026-09-27,1050000
+465,UP 87 6429,Private Car Package - Zero Depreciation,840000,Flagged,2025-03-22,410947
+466,WB 52 2961,Private Car Package - Zero Depreciation,770000,Active,2025-11-04,722247
+467,WB 97 5499,Private Car Package - Zero Depreciation,595000,Flagged,2026-01-22,333433
+468,KA 29 1274,Private Car Package - Zero Depreciation,350000,Active,2025-03-26,308664
+469,GJ 81 7067,Private Car Package - Zero Depreciation,840000,Active,2025-04-08,840000
+470,TN 04 1343,Private Car Package - Zero Depreciation,1050000,Active,2026-08-04,1050000
+471,KA 41 7794,Private Car Package - Standard,350000,Active,2026-07-11,281268
+472,DL 54 0130,Private Car Package - Zero Depreciation,489999,Active,2025-01-17,407457
+473,AP 87 1328,Private Car Package - Standard,750000,Active,2025-03-20,513180
+474,TN 72 9037,Private Car Package - Zero Depreciation,1050000,Active,2026-02-03,1050000
+475,TS 11 0151,Private Car Package - Zero Depreciation,840000,Flagged,2025-03-22,456874
+476,MH 57 4172,Private Car Package - Zero Depreciation,595000,Active,2025-08-26,595000
+477,MP 97 4670,Private Car Package - Standard,550000,Active,2025-12-01,550000
+478,PB 21 8341,Private Car Package - Standard,600000,Active,2026-04-07,600000
+479,TN 03 8787,Private Car Package - Zero Depreciation,840000,Active,2026-03-19,568838
+480,MP 01 3898,Private Car Package - Zero Depreciation,935000,Active,2025-10-30,836212
+481,KA 97 6573,Private Car Package - Zero Depreciation,489999,Active,2026-10-12,401773
+482,MP 10 9324,Private Car Package - Zero Depreciation,840000,Active,2025-01-06,706618
+483,TS 62 7818,Private Car Package - Standard,600000,Flagged,2025-05-16,435257
+484,WB 99 3914,Private Car Package - Zero Depreciation,770000,Active,2026-06-09,549095
+485,TS 14 3663,Private Car Package - Zero Depreciation,595000,Active,2025-04-06,407726
+486,KL 92 2142,Private Car Package - Standard,600000,Active,2025-10-26,548622
+487,PB 65 0806,Private Car Package - Standard,350000,Active,2025-09-06,287645
+488,AP 80 8154,Private Car Package - Zero Depreciation,750000,Active,2025-05-23,614541
+489,AP 27 6826,Private Car Package - Zero Depreciation,840000,Active,2025-06-21,752737
+490,MP 17 0850,Private Car Package - Zero Depreciation,770000,Active,2026-01-05,686331
+491,MH 16 6060,Private Car Package - Zero Depreciation,550000,Active,2026-04-14,468320
+492,UP 47 9242,Private Car Package - Zero Depreciation,1020000,Active,2025-12-07,948977
+493,HR 78 7035,Private Car Package - Zero Depreciation,840000,Active,2026-10-29,737479
+494,TS 86 1878,Private Car Package - Zero Depreciation,840000,Active,2025-07-25,840000
+495,MH 33 9362,Private Car Package - Standard,750000,Active,2025-10-26,619251
+496,TS 15 1102,Private Car Package - Standard,550000,Active,2025-11-30,471586
+497,HR 36 8735,Private Car Package - Zero Depreciation,770000,Active,2025-07-24,712140
+498,DL 84 0808,Private Car Package - Zero Depreciation,750000,Active,2026-07-18,750000
+499,MP 20 9543,Private Car Package - Zero Depreciation,1050000,Active,2025-03-12,679087
+500,PB 74 3546,Private Car Package - Zero Depreciation,770000,Flagged,2025-09-05,615720
+501,UP 92 2021,Private Car Package - Zero Depreciation,750000,Active,2026-01-22,750000
+502,KA 88 2662,Private Car Package - Zero Depreciation,550000,Active,2026-07-02,550000
+503,UP 10 0706,Private Car Package - Zero Depreciation,770000,Active,2026-07-04,664793
+504,PB 87 1082,Private Car Package - Zero Depreciation,595000,Active,2026-11-05,444959
+505,MH 86 4158,Private Car Package - Zero Depreciation,750000,Active,2025-02-15,750000
+506,WB 24 3091,Private Car Package - Standard,550000,Active,2025-12-06,550000
+507,RJ 46 9866,Private Car Package - Zero Depreciation,595000,Active,2026-06-07,365602
+508,PB 83 4715,Private Car Package - Zero Depreciation,1050000,Active,2026-04-20,782588
+509,UP 55 3822,Private Car Package - Zero Depreciation,1050000,Active,2026-05-10,935559
+510,MH 81 3933,Private Car Package - Standard,550000,Active,2025-04-29,505848
+511,TS 52 2354,Private Car Package - Zero Depreciation,840000,Active,2025-07-31,586505
+512,HR 94 4042,Private Car Package - Zero Depreciation,840000,Active,2026-04-09,581459
+513,MH 15 3642,Private Car Package - Zero Depreciation,1020000,Flagged,2025-01-24,583409
+514,MP 21 9977,Private Car Package - Zero Depreciation,350000,Active,2025-09-07,217251
+515,TS 46 5223,Private Car Package - Zero Depreciation,1050000,Active,2026-04-19,737452
+516,MH 50 5960,Private Car Package - Zero Depreciation,1050000,Active,2026-02-10,980712
+517,PB 39 4678,Private Car Package - Zero Depreciation,1050000,Active,2026-02-03,637191
+518,MP 58 6925,Private Car Package - Zero Depreciation,1050000,Active,2026-08-15,766390
+519,AP 38 8806,Private Car Package - Zero Depreciation,1050000,Active,2026-04-14,841985
+520,RJ 75 1502,Private Car Package - Zero Depreciation,770000,Flagged,2026-09-04,238161
+521,KA 64 5722,Private Car Package - Zero Depreciation,550000,Active,2025-12-23,550000
+522,UP 60 4338,Private Car Package - Standard,750000,Active,2026-09-22,675985
+523,UP 37 9765,Private Car Package - Zero Depreciation,1050000,Active,2025-11-09,887964
+524,UP 07 2200,Private Car Package - Zero Depreciation,600000,Active,2026-02-02,548622
+525,HR 84 0309,Private Car Package - Zero Depreciation,750000,Active,2025-07-10,704266
+526,KL 44 9869,Private Car Package - Zero Depreciation,1050000,Active,2025-10-23,799000
+527,KL 30 0435,Private Car Package - Standard,600000,Active,2025-02-24,453748
+528,MP 03 0159,Private Car Package - Zero Depreciation,935000,Active,2026-01-29,935000
+529,PB 09 3981,Private Car Package - Zero Depreciation,770000,Active,2026-03-02,685436
+530,KA 90 0942,Private Car Package - Zero Depreciation,770000,Active,2025-02-01,516312
+531,TN 79 1124,Private Car Package - Zero Depreciation,1020000,Flagged,2026-07-05,777138
+532,TN 43 7849,Private Car Package - Zero Depreciation,770000,Active,2026-05-23,770000
+533,PB 97 4762,Private Car Package - Zero Depreciation,350000,Active,2026-07-11,217662
+534,TS 30 9916,Private Car Package - Standard,350000,Active,2026-03-28,350000
+535,WB 92 6385,Private Car Package - Zero Depreciation,935000,Active,2025-11-01,705213
+536,MH 23 7325,Private Car Package - Zero Depreciation,840000,Active,2025-03-31,840000
+537,GJ 93 3288,Private Car Package - Zero Depreciation,1050000,Active,2026-08-26,1050000
+538,HR 25 5152,Private Car Package - Zero Depreciation,770000,Active,2025-07-31,669227
+539,MP 68 4952,Private Car Package - Zero Depreciation,840000,Active,2026-07-06,707766
+540,DL 22 2690,Private Car Package - Zero Depreciation,840000,Active,2025-10-01,840000
+541,UP 16 6462,Private Car Package - Zero Depreciation,595000,Active,2025-03-02,549083
+542,UP 10 1938,Private Car Package - Zero Depreciation,750000,Active,2025-09-13,653420
+543,WB 83 3247,Private Car Package - Standard,750000,Active,2026-05-17,648678
+544,DL 42 5866,Private Car Package - Zero Depreciation,600000,Active,2026-01-20,600000
+545,MH 65 1566,Private Car Package - Zero Depreciation,489999,Flagged,2026-01-13,406927
+546,UP 72 5564,Private Car Package - Zero Depreciation,600000,Flagged,2026-04-15,271265
+547,UP 04 2368,Private Car Package - Standard,600000,Active,2026-07-02,600000
+548,MP 98 7925,Private Car Package - Standard,550000,Active,2026-05-22,550000
+549,PB 49 6183,Private Car Package - Zero Depreciation,840000,Active,2025-05-14,692178
+550,KL 11 8669,Private Car Package - Standard,600000,Active,2025-02-17,399506
+551,TN 42 5439,Private Car Package - Zero Depreciation,935000,Active,2025-06-11,935000
+552,WB 97 4936,Private Car Package - Standard,350000,Active,2025-07-27,304969
+553,MP 08 8109,Private Car Package - Zero Depreciation,840000,Active,2025-04-06,724088
+554,WB 52 6927,Private Car Package - Zero Depreciation,1020000,Active,2026-11-12,1020000
+555,DL 53 8451,Private Car Package - Zero Depreciation,489999,Active,2025-08-28,426930
+556,DL 49 9864,Private Car Package - Zero Depreciation,350000,Active,2025-01-02,350000
+557,AP 22 4347,Private Car Package - Zero Depreciation,595000,Active,2026-06-16,494098
+558,TN 25 7747,Private Car Package - Zero Depreciation,595000,Active,2025-05-04,520914
+559,GJ 49 8959,Private Car Package - Zero Depreciation,1050000,Active,2026-01-28,888015
+560,WB 39 4443,Private Car Package - Zero Depreciation,489999,Active,2025-05-21,412756
+561,TN 73 3863,Private Car Package - Zero Depreciation,1275000,Active,2025-01-09,1107679
+562,MH 88 9167,Private Car Package - Zero Depreciation,1050000,Active,2026-10-06,919983
+563,MH 72 1071,Private Car Package - Zero Depreciation,550000,Active,2026-03-30,550000
+564,MP 99 2857,Private Car Package - Zero Depreciation,489999,Active,2026-08-27,441732
+565,TN 53 3487,Private Car Package - Standard,600000,Active,2025-11-19,600000
+566,KA 97 8398,Private Car Package - Zero Depreciation,600000,Active,2026-07-21,523285
+567,TS 52 8176,Private Car Package - Standard,600000,Active,2025-01-28,600000
+568,PB 86 3431,Private Car Package - Zero Depreciation,1050000,Active,2025-07-13,912449
+569,WB 63 6234,Private Car Package - Zero Depreciation,600000,Flagged,2026-05-22,420090
+570,HR 97 5079,Private Car Package - Zero Depreciation,1050000,Flagged,2025-03-14,547268
+571,DL 04 7936,Private Car Package - Standard,600000,Active,2026-02-01,519394
+572,TN 10 6606,Private Car Package - Zero Depreciation,840000,Active,2026-04-28,711060
+573,PB 63 5622,Private Car Package - Zero Depreciation,350000,Active,2025-01-15,350000
+574,KA 12 1850,Private Car Package - Standard,350000,Active,2026-06-03,308856
+575,WB 16 0548,Private Car Package - Zero Depreciation,770000,Active,2025-03-26,654703
+576,MP 83 2323,Private Car Package - Zero Depreciation,1050000,Active,2025-03-22,819216
+577,MP 20 8020,Private Car Package - Zero Depreciation,1050000,Active,2026-02-05,1050000
+578,KL 44 9662,Private Car Package - Zero Depreciation,489999,Flagged,2025-09-02,208666
+579,DL 66 1729,Private Car Package - Standard,350000,Active,2025-04-29,350000
+580,MH 41 7971,Private Car Package - Zero Depreciation,489999,Active,2025-05-03,404784
+581,KA 97 6673,Private Car Package - Zero Depreciation,489999,Active,2026-06-20,396440
+582,GJ 34 6996,Private Car Package - Zero Depreciation,1050000,Active,2025-10-03,1050000
+583,KA 18 9677,Private Car Package - Zero Depreciation,489999,Active,2025-10-06,396633
+584,MP 36 2586,Private Car Package - Zero Depreciation,600000,Active,2026-10-05,534272
+585,TS 75 4406,Private Car Package - Zero Depreciation,770000,Active,2026-05-27,671940
+586,GJ 04 9859,Private Car Package - Zero Depreciation,840000,Flagged,2026-08-11,202981
+587,KA 79 8821,Private Car Package - Standard,750000,Active,2025-01-03,750000
+588,TS 98 1035,Private Car Package - Zero Depreciation,1275000,Active,2026-01-28,815469
+589,RJ 96 1888,Private Car Package - Zero Depreciation,489999,Active,2025-08-18,429104
+590,HR 43 2918,Private Car Package - Standard,550000,Active,2025-10-05,465167
+591,KL 30 4717,Private Car Package - Zero Depreciation,1020000,Active,2025-07-03,666321
+592,TS 45 8839,Private Car Package - Standard,350000,Active,2025-03-12,350000
+593,GJ 68 8085,Private Car Package - Zero Depreciation,840000,Flagged,2026-04-13,424902
+594,KL 19 4927,Private Car Package - Zero Depreciation,1050000,Active,2025-11-08,1050000
+595,DL 39 2267,Private Car Package - Zero Depreciation,1050000,Active,2026-05-21,974447
+596,WB 56 3947,Private Car Package - Zero Depreciation,1050000,Active,2025-01-25,993435
+597,RJ 31 7807,Private Car Package - Zero Depreciation,600000,Active,2025-01-10,600000
+598,AP 40 3679,Private Car Package - Standard,550000,Flagged,2025-04-17,390326
+599,MP 98 7107,Private Car Package - Zero Depreciation,1050000,Active,2025-05-26,980858
+600,PB 33 8228,Private Car Package - Zero Depreciation,595000,Active,2026-06-17,509952
+601,KL 95 6024,Private Car Package - Zero Depreciation,840000,Active,2026-08-18,790270
+602,DL 27 8895,Private Car Package - Zero Depreciation,750000,Active,2025-03-18,451156
+603,GJ 21 3151,Private Car Package - Zero Depreciation,489999,Active,2025-05-14,489999
+604,PB 67 4186,Private Car Package - Standard,600000,Active,2025-12-01,514396
+605,AP 97 2586,Private Car Package - Zero Depreciation,840000,Active,2025-07-27,840000
+606,KL 81 9282,Private Car Package - Zero Depreciation,489999,Active,2026-04-06,414626
+607,TN 34 5542,Private Car Package - Zero Depreciation,935000,Active,2026-01-02,935000
+608,PB 01 0333,Private Car Package - Zero Depreciation,770000,Flagged,2025-05-03,548384
+609,MH 10 8686,Private Car Package - Standard,600000,Active,2025-02-11,516473
+610,HR 50 2063,Private Car Package - Zero Depreciation,1275000,Active,2025-12-31,1006833
+611,RJ 32 9130,Private Car Package - Zero Depreciation,350000,Active,2025-06-28,234223
+612,TN 27 4345,Private Car Package - Zero Depreciation,770000,Active,2026-07-18,770000
+613,TN 70 0780,Private Car Package - Zero Depreciation,935000,Active,2025-05-05,885559
+614,RJ 38 6843,Private Car Package - Zero Depreciation,1275000,Active,2026-02-15,1275000
+615,KA 78 0816,Private Car Package - Zero Depreciation,350000,Active,2025-03-18,304397
+616,GJ 80 8146,Private Car Package - Standard,750000,Active,2026-03-31,750000
+617,PB 31 6497,Private Car Package - Zero Depreciation,1020000,Active,2026-04-18,1020000
+618,KA 92 1573,Private Car Package - Standard,550000,Active,2026-02-09,550000
+619,KA 07 4977,Private Car Package - Zero Depreciation,550000,Flagged,2025-12-29,259174
+620,DL 86 9778,Private Car Package - Zero Depreciation,840000,Active,2025-02-05,632964
+621,KL 87 0931,Private Car Package - Zero Depreciation,750000,Active,2026-05-26,750000
+622,AP 59 4797,Private Car Package - Zero Depreciation,935000,Active,2026-01-28,821489
+623,KL 31 0771,Private Car Package - Zero Depreciation,750000,Active,2025-09-13,660813
+624,HR 93 5240,Private Car Package - Standard,350000,Flagged,2026-05-07,135492
+625,UP 80 5244,Private Car Package - Standard,600000,Active,2025-11-26,494322
+626,HR 04 8172,Private Car Package - Zero Depreciation,1275000,Active,2026-09-04,1275000
+627,HR 05 4640,Private Car Package - Zero Depreciation,1020000,Active,2026-06-27,716238
+628,MP 31 2890,Private Car Package - Standard,750000,Flagged,2025-09-11,462538
+629,WB 14 9552,Private Car Package - Zero Depreciation,840000,Active,2025-02-27,840000
+630,PB 30 3920,Private Car Package - Zero Depreciation,770000,Active,2025-06-30,683374
+631,WB 06 7897,Private Car Package - Standard,600000,Active,2026-01-03,600000
+632,RJ 23 6637,Private Car Package - Standard,600000,Active,2025-05-26,563587
+633,GJ 91 6646,Private Car Package - Zero Depreciation,770000,Active,2025-06-29,770000
+634,MP 98 8851,Private Car Package - Zero Depreciation,595000,Active,2025-08-13,482569
+635,HR 55 9965,Private Car Package - Zero Depreciation,935000,Active,2025-07-26,795493
+636,HR 69 5952,Private Car Package - Standard,750000,Active,2025-11-28,750000
+637,DL 99 1710,Private Car Package - Zero Depreciation,750000,Active,2025-05-26,750000
+638,WB 43 0543,Private Car Package - Standard,600000,Active,2026-01-18,600000
+639,KL 41 2002,Private Car Package - Zero Depreciation,550000,Active,2025-11-06,491545
+640,PB 74 3359,Private Car Package - Standard,750000,Active,2026-03-24,750000
+641,UP 45 7802,Private Car Package - Zero Depreciation,840000,Active,2026-09-21,701078
+642,KA 81 8539,Private Car Package - Zero Depreciation,1050000,Active,2025-05-11,965105
+643,GJ 40 4865,Private Car Package - Standard,550000,Active,2026-08-05,550000
+644,MH 38 7495,Private Car Package - Standard,600000,Flagged,2025-08-15,498674
+645,PB 13 7816,Private Car Package - Standard,350000,Active,2025-12-06,212104
+646,DL 33 6247,Private Car Package - Zero Depreciation,1050000,Active,2025-06-21,689293
+647,MH 85 7451,Private Car Package - Zero Depreciation,840000,Active,2025-08-03,755379
+648,WB 98 7516,Private Car Package - Zero Depreciation,489999,Active,2025-01-02,438145
+649,KL 94 4647,Private Car Package - Standard,550000,Active,2026-02-28,471933
+650,WB 32 2965,Private Car Package - Zero Depreciation,840000,Active,2026-05-06,782691
+651,MH 25 1416,Private Car Package - Zero Depreciation,1050000,Active,2025-03-17,1050000
+652,KA 45 5657,Private Car Package - Zero Depreciation,489999,Active,2025-03-17,321056
+653,MP 39 3120,Private Car Package - Zero Depreciation,770000,Flagged,2026-07-15,392878
+654,TN 39 8062,Private Car Package - Zero Depreciation,550000,Active,2026-11-01,366887
+655,PB 38 4516,Private Car Package - Zero Depreciation,770000,Active,2025-12-06,668550
+656,AP 94 4302,Private Car Package - Zero Depreciation,550000,Active,2025-09-29,467806
+657,WB 51 4203,Private Car Package - Zero Depreciation,840000,Active,2025-02-20,840000
+658,UP 50 5316,Private Car Package - Zero Depreciation,770000,Active,2025-01-04,576149
+659,WB 12 2157,Private Car Package - Standard,600000,Flagged,2026-05-07,372743
+660,PB 42 4683,Private Car Package - Zero Depreciation,489999,Active,2026-10-16,489999
+661,AP 06 4874,Private Car Package - Standard,550000,Flagged,2026-02-12,279123
+662,TS 74 2538,Private Car Package - Zero Depreciation,1020000,Active,2026-07-12,1020000
+663,RJ 64 7506,Private Car Package - Standard,600000,Active,2025-07-11,547799
+664,GJ 11 8352,Private Car Package - Zero Depreciation,840000,Active,2025-08-20,654824
+665,GJ 83 9035,Private Car Package - Zero Depreciation,489999,Active,2025-03-29,424701
+666,KA 25 7163,Private Car Package - Standard,550000,Active,2025-08-21,436362
+667,KA 48 8292,Private Car Package - Standard,550000,Active,2026-07-03,369437
+668,DL 95 9407,Private Car Package - Zero Depreciation,1050000,Active,2025-03-22,1050000
+669,HR 75 3230,Private Car Package - Zero Depreciation,1275000,Active,2025-06-27,1028019
+670,KA 08 5762,Private Car Package - Zero Depreciation,1275000,Active,2025-03-22,1182776
+671,PB 03 5142,Private Car Package - Standard,750000,Active,2026-09-02,600413
+672,TS 76 2931,Private Car Package - Zero Depreciation,595000,Active,2026-02-11,500806
+673,AP 01 3098,Private Car Package - Zero Depreciation,840000,Active,2026-10-01,652020
+674,TS 71 0550,Private Car Package - Zero Depreciation,935000,Active,2025-06-01,801353
+675,GJ 74 3814,Private Car Package - Standard,350000,Active,2025-04-14,327618
+676,HR 41 0760,Private Car Package - Standard,600000,Active,2026-01-28,512191
+677,PB 32 7721,Private Car Package - Zero Depreciation,935000,Active,2025-10-10,935000
+678,TN 21 9485,Private Car Package - Zero Depreciation,935000,Active,2025-09-01,672222
+679,KA 05 7389,Private Car Package - Standard,600000,Active,2025-12-12,391492
+680,MH 05 5960,Private Car Package - Standard,600000,Active,2025-08-22,564731
+681,DL 59 3073,Private Car Package - Standard,550000,Active,2025-10-03,464117
+682,MH 26 9839,Private Car Package - Zero Depreciation,489999,Active,2026-02-21,419324
+683,KA 38 0236,Private Car Package - Standard,600000,Active,2025-06-12,562026
+684,MP 54 5551,Private Car Package - Zero Depreciation,935000,Active,2026-06-21,935000
+685,WB 35 5964,Private Car Package - Zero Depreciation,1050000,Flagged,2025-03-01,574614
+686,MP 94 2932,Private Car Package - Zero Depreciation,935000,Active,2025-07-23,726522
+687,TN 77 5585,Private Car Package - Zero Depreciation,770000,Active,2026-11-29,557226
+688,MP 89 1746,Private Car Package - Zero Depreciation,840000,Active,2026-04-02,840000
+689,TS 27 1892,Private Car Package - Zero Depreciation,840000,Active,2025-04-03,794700
+690,KA 25 5224,Private Car Package - Zero Depreciation,935000,Active,2026-08-09,935000
+691,MP 33 4815,Private Car Package - Zero Depreciation,750000,Active,2025-10-03,654217
+692,PB 36 0299,Private Car Package - Standard,350000,Active,2026-11-30,350000
+693,PB 60 6615,Private Car Package - Zero Depreciation,750000,Active,2025-01-09,664164
+694,AP 05 6251,Private Car Package - Zero Depreciation,600000,Active,2026-03-10,395525
+695,TN 97 5150,Private Car Package - Zero Depreciation,770000,Active,2025-11-06,716084
+696,AP 90 0630,Private Car Package - Zero Depreciation,550000,Active,2025-01-08,550000
+697,UP 90 7623,Private Car Package - Zero Depreciation,840000,Active,2026-09-16,572164
+698,KL 81 1812,Private Car Package - Zero Depreciation,489999,Active,2025-10-11,420648
+699,GJ 81 1344,Private Car Package - Zero Depreciation,840000,Active,2026-10-30,840000
+700,RJ 02 2557,Private Car Package - Zero Depreciation,1050000,Flagged,2025-02-28,865542
+701,MH 94 5884,Private Car Package - Zero Depreciation,600000,Active,2025-01-27,600000
+702,TN 27 8626,Private Car Package - Zero Depreciation,840000,Active,2026-03-05,840000
+703,TN 54 5096,Private Car Package - Zero Depreciation,350000,Active,2026-08-09,350000
+704,TN 40 3515,Private Car Package - Zero Depreciation,750000,Active,2026-11-19,681906
+705,KA 89 6989,Private Car Package - Standard,600000,Active,2025-07-05,528235
+706,KL 46 0553,Private Car Package - Zero Depreciation,935000,Active,2026-07-27,879463
+707,GJ 66 7226,Private Car Package - Zero Depreciation,600000,Active,2025-12-30,522083
+708,PB 85 5848,Private Car Package - Standard,550000,Active,2026-01-16,448264
+709,TN 78 1813,Private Car Package - Zero Depreciation,840000,Active,2025-05-01,840000
+710,MP 79 0633,Private Car Package - Zero Depreciation,489999,Flagged,2026-05-28,268875
+711,TN 65 9290,Private Car Package - Zero Depreciation,770000,Active,2026-02-28,770000
+712,WB 93 9718,Private Car Package - Standard,750000,Active,2026-02-24,527811
+713,RJ 90 2715,Private Car Package - Zero Depreciation,1050000,Active,2025-07-04,1050000
+714,UP 04 2567,Private Car Package - Zero Depreciation,770000,Active,2025-11-17,619234
+715,GJ 68 1208,Private Car Package - Zero Depreciation,489999,Active,2025-06-22,457114
+716,PB 51 2278,Private Car Package - Standard,550000,Active,2025-04-01,550000
+717,AP 37 8240,Private Car Package - Zero Depreciation,550000,Active,2026-02-18,550000
+718,MP 88 7760,Private Car Package - Zero Depreciation,935000,Active,2026-07-01,935000
+719,MH 51 8359,Private Car Package - Standard,350000,Active,2025-07-15,302950
+720,MP 65 6064,Private Car Package - Zero Depreciation,350000,Active,2025-08-20,240678
+721,HR 96 9155,Private Car Package - Zero Depreciation,1020000,Active,2026-05-31,898881
+722,RJ 21 5753,Private Car Package - Zero Depreciation,1275000,Active,2025-11-02,1030386
+723,MP 08 0668,Private Car Package - Zero Depreciation,840000,Active,2025-12-17,652236
+724,TS 38 9162,Private Car Package - Zero Depreciation,1050000,Active,2025-01-20,783562
+725,PB 22 9576,Private Car Package - Zero Depreciation,1050000,Active,2026-08-27,697323
+726,AP 62 1027,Private Car Package - Zero Depreciation,489999,Active,2026-10-29,489999
+727,WB 72 2564,Private Car Package - Standard,600000,Active,2026-10-01,600000
+728,PB 10 2974,Private Car Package - Zero Depreciation,350000,Active,2026-11-01,350000
+729,GJ 59 3037,Private Car Package - Zero Depreciation,489999,Active,2025-05-07,427325
+730,KL 32 1303,Private Car Package - Zero Depreciation,550000,Active,2025-07-30,550000
+731,TN 46 9135,Private Car Package - Zero Depreciation,489999,Flagged,2026-11-10,317002
+732,WB 46 8526,Private Car Package - Zero Depreciation,1050000,Active,2026-06-08,924461
+733,GJ 59 3571,Private Car Package - Zero Depreciation,489999,Active,2026-05-25,367821
+734,WB 92 8867,Private Car Package - Standard,750000,Active,2026-06-20,750000
+735,MP 15 2858,Private Car Package - Zero Depreciation,770000,Active,2026-07-16,513834
+736,RJ 89 6909,Private Car Package - Zero Depreciation,770000,Active,2025-01-14,671056
+737,KL 90 9140,Private Car Package - Standard,350000,Active,2026-11-17,350000
+738,GJ 40 7720,Private Car Package - Standard,350000,Active,2025-04-14,231220
+739,DL 49 4410,Private Car Package - Zero Depreciation,1050000,Active,2025-09-28,895245
+740,MP 94 9581,Private Car Package - Standard,350000,Active,2025-10-25,224997
+741,MH 19 1192,Private Car Package - Zero Depreciation,840000,Active,2025-04-08,674077
+742,MH 07 0137,Private Car Package - Standard,350000,Active,2026-11-11,350000
+743,PB 18 1130,Private Car Package - Zero Depreciation,840000,Active,2026-03-25,840000
+744,TN 87 6596,Private Car Package - Zero Depreciation,489999,Active,2025-12-17,489999
+745,PB 94 1104,Private Car Package - Zero Depreciation,770000,Active,2025-10-06,591286
+746,RJ 06 9433,Private Car Package - Standard,550000,Active,2025-04-26,449701
+747,TN 31 6056,Private Car Package - Standard,350000,Flagged,2025-04-17,142503
+748,TN 60 8785,Private Car Package - Standard,550000,Active,2025-07-05,349482
+749,HR 18 7158,Private Car Package - Zero Depreciation,600000,Active,2026-05-10,568866
+750,WB 64 6963,Private Car Package - Zero Depreciation,770000,Active,2025-09-25,648415
+751,MP 03 2332,Private Car Package - Zero Depreciation,350000,Active,2026-08-14,294097
+752,TN 51 6923,Private Car Package - Standard,750000,Active,2026-11-17,750000
+753,HR 97 2303,Private Car Package - Zero Depreciation,489999,Flagged,2026-05-09,347186
+754,TS 67 4158,Private Car Package - Zero Depreciation,770000,Active,2026-09-20,610349
+755,KA 03 1079,Private Car Package - Zero Depreciation,1050000,Active,2026-05-23,890266
+756,WB 28 4680,Private Car Package - Zero Depreciation,770000,Active,2025-10-12,637590
+757,TS 57 3165,Private Car Package - Zero Depreciation,1050000,Active,2026-01-23,1050000
+758,PB 63 1306,Private Car Package - Zero Depreciation,489999,Active,2026-04-04,410461
+759,UP 69 7968,Private Car Package - Zero Depreciation,770000,Active,2026-11-01,498626
+760,KA 17 6782,Private Car Package - Zero Depreciation,770000,Active,2026-07-17,663833
+761,PB 04 3866,Private Car Package - Standard,600000,Active,2025-07-31,508231
+762,AP 76 7141,Private Car Package - Standard,550000,Active,2026-01-08,550000
+763,KA 36 2453,Private Car Package - Zero Depreciation,770000,Active,2026-09-27,770000
+764,RJ 36 6683,Private Car Package - Zero Depreciation,600000,Active,2025-04-10,494667
+765,HR 11 8607,Private Car Package - Zero Depreciation,1275000,Active,2025-12-30,1275000
+766,RJ 61 3726,Private Car Package - Zero Depreciation,600000,Active,2025-06-18,485045
+767,RJ 09 2075,Private Car Package - Zero Depreciation,935000,Active,2026-09-18,935000
+768,KL 64 3332,Private Car Package - Standard,350000,Active,2026-02-07,350000
+769,AP 89 3421,Private Car Package - Zero Depreciation,750000,Active,2026-03-01,606941
+770,MP 31 7627,Private Car Package - Standard,350000,Flagged,2026-04-14,89490
+771,RJ 13 7615,Private Car Package - Standard,750000,Active,2026-06-28,574413
+772,KA 98 9507,Private Car Package - Standard,550000,Active,2026-06-05,432234
+773,GJ 59 5979,Private Car Package - Standard,750000,Active,2025-04-17,664964
+774,KL 07 9175,Private Car Package - Zero Depreciation,840000,Active,2026-01-29,840000
+775,MH 42 1438,Private Car Package - Zero Depreciation,1050000,Active,2025-10-29,674623
+776,PB 89 7847,Private Car Package - Zero Depreciation,1050000,Active,2026-06-09,1050000
+777,MP 27 4494,Private Car Package - Zero Depreciation,600000,Flagged,2026-10-10,250042
+778,DL 31 7551,Private Car Package - Zero Depreciation,750000,Active,2025-12-20,619194
+779,TN 54 6066,Private Car Package - Zero Depreciation,1050000,Active,2026-10-15,1050000
+780,TN 72 2184,Private Car Package - Zero Depreciation,840000,Active,2026-08-08,709336
+781,UP 17 1027,Private Car Package - Standard,600000,Active,2025-01-14,548230
+782,TS 02 7540,Private Car Package - Zero Depreciation,489999,Active,2025-02-24,489999
+783,PB 93 7467,Private Car Package - Zero Depreciation,1050000,Active,2025-10-21,903259
+784,TS 62 1912,Private Car Package - Standard,750000,Active,2025-10-30,750000
+785,GJ 82 6770,Private Car Package - Zero Depreciation,489999,Active,2026-04-09,489999
+786,DL 20 1801,Private Car Package - Standard,750000,Active,2026-02-03,610925
+787,HR 84 7488,Private Car Package - Zero Depreciation,600000,Flagged,2026-01-26,451572
+788,HR 44 0070,Private Car Package - Standard,600000,Active,2025-02-25,600000
+789,TS 10 0646,Private Car Package - Zero Depreciation,750000,Active,2025-08-19,646935
+790,GJ 96 9841,Private Car Package - Standard,600000,Flagged,2026-09-10,285530
+791,GJ 50 3379,Private Car Package - Zero Depreciation,840000,Active,2025-07-11,786174
+792,HR 04 6219,Private Car Package - Zero Depreciation,489999,Flagged,2025-10-13,239871
+793,HR 29 8366,Private Car Package - Zero Depreciation,1050000,Active,2025-01-06,929052
+794,KL 50 6042,Private Car Package - Zero Depreciation,1275000,Flagged,2026-09-04,735433
+795,HR 95 2598,Private Car Package - Zero Depreciation,840000,Active,2026-07-18,696167
+796,WB 03 8567,Private Car Package - Zero Depreciation,840000,Active,2026-06-18,749552
+797,KL 52 4052,Private Car Package - Zero Depreciation,1050000,Flagged,2026-02-18,541152
+798,MH 59 6180,Private Car Package - Standard,750000,Active,2025-12-06,617762
+799,HR 64 5176,Private Car Package - Standard,750000,Active,2026-06-28,707365
+800,PB 89 1321,Private Car Package - Zero Depreciation,595000,Active,2025-12-21,595000
+801,KL 75 7175,Private Car Package - Standard,750000,Active,2026-11-30,750000
+802,AP 39 4894,Private Car Package - Zero Depreciation,489999,Active,2025-10-17,412173
+803,RJ 47 7186,Private Car Package - Zero Depreciation,840000,Active,2026-04-02,771919
+804,MH 54 6972,Private Car Package - Standard,600000,Active,2025-11-25,569311
+805,KA 30 4256,Private Car Package - Zero Depreciation,489999,Active,2026-07-05,489999
+806,AP 08 7900,Private Car Package - Zero Depreciation,489999,Active,2026-10-07,489999
+807,KA 97 9864,Private Car Package - Standard,550000,Active,2025-07-30,550000
+808,AP 73 3964,Private Car Package - Zero Depreciation,550000,Active,2025-06-07,475306
+809,AP 74 0937,Private Car Package - Zero Depreciation,1020000,Active,2025-02-25,826442
+810,WB 66 0639,Private Car Package - Zero Depreciation,350000,Active,2025-09-22,300105
+811,MH 67 7183,Private Car Package - Zero Depreciation,550000,Active,2026-03-20,550000
+812,PB 93 8972,Private Car Package - Zero Depreciation,550000,Active,2025-01-07,450377
+813,UP 71 2035,Private Car Package - Standard,350000,Flagged,2025-02-16,254230
+814,MH 65 0647,Private Car Package - Standard,600000,Active,2025-10-24,533009
+815,PB 46 1869,Private Car Package - Zero Depreciation,489999,Flagged,2026-01-26,234854
+816,TN 95 4336,Private Car Package - Zero Depreciation,489999,Active,2025-08-14,347449
+817,TS 76 6833,Private Car Package - Standard,600000,Active,2025-05-28,600000
+818,MP 88 8911,Private Car Package - Standard,600000,Active,2025-01-12,600000
+819,MH 54 1616,Private Car Package - Zero Depreciation,1275000,Active,2025-01-06,1275000
+820,UP 94 5769,Private Car Package - Zero Depreciation,770000,Active,2025-11-09,604334
+821,TS 71 6467,Private Car Package - Zero Depreciation,1050000,Active,2025-05-26,978439
+822,UP 50 1446,Private Car Package - Zero Depreciation,750000,Active,2025-07-18,656960
+823,DL 56 3937,Private Car Package - Standard,350000,Active,2026-04-18,243740
+824,KA 31 0991,Private Car Package - Zero Depreciation,489999,Active,2025-09-14,464755
+825,UP 35 0940,Private Car Package - Standard,550000,Flagged,2025-05-12,400216
+826,UP 32 5304,Private Car Package - Zero Depreciation,1275000,Active,2025-03-13,1109129
+827,WB 88 4722,Private Car Package - Zero Depreciation,770000,Active,2026-09-24,770000
+828,TS 19 7708,Private Car Package - Zero Depreciation,1050000,Active,2026-01-09,1050000
+829,UP 65 3629,Private Car Package - Zero Depreciation,1275000,Active,2025-08-15,1118303
+830,AP 28 7161,Private Car Package - Zero Depreciation,770000,Active,2025-05-18,717294
+831,TS 99 8449,Private Car Package - Zero Depreciation,770000,Active,2025-11-09,647281
+832,RJ 38 1234,Private Car Package - Zero Depreciation,489999,Flagged,2025-03-25,268111
+833,KL 48 2410,Private Car Package - Zero Depreciation,1050000,Active,2026-10-04,1050000
+834,PB 17 0702,Private Car Package - Standard,350000,Active,2026-08-19,309063
+835,GJ 63 8252,Private Car Package - Standard,750000,Flagged,2025-09-24,456510
+836,TN 27 1474,Private Car Package - Zero Depreciation,550000,Active,2026-01-10,472912
+837,KA 67 6303,Private Car Package - Zero Depreciation,1020000,Active,2026-06-07,866941
+838,KA 62 7082,Private Car Package - Zero Depreciation,840000,Active,2026-09-21,685848
+839,KA 21 8004,Private Car Package - Zero Depreciation,1050000,Active,2026-08-03,993492
+840,WB 90 5307,Private Car Package - Standard,750000,Active,2026-01-03,658865
+841,MH 44 2689,Private Car Package - Zero Depreciation,770000,Active,2026-01-14,653293
+842,RJ 15 7650,Private Car Package - Zero Depreciation,1050000,Active,2026-02-02,963182
+843,RJ 64 0972,Private Car Package - Zero Depreciation,595000,Flagged,2025-04-16,375734
+844,AP 86 5626,Private Car Package - Standard,600000,Active,2025-09-27,600000
+845,RJ 76 2206,Private Car Package - Zero Depreciation,1050000,Active,2026-01-10,932717
+846,GJ 30 3138,Private Car Package - Zero Depreciation,489999,Active,2026-01-21,489999
+847,DL 91 2986,Private Car Package - Zero Depreciation,770000,Active,2026-05-14,728803
+848,MP 81 5588,Private Car Package - Zero Depreciation,489999,Active,2026-03-27,308688
+849,RJ 28 0990,Private Car Package - Zero Depreciation,489999,Active,2025-10-15,489999
+850,MP 57 4563,Private Car Package - Zero Depreciation,1050000,Active,2025-05-02,857577
+851,KA 37 8586,Private Car Package - Standard,550000,Flagged,2026-05-09,229619
+852,HR 46 1699,Private Car Package - Zero Depreciation,770000,Active,2026-10-25,692186
+853,UP 28 4141,Private Car Package - Zero Depreciation,1275000,Active,2026-08-30,1105353
+854,TS 05 1682,Private Car Package - Standard,350000,Flagged,2025-02-27,249883
+855,KL 59 8558,Private Car Package - Zero Depreciation,1050000,Active,2026-02-20,1050000
+856,HR 91 3841,Private Car Package - Standard,350000,Active,2026-11-09,350000
+857,PB 90 9250,Private Car Package - Zero Depreciation,1050000,Active,2026-04-28,1050000
+858,DL 08 4359,Private Car Package - Standard,750000,Active,2025-05-27,603779
+859,UP 36 5483,Private Car Package - Zero Depreciation,840000,Active,2026-04-10,724862
+860,WB 63 5053,Private Car Package - Zero Depreciation,489999,Active,2026-01-30,489999
+861,GJ 68 2485,Private Car Package - Zero Depreciation,489999,Active,2026-12-02,429566
+862,KA 82 9624,Private Car Package - Zero Depreciation,489999,Flagged,2026-09-07,290952
+863,TS 40 2247,Private Car Package - Zero Depreciation,595000,Active,2026-09-10,529984
+864,HR 17 8801,Private Car Package - Zero Depreciation,770000,Active,2026-01-15,770000
+865,HR 29 7157,Private Car Package - Zero Depreciation,770000,Active,2026-01-26,705195
+866,DL 22 4749,Private Car Package - Zero Depreciation,489999,Flagged,2026-05-04,353588
+867,AP 91 9189,Private Car Package - Zero Depreciation,489999,Active,2026-02-23,407125
+868,WB 52 8355,Private Car Package - Zero Depreciation,350000,Active,2025-01-08,350000
+869,TN 76 5032,Private Car Package - Zero Depreciation,489999,Active,2026-11-02,372986
+870,WB 69 1497,Private Car Package - Zero Depreciation,840000,Flagged,2025-06-08,572126
+871,MP 60 4903,Private Car Package - Zero Depreciation,840000,Active,2026-07-03,840000
+872,GJ 52 5359,Private Car Package - Zero Depreciation,600000,Active,2026-11-28,600000
+873,KL 03 8020,Private Car Package - Zero Depreciation,770000,Active,2026-05-10,672448
+874,DL 89 5586,Private Car Package - Zero Depreciation,770000,Active,2026-08-15,631526
+875,RJ 49 8934,Private Car Package - Standard,750000,Flagged,2025-08-24,443934
+876,RJ 96 3053,Private Car Package - Zero Depreciation,1275000,Active,2026-02-15,1190354
+877,PB 69 7285,Private Car Package - Zero Depreciation,489999,Flagged,2025-04-04,402728
+878,DL 50 8962,Private Car Package - Zero Depreciation,935000,Active,2025-08-16,665741
+879,AP 87 5990,Private Car Package - Standard,350000,Active,2026-09-21,307466
+880,MH 05 4519,Private Car Package - Zero Depreciation,600000,Flagged,2025-02-28,429164
+881,MH 16 1000,Private Car Package - Zero Depreciation,770000,Active,2026-11-04,699304
+882,RJ 45 5183,Private Car Package - Zero Depreciation,1275000,Active,2026-09-06,1275000
+883,TN 16 0515,Private Car Package - Zero Depreciation,750000,Active,2026-01-04,600246
+884,HR 65 4640,Private Car Package - Standard,350000,Active,2025-10-10,313497
+885,KL 77 4785,Private Car Package - Zero Depreciation,600000,Flagged,2026-08-24,306575
+886,KL 45 0316,Private Car Package - Standard,350000,Flagged,2025-04-03,261394
+887,DL 25 9369,Private Car Package - Zero Depreciation,840000,Active,2025-08-20,746650
+888,RJ 35 6348,Private Car Package - Standard,550000,Active,2025-01-05,493723
+889,AP 45 7996,Private Car Package - Zero Depreciation,770000,Active,2026-07-27,770000
+890,HR 25 4984,Private Car Package - Zero Depreciation,840000,Active,2026-06-10,515311
+891,HR 88 6622,Private Car Package - Zero Depreciation,600000,Active,2026-07-31,563083
+892,PB 23 5902,Private Car Package - Standard,600000,Active,2026-11-29,530960
+893,MH 87 3042,Private Car Package - Zero Depreciation,489999,Active,2025-09-22,489999
+894,RJ 49 2015,Private Car Package - Zero Depreciation,750000,Active,2025-11-20,686357
+895,DL 21 7206,Private Car Package - Zero Depreciation,350000,Active,2025-09-27,350000
+896,KA 70 2246,Private Car Package - Zero Depreciation,489999,Flagged,2025-03-19,345610
+897,KL 69 7397,Private Car Package - Zero Depreciation,770000,Active,2026-08-11,657526
+898,MP 70 0491,Private Car Package - Zero Depreciation,1050000,Active,2025-08-29,740938
+899,MH 79 6440,Private Car Package - Zero Depreciation,840000,Active,2025-07-27,840000
+900,MH 04 1918,Private Car Package - Zero Depreciation,840000,Active,2025-05-03,608363
+901,GJ 74 2817,Private Car Package - Zero Depreciation,550000,Active,2025-02-13,466185
+902,RJ 95 3215,Private Car Package - Zero Depreciation,840000,Active,2026-08-12,840000
+903,WB 99 6566,Private Car Package - Standard,750000,Flagged,2025-10-14,461943
+904,TN 83 8476,Private Car Package - Zero Depreciation,1275000,Active,2026-03-10,1275000
+905,TN 41 9255,Private Car Package - Zero Depreciation,489999,Active,2025-06-28,428993
+906,PB 96 3190,Private Car Package - Zero Depreciation,770000,Active,2025-01-09,770000
+907,AP 31 3397,Private Car Package - Zero Depreciation,1050000,Active,2025-04-14,1050000
+908,DL 58 8405,Private Car Package - Zero Depreciation,840000,Active,2025-08-31,703671
+909,HR 40 6021,Private Car Package - Zero Depreciation,840000,Active,2026-03-11,733598
+910,RJ 14 9290,Private Car Package - Zero Depreciation,840000,Active,2026-02-15,840000
+911,TS 43 6096,Private Car Package - Zero Depreciation,1050000,Active,2026-08-13,1050000
+912,WB 83 3740,Private Car Package - Standard,350000,Active,2026-07-23,288435
+913,TS 58 7831,Private Car Package - Zero Depreciation,1050000,Active,2025-06-03,1050000
+914,TS 93 1937,Private Car Package - Zero Depreciation,1050000,Active,2025-05-18,1050000
+915,TN 89 7547,Private Car Package - Standard,600000,Active,2025-09-14,560830
+916,RJ 76 7198,Private Car Package - Zero Depreciation,489999,Active,2025-03-03,403560
+917,AP 80 4816,Private Car Package - Standard,550000,Active,2026-04-06,448921
+918,HR 80 0756,Private Car Package - Zero Depreciation,840000,Active,2026-07-25,513053
+919,HR 71 7759,Private Car Package - Zero Depreciation,489999,Active,2025-12-26,489999
+920,AP 39 9404,Private Car Package - Zero Depreciation,750000,Active,2025-06-28,532640
+921,TN 60 2771,Private Car Package - Zero Depreciation,840000,Active,2026-05-15,776964
+922,KL 17 1332,Private Car Package - Zero Depreciation,489999,Flagged,2026-04-20,257966
+923,TS 79 1632,Private Car Package - Zero Depreciation,750000,Active,2025-12-12,750000
+924,KL 78 6705,Private Car Package - Standard,550000,Active,2025-03-23,435592
+925,MH 19 5878,Private Car Package - Zero Depreciation,1050000,Active,2025-10-01,800825
+926,GJ 57 4616,Private Car Package - Zero Depreciation,770000,Active,2026-04-01,770000
+927,PB 72 6109,Private Car Package - Zero Depreciation,770000,Active,2025-01-24,725453
+928,RJ 39 0869,Private Car Package - Standard,600000,Active,2025-08-04,386938
+929,RJ 75 7419,Private Car Package - Zero Depreciation,595000,Active,2026-04-30,595000
+930,UP 74 5149,Private Car Package - Standard,350000,Active,2025-03-27,292348
+931,GJ 92 3586,Private Car Package - Zero Depreciation,1275000,Active,2025-11-13,1095251
+932,MH 66 2694,Private Car Package - Zero Depreciation,840000,Active,2025-05-15,593503
+933,WB 30 9237,Private Car Package - Zero Depreciation,595000,Active,2025-11-30,547471
+934,TS 21 5401,Private Car Package - Zero Depreciation,840000,Active,2026-07-07,751659
+935,UP 22 0305,Private Car Package - Zero Depreciation,550000,Active,2026-10-14,550000
+936,DL 67 7003,Private Car Package - Standard,600000,Active,2026-05-09,600000
+937,TS 75 1085,Private Car Package - Zero Depreciation,489999,Active,2026-02-27,404092
+938,GJ 54 0553,Private Car Package - Zero Depreciation,1020000,Active,2026-06-20,1020000
+939,PB 82 0650,Private Car Package - Zero Depreciation,840000,Active,2025-01-09,795565
+940,RJ 44 9854,Private Car Package - Zero Depreciation,770000,Active,2026-03-17,770000
+941,RJ 65 3054,Private Car Package - Standard,750000,Active,2026-01-18,667018
+942,UP 68 5416,Private Car Package - Zero Depreciation,770000,Active,2026-10-24,585795
+943,PB 56 6067,Private Car Package - Zero Depreciation,1050000,Flagged,2026-10-03,526790
+944,WB 93 0790,Private Car Package - Zero Depreciation,840000,Flagged,2025-10-03,707594
+945,KA 24 4950,Private Car Package - Zero Depreciation,489999,Active,2025-04-24,401959
+946,TS 51 3612,Private Car Package - Zero Depreciation,770000,Active,2026-09-30,770000
+947,GJ 55 4906,Private Car Package - Zero Depreciation,1020000,Active,2025-02-20,1020000
+948,UP 35 0885,Private Car Package - Standard,750000,Active,2025-10-03,591359
+949,KA 11 3792,Private Car Package - Zero Depreciation,489999,Active,2025-06-04,489999
+950,KA 09 3913,Private Car Package - Zero Depreciation,1050000,Active,2025-11-16,1050000
+951,PB 05 5182,Private Car Package - Zero Depreciation,550000,Flagged,2025-12-05,245107
+952,PB 89 2132,Private Car Package - Zero Depreciation,489999,Active,2025-03-15,382493
+953,TS 87 2554,Private Car Package - Zero Depreciation,1050000,Active,2026-01-26,961553
+954,TN 09 9610,Private Car Package - Zero Depreciation,1050000,Active,2026-03-30,1050000
+955,MH 18 6254,Private Car Package - Zero Depreciation,1050000,Active,2026-06-18,926779
+956,UP 46 3004,Private Car Package - Zero Depreciation,770000,Flagged,2025-11-27,285584
+957,AP 76 1057,Private Car Package - Standard,350000,Active,2026-07-17,350000
+958,TS 43 8196,Private Car Package - Zero Depreciation,840000,Active,2025-11-02,840000
+959,HR 85 2183,Private Car Package - Standard,350000,Active,2025-08-12,350000
+960,HR 98 6878,Private Car Package - Zero Depreciation,770000,Active,2025-10-10,659052
+961,RJ 25 8176,Private Car Package - Standard,550000,Active,2025-02-13,383769
+962,KA 40 4420,Private Car Package - Zero Depreciation,550000,Active,2025-06-08,550000
+963,MP 91 7673,Private Car Package - Zero Depreciation,1050000,Active,2026-09-26,796954
+964,KA 23 3328,Private Car Package - Zero Depreciation,595000,Active,2026-07-04,509207
+965,RJ 94 3476,Private Car Package - Zero Depreciation,770000,Active,2026-07-26,770000
+966,DL 90 8254,Private Car Package - Standard,550000,Active,2026-01-22,511423
+967,KL 74 8670,Private Car Package - Standard,600000,Active,2026-03-25,449892
+968,TN 21 9861,Private Car Package - Zero Depreciation,770000,Active,2026-07-11,699772
+969,DL 31 4863,Private Car Package - Zero Depreciation,770000,Active,2026-07-22,593020
+970,MP 76 4153,Private Car Package - Zero Depreciation,1050000,Active,2025-09-27,1050000
+971,KL 54 8088,Private Car Package - Zero Depreciation,935000,Active,2026-10-16,935000
+972,KL 96 5511,Private Car Package - Standard,750000,Active,2026-01-08,706878
+973,UP 97 5729,Private Car Package - Zero Depreciation,1050000,Flagged,2026-11-06,234806
+974,DL 70 5969,Private Car Package - Zero Depreciation,1050000,Active,2026-05-25,1050000
+975,KA 29 2468,Private Car Package - Zero Depreciation,750000,Flagged,2026-02-24,316690
+976,AP 56 1031,Private Car Package - Zero Depreciation,595000,Active,2025-02-14,509706
+977,KA 99 4992,Private Car Package - Zero Depreciation,489999,Active,2025-07-16,407244
+978,MP 36 4772,Private Car Package - Zero Depreciation,550000,Flagged,2026-10-01,148935
+979,GJ 88 8653,Private Car Package - Zero Depreciation,1020000,Active,2026-09-13,870986
+980,MH 33 3170,Private Car Package - Standard,350000,Active,2026-11-03,302834
+981,PB 65 7099,Private Car Package - Standard,550000,Active,2026-01-05,493509
+982,KA 02 7459,Private Car Package - Standard,600000,Active,2026-09-24,425815
+983,AP 25 8160,Private Car Package - Standard,350000,Active,2025-11-08,350000
+984,AP 21 1065,Private Car Package - Zero Depreciation,595000,Active,2026-06-29,500200
+985,KL 21 4295,Private Car Package - Zero Depreciation,1050000,Active,2025-09-12,1050000
+986,MH 16 4984,Private Car Package - Zero Depreciation,1050000,Active,2026-03-02,921760
+987,KL 09 0451,Private Car Package - Zero Depreciation,600000,Active,2025-04-17,544001
+988,WB 16 6068,Private Car Package - Zero Depreciation,770000,Flagged,2026-07-01,390811
+989,PB 24 3486,Private Car Package - Standard,600000,Active,2025-11-29,502117
+990,KA 09 4691,Private Car Package - Standard,550000,Flagged,2026-09-16,272582
+991,TS 95 3379,Private Car Package - Zero Depreciation,1050000,Active,2026-07-18,1050000
+992,KL 25 9399,Private Car Package - Standard,600000,Active,2026-02-11,510904
+993,WB 66 0048,Private Car Package - Zero Depreciation,600000,Active,2026-06-15,600000
+994,MH 59 8970,Private Car Package - Zero Depreciation,489999,Active,2025-08-16,489999
+995,KL 66 8629,Private Car Package - Standard,350000,Active,2026-07-21,305938
+996,AP 07 7574,Private Car Package - Zero Depreciation,1275000,Active,2026-04-17,1275000
+997,GJ 22 9682,Private Car Package - Zero Depreciation,1050000,Active,2026-08-20,1050000
+998,RJ 36 9806,Private Car Package - Standard,600000,Active,2025-04-05,600000
+999,RJ 54 3350,Private Car Package - Standard,750000,Active,2025-11-29,750000
+1000,DL 82 7527,Private Car Package - Standard,550000,Active,2025-04-08,444088

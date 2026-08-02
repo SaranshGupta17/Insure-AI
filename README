@@ -1,0 +1,32 @@
+++++++++++++++++++++++++++++++++++++++++++++ DIRECTION TO RUN using ngrok +++++++++++++++++++++++++++++++++++++++++++++++++
+
+0. Update CORS in main.py
+   allow_origins = ["*"]
+
+1. RUN BACKEND 
+   uvicorn main:app --reload --port 8000
+
+2. START NGROK TUNNEL
+   ngrok http 8000
+
+3. Verify the Domain in Google Cloud
+   Go to google search console and paste your ngrok url in URL Prefix (NOT DOMAIN) and verify
+   copy HTML METADATA 
+   Go to Google Cloud Console -> APIs & Services -> Domain Verification.
+   Add your new ngrok URL (without the https://).
+   Complete the Search Console HTML tag verification if prompted.  -> YOU CAN FIND IT IN GOOGLE SEARCH CONSOLE (same METADATA that you copied earlier)
+
+4. Register the Watch Channel
+   WEBHOOK_URL = "YOUR_NGROK_BASEURL/api/admin/sync-policies"
+
+5. RUN register_webhook.py -> to create connection between google drive folder and backend which will trigger the docs updation in folder
+   python register_webhook.py
+
+6. Update the React Frontend Environment
+   VITE_API_BASE_URL="YOUR_NGROK_BASEURL"
+
+7. Start the React Frontend
+   npm run dev
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++

@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+  --color-portal-paper: #f4f6f2;
+  --color-portal-ink: #102a43;
+  --color-portal-muted: #52606d;
+  --color-portal-border: #d9e2ec;
+  --color-portal-teal: #0f766e;
+  --color-portal-teal-strong: #115e59;
+  --color-portal-amber: #c98a2e;
+  --color-portal-error: #b42318;
+  --radius-portal-card: 28px;
+  --radius-portal-control: 14px;
+  --shadow-portal-mark: 0 12px 24px rgba(16, 42, 67, 0.18);
+  --shadow-portal-button: 0 10px 22px rgba(15, 118, 110, 0.2);
+  --shadow-portal-button-hover: 0 14px 28px rgba(15, 118, 110, 0.28);
+}
+
+@layer base {
+  html {
+    min-width: 320px;
+    background: var(--color-portal-paper);
+  }
+
+  body {
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
+    font-family: var(--font-sans);
+    background: var(--color-portal-paper);
+    color: var(--color-portal-ink);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  button,
+  input {
+    font: inherit;
+  }
+
+  button:focus-visible,
+  input:focus-visible,
+  a:focus-visible {
+    outline: 2px solid var(--color-portal-teal);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+}
