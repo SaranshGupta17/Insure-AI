@@ -7,13 +7,16 @@ from config.database_config import get_supabase
 
 load_dotenv()
 
+supabase = get_supabase(role="anon")
+
+
 def get_secure_database_tool(current_customer_id: str):
     """
     This is a Factory Function. It creates a tool specifically locked 
     to the current user's ID. The LLM takes 0 arguments for this tool.
     """
     @tool
-    async def lookup_my_database(query: str, customer_id: str) -> str:
+    async def lookup_my_database(customer_id: str) -> str:
         """
         Use this tool ONLY to look up specific, personal database records for the logged-in customer.
         Use this to find their specific vehicle number, personal claim status, or personal policy ID.
@@ -21,7 +24,6 @@ def get_secure_database_tool(current_customer_id: str):
         """
         try:
             # 1. Fetch Customer Data (LOCKED to current_customer_id)
-            supabase = get_supabase(role="anon")
             cust_res = supabase.table("customer").select("*").eq("customer_id", current_customer_id).execute()
             if not cust_res.data:
                 return "Error: Customer not found."
