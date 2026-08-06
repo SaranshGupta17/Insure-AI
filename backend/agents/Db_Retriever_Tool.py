@@ -3,7 +3,7 @@ import os
 import json
 from langchain_core.tools import tool
 from dotenv import load_dotenv
-from config.database_config import supabase
+from config.database_config import get_supabase
 
 load_dotenv()
 
@@ -13,14 +13,15 @@ def get_secure_database_tool(current_customer_id: str):
     to the current user's ID. The LLM takes 0 arguments for this tool.
     """
     @tool
-    async def lookup_my_database() -> str:
+    async def lookup_my_database(query: str, customer_id: str) -> str:
         """
-        Use this tool to look up the current user's profile, vehicles, 
-        insurance policies, and claims in the database. 
-        Requires no arguments.
+        Use this tool ONLY to look up specific, personal database records for the logged-in customer.
+        Use this to find their specific vehicle number, personal claim status, or personal policy ID.
+        DO NOT use this tool to answer general questions about company rules, how to file a claim, or PDF summaries.
         """
         try:
             # 1. Fetch Customer Data (LOCKED to current_customer_id)
+            supabase = get_supabase(role="anon")
             cust_res = supabase.table("customer").select("*").eq("customer_id", current_customer_id).execute()
             if not cust_res.data:
                 return "Error: Customer not found."
@@ -38,10 +39,10 @@ def get_secure_database_tool(current_customer_id: str):
                 policies = pol_res.data
                 
             # 4. Fetch Claims
-            policy_ids = [p["policy_id"] for p in policies]
+            policy_ids = [p["policy_no"] for p in policies]
             claims = []
             if policy_ids:
-                claim_res = supabase.table("claims").select("*").in_("policy_id", policy_ids).execute()
+                claim_res = supabase.table("claims").select("*").in_("policy_no", policy_ids).execute()
                 claims = claim_res.data
 
             # 5. Compile into a safe, structured dictionary for the LLM to read

@@ -1,26 +1,43 @@
-Agent
-✅ Refine Prompt for agent
-✅ modify the code so that user does not have to login to mail for authorization for document
-✅ Remove source document from the chatbot response
-✅ Automate google identication from backend to remove the browser pop up step on first run of app
-✅ Add new document upload trigger to update vector store for new policy document 
-✅ Restrict User from accessing other users data.
-✅ Dont fetch customer data everytime Customer asks for its personal info - Use Langgraph state memory
-Add logger
+CUSTOMER SIDE:
 
-Login
-✅ Customer and Employee - id and pin verification locally(meaning in proper format) and from database 
-✅ Keep User logged in if page refresh
-✅ Add logout button for proper logout and deleting session data 
+    GENERAL
+    ✅ modify the code so that user does not have to login to mail for authorization for document
+    ✅ Automate google identication from backend to remove the browser pop up step on first run of app
 
-File Claim
+    Agent
+    ✅ Remove source document from the chatbot response
+    ✅ REFINE PROMPT FOR DESCRIPTION + POLICY document
+    REFINE PROMPT FOR DATABASE QUERY + POLICY DOCUMENT
+    ✅ Add new document upload trigger to update vector store for new policy document 
+    ✅ Restrict User from accessing other users data.
+    ✅ Dont fetch customer data everytime Customer asks for its personal info - Use Langgraph state memory
+    Add logger
+
+    Login
+    ✅ Customer and Employee - id and pin verification locally(meaning in proper format) and from database 
+    ✅ Keep User logged in if page refresh
+    ✅ Add logout button for proper logout and deleting session data 
+
+    File Claim
+    ✅ CHECK POLICY NO
+    ✅ RC UPLOAD
+    ✅ INCIDENT DETAILS: 
+        INCIDENT TYPE
+        INCIDENT DESCRIPTION
+        EVIDENCE PHOTOS OR VIDEOS
+
+    ✅ IF THEFT:
+        FILE UPLOAD:
+            FIR
+            NTR 
+            RTO 
+    ✅ MATCH INCIDENT DESCRIPTION WITH INCIDENT TYPE
+    ✅ ANALYZE THE DESCRIPTION AND MATCH WITH POLICY DOCS AND SAVE THE SUMMARY IN JSON FORMAT 
+    ✅ SAVE UPLOADED DATA IN DATABASE
+
+OFFICER SIDE:
 
 
 
 
-mem1_WD-MIHIT671y7_RDTgdzd0-RZkUaeOC62IST7D1Ubf6CgSQ7uVoxOvYptq-7S0tun5LPzfa_F8eTcFJAWaN1zFx8jP3RXbueDS8eUiFMXdolm8le4Nd83_wkyOtV7I3Ujo8dKvsfmBv0FRNJLA==
-
-
-
-9F21OI6fK84K COUPON CODE
 

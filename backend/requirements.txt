@@ -20,7 +20,7 @@ google-genai
 
 # --- Vector Database & Document Processing ---
 faiss-cpu
-pypdf
+pypdf2
 langchain-text-splitters
 supabase
 pinecone

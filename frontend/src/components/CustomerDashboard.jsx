@@ -1,16 +1,19 @@
+// chatbot.jsx
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-export default function CustomerDashboard() {
-  const backendUrl = import.meta.env.VITE_API_BASE_URL;
+// Import our new components
+import Nav from './nav';
+import FileClaim from './file_claim';
+
+export default function Chatbot() {
+  const backendUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
   const navigate = useNavigate();
 
-  // PATCH 1: Retrieve customerId from sessionStorage (survives refresh)
   const [customerId] = useState(() => sessionStorage.getItem('identifier'));
-  const [customerName] = useState(() => sessionStorage.getItem('name'));
+  const [customerName] = useState(() => sessionStorage.getItem('name') );
 
-  // PATCH 2: Create a reference to auto-scroll the chat
   const messagesEndRef = useRef(null);
 
   useEffect(() => {
@@ -19,15 +22,19 @@ export default function CustomerDashboard() {
     }
   }, [customerId, navigate]);
 
+  // View state controls whether we show the Chatbot or the Claim Form
   const [view, setView] = useState('chatbot');
+  
+  // Chat state
   const [query, setQuery] = useState('');
   const [chatHistory, setChatHistory] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  // PATCH 3: Automatically scroll to bottom whenever chatHistory or isLoading changes
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [chatHistory, isLoading]);
+    if (view === 'chatbot') {
+      messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [chatHistory, isLoading, view]);
 
   const handleChatSubmit = async (e) => {
     e.preventDefault();
@@ -44,30 +51,20 @@ export default function CustomerDashboard() {
         query: userMessage.content,
         customer_id: customerId 
       },{
-        // Attach the token to the Headers
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
+        headers: { 'Authorization': `Bearer ${token}` }
       });
-
+  
       const { answer, source_documents } = response.data;
 
       setChatHistory((prev) => [
         ...prev,
-        {
-          role: 'bot',
-          content: answer,
-          sources: source_documents || []
-        }
+        { role: 'bot', content: answer, sources: source_documents || [] }
       ]);
     } catch (error) {
       console.error("Chat API Error:", error);
       setChatHistory((prev) => [
         ...prev,
-        { 
-          role: 'bot', 
-          content: `Error: ${error.response?.data?.detail || error.message || "Unable to connect to the server."}` 
-        }
+        { role: 'bot', content: `Error: ${error.response?.data?.detail || error.message}` }
       ]);
     } finally {
       setIsLoading(false);
@@ -81,54 +78,23 @@ export default function CustomerDashboard() {
 
   return (
     <div className="flex h-screen bg-slate-50">
-      {/* Vertical Navigation Bar */}
-      <aside className="w-64 bg-white border-r border-slate-200 p-6 flex flex-col justify-between">
-        <div>
-          <h2 className="text-xl font-bold text-portal-teal">Customer Portal</h2>
-          <p className="text-sm font-mono text-slate-500 mt-1">ID: {customerId}</p>
-          <p className="text-sm font-mono text-slate-500 mb-8 mt-1">Name: {customerName}</p>
-          
-          <div className="flex flex-col space-y-4">
-            <label className="flex items-center space-x-3 cursor-pointer group">
-              <input 
-                type="radio" 
-                name="nav" 
-                value="chatbot" 
-                checked={view === 'chatbot'} 
-                onChange={() => setView('chatbot')}
-                className="w-4 h-4 text-portal-teal focus:ring-portal-teal"
-              />
-              <span className="text-slate-700 font-medium group-hover:text-portal-teal transition-colors">AI Assistant</span>
-            </label>
-            
-            <label className="flex items-center space-x-3 cursor-pointer group">
-              <input 
-                type="radio" 
-                name="nav" 
-                value="claim" 
-                checked={view === 'claim'} 
-                onChange={() => setView('claim')}
-                className="w-4 h-4 text-portal-teal focus:ring-portal-teal"
-              />
-              <span className="text-slate-700 font-medium group-hover:text-portal-teal transition-colors">File a Claim</span>
-            </label>
-          </div>
-        </div>
+      {/* 1. Inject the Navigation Component */}
+      <Nav 
+        Id={customerId} 
+        Name={customerName} 
+        view={view} 
+        setView={setView} 
+        handleLogout={handleLogout} 
+      />
 
-        {/* Logout Button */}
-        <button 
-          onClick={handleLogout}
-          className="text-sm font-semibold text-slate-500 hover:text-red-500 transition-colors text-left"
-        >
-          ← Sign Out
-        </button>
-      </aside>
-
-      {/* Main Content Area */}
+      {/* 2. Main Content Area */}
       <main className="flex-1 flex flex-col p-8">
+        
+        {/* Conditional Rendering based on the 'view' state */}
         {view === 'chatbot' ? (
+          
+          /* CHATBOT UI */
           <div className="flex flex-col h-full max-w-4xl mx-auto w-full bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-            
             <div className="bg-slate-100 px-6 py-2 border-b border-slate-200 flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
               <span className="text-xs font-medium text-slate-500 uppercase tracking-wider">
@@ -177,7 +143,6 @@ export default function CustomerDashboard() {
                 </div>
               )}
               
-              {/* Invisible div to scroll into view */}
               <div ref={messagesEndRef} />
             </div>
 
@@ -199,10 +164,12 @@ export default function CustomerDashboard() {
               </button>
             </form>
           </div>
+
         ) : (
-          <div className="flex-1 flex items-center justify-center">
-            <h2 className="text-2xl text-slate-500 font-medium">File Claim Form UI goes here.</h2>
-          </div>
+          
+          /* FILE CLAIM UI */
+          <FileClaim />
+          
         )}
       </main>
     </div>

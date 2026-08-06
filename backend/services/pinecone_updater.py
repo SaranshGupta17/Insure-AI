@@ -2,13 +2,13 @@
 import os
 from pathlib import Path
 from dotenv import load_dotenv
-from langchain_google_community import GoogleDriveLoader
-from langchain_text_splitters import RecursiveCharacterTextSplitter
+
 from pinecone import Pinecone
 
+from services.Document_embedder import Load_embedd_and_update
+
 # Setup Environment and Paths
-BASE_DIR = Path(__file__).resolve().parent.parent
-load_dotenv(dotenv_path=BASE_DIR / ".env")
+load_dotenv()
 
 INDEX_NAME = "insurance-policies"
 NAMESPACE = "ns1"
@@ -28,47 +28,9 @@ def sync_drive_to_pinecone():
         pc = Pinecone(api_key=api_key)
         index = pc.Index(INDEX_NAME)
 
-        # 1. Fetch latest from Google Drive
-        folder_id = os.getenv("GOOGLE_DRIVE_FOLDER_ID")
-        credentials_path = str(BASE_DIR / os.getenv("GOOGLE_DRIVE_CREDENTIALS_PATH", "credentials.json"))
+        # 1. Fetch latest from Google Drive and update Pinecone
+        Load_embedd_and_update(index, namespace=NAMESPACE)
         
-        loader = GoogleDriveLoader(
-            folder_id=folder_id,
-            service_account_key=credentials_path,
-            recursive=False,
-            file_types=["pdf"],
-            scopes=["https://www.googleapis.com/auth/drive.readonly"],
-        )
-        documents = loader.load()
         
-        if not documents:
-            print("[Sync] No documents found in Drive. Aborting sync.")
-            return
-
-        # 2. Chunk the updated documents
-        text_splitter = RecursiveCharacterTextSplitter(chunk_size=800, chunk_overlap=100)
-        split_docs = text_splitter.split_documents(documents)
-
-        # 3. Clear the existing namespace to prevent duplicate chunks
-        print(f"[Sync] Clearing old records from namespace '{NAMESPACE}'...")
-        index.delete(delete_all=True, namespace=NAMESPACE)
-
-        # 4. Format and Upsert new records
-        records = []
-        for i, doc in enumerate(split_docs):
-            source = doc.metadata.get("source", "Policy Document")
-            records.append({
-                "id": f"doc_chunk_{i}",
-                "chunk_text": doc.page_content,
-                "source": source
-            })
-
-        print(f"[Sync] Upserting {len(records)} new chunks into Pinecone...")
-        batch_size = 100
-        for i in range(0, len(records), batch_size):
-            index.upsert_records(namespace=NAMESPACE, records=records[i:i+batch_size])
-
-        print("[Sync] Pinecone Database successfully updated with latest policies!")
-
     except Exception as e:
         print(f"[Sync Error] Failed to update Pinecone: {str(e)}")

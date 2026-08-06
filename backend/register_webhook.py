@@ -34,6 +34,8 @@ def setup_drive_webhook():
 
     try:
         print(f"Telling Google to watch folder: {folder_id}...")
+        
+
         response = service.files().watch(fileId=folder_id, body=body).execute()
         print("\n✅ Webhook Registered Successfully!")
         print(f"Channel ID: {response['id']}")
