@@ -10,6 +10,7 @@ CUSTOMER SIDE:
     ✅ Automate google identication from backend to remove the browser pop up step on first run of app
 
     Agent
+    APPLY ROW LEVEL POLICIES IN ALL TABLES TO RESTRICT AGENT FROM UPDATING DATA IN DATABASE 
     ✅ Remove source document from the chatbot response
     ✅ REFINE PROMPT FOR DESCRIPTION + POLICY document
     REFINE PROMPT FOR DATABASE QUERY + POLICY DOCUMENT
@@ -41,6 +42,32 @@ CUSTOMER SIDE:
     ✅ SAVE UPLOADED DATA IN DATABASE
 
 OFFICER SIDE:
+
+    ✅ LIST ALL TE CLAIMS:
+        PENDING
+        APPROVED
+        REJECTED
+
+    SHOW:
+        ✅ CUSTOMER ID
+        ✅ NAME
+        ✅ POLICY NO    
+        ✅ AI SUMMARY:
+            POLICY MATCH
+            AI MESSAGE TO OFFICER
+            POLICIES REFERENCE
+        ✅ INCIDENT DATE 
+        ✅ CLAIM ID
+        ✅ CLAIM DATE
+        ✅ INCIDENT TYPE
+        ✅ DESCRIPTION
+        
+        ✅ RC
+        ✅ EVIDENCE PHOTOS
+
+    IN CASE OF THEFT PROVIDE BUTTON TO FORWARD TO PRIVATE INVESTIGATOR and update in database as "Forwarded"
+    ✅ send full incident type options to backend
+        
 
 
 

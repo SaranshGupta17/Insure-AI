@@ -110,7 +110,10 @@ const Login = () => {
       sessionStorage.setItem('token', response.data.token);
       sessionStorage.setItem('role', response.data.role);
       sessionStorage.setItem('identifier', response.data.identifier);
-      sessionStorage.setItem('name', response.data.name); 
+      sessionStorage.setItem('name', response.data.name);
+      // if(role === "employee"){
+      //   sessionStorage.setItem("selectedClaimId",null);
+      // }
 
       // 4. Route to the correct dashboard
       if (role === 'customer') {

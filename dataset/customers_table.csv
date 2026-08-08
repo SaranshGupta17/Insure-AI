@@ -1,5 +1,5 @@
-customer_id,name,customer_pin,car_number,policy_no
-CUST-1001,Garima Kapoor,6364,TN 77 2876,POL-51541472
+customer_id,name,pin,car_number,policy_no
+CUST-1001,Garima Kapoor,6364,TN 77 2874,POL-51541472
 CUST-1002,Riya Joshi,252,AP 14 4076,POL-51036885
 CUST-1003,Vihaan Hegde,5703,PB 11 6600,POL-35687050
 CUST-1004,Vihaan Sarkar,4488,WB 71 3009,POL-58735357

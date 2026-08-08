@@ -20,6 +20,9 @@ class State(TypedDict):
 
 # 2. Define the Graph Runner Function
 # We wrap the entire graph compilation in this function so we can pass the customer_id in dynamically
+    # Using the orchestrator graph runner for:
+    # 1. answering queries from policy document  
+    # 2. Matching file claim incident details from policy documents
 async def orchestrator_graph_runner(customer_id: str, incident_details: Optional[str]=None, query: Optional[str]=None) -> str:
     """Dynamically builds and runs the graph for the specific logged-in user."""
     
@@ -62,6 +65,7 @@ async def orchestrator_graph_runner(customer_id: str, incident_details: Optional
                             "If incident_description matches with incident_type then check if the user's incident_description matches any of the company policies using the `search_company_policies` tool. "
                             "If it does, respond with a clear and concise message confirming that the incident is covered by the policy. "
                             "If it does not match any policy, respond with a clear, concise and polite message for rejection with the clear references from the policy document. "
+                            "Special Case: In case of incident_type = 'Burglary, Housebreaking, or Theft' no need to match with incident_desciption simply check if the user's incident_type matches any of the company policies using the `search_company_policies` tool. and give response directly with all the clear references from policy document"
                             "Dont assume anything from your own knowledge. Only answer based on the tools and information provided."
                             "Provide answers in a concise and clear manner Dont use so many special characters."
                             "Your answer should be in json format with the following keys: 'is_covered' (boolean), 'message' (string), and 'policy_references' list of (comma separated strings )."

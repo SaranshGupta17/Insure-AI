@@ -17,7 +17,7 @@ export default function FileClaim() {
   const [description, setDescription] = useState('');
   const [evidenceFiles, setEvidenceFiles] = useState(null);
   
-  // NEW: Splitting Theft Specific State into 3 distinct files
+  // NEW: Splitting Burglary, Housebreaking, or Theft Specific State into 3 distinct files
   const [firDoc, setFirDoc] = useState(null);
   const [ntrDoc, setNtrDoc] = useState(null);
   const [rtoDoc, setRtoDoc] = useState(null);
@@ -54,7 +54,7 @@ export default function FileClaim() {
     if (rcDocument) formData.append('rc_document', rcDocument);
 
     // 2. Append conditional fields based on incident type
-    if (incidentType === 'theft') {
+    if (incidentType === 'Burglary, Housebreaking, or Theft') {
       if (firDoc) formData.append('fir_document', firDoc);
       if (ntrDoc) formData.append('ntr_document', ntrDoc);
       if (rtoDoc) formData.append('rto_document', rtoDoc);
@@ -201,11 +201,11 @@ export default function FileClaim() {
                 required
               >
                 <option value="accidental_external">Accidental External Means</option>
-                <option value="theft">Burglary, Housebreaking, or Theft</option>
-                <option value="fire_lightning">Fire, Explosion, Self Ignition, or Lightning</option>
-                <option value="riot_strike">Riot and Strike</option>
-                <option value="earthquake">Earthquake (Fire & Shock Damage)</option>
-                <option value="flood_weather">Flood, Typhoon, Hurricane, Storm, Tempest, Inundation, Cyclone, Hailstorm, Frost</option>
+                <option value="Burglary, Housebreaking, or Theft">Burglary, Housebreaking, or Theft</option>
+                <option value="Fire, Explosion, Self Ignition, or Lightning">Fire, Explosion, Self Ignition, or Lightning</option>
+                <option value="Riot or Strike">Riot and Strike</option>
+                <option value="Earthquake (Fire & Shock Damage)">Earthquake (Fire & Shock Damage)</option>
+                <option value="Flood, Typhoon, Hurricane, Storm, Tempest, Inundation, Cyclone, Hailstorm, Frost">Flood, Typhoon, Hurricane, Storm, Tempest, Inundation, Cyclone, Hailstorm, Frost</option>
                 <option value="malicious_act">Malicious Act</option>
                 <option value="terrorist_activity">Terrorist Activity</option>
                 <option value="transit">Transit (by Road, Rail, Inland-Waterway, Lift, Elevator, or Air)</option>
@@ -232,13 +232,13 @@ export default function FileClaim() {
           )}
 
             {/* CONDITIONAL RENDERING */}
-            {incidentType === 'theft' ? (
+            {incidentType === 'Burglary, Housebreaking, or Theft' ? (
               
-              /* 3. THEFT SPECIFIC FIELDS (SPLIT INTO 3) */
+              /* 3. Burglary, Housebreaking, or Theft SPECIFIC FIELDS (SPLIT INTO 3) */
               <div className="pt-2 animate-in fade-in slide-in-from-top-2 duration-300 space-y-5">
                 <div className="bg-portal-amber/10 border border-portal-amber/30 rounded-xl p-4 mb-4">
                   <p className="text-sm text-portal-amber-strong font-medium">
-                    <strong>Theft Protocol:</strong> You must provide all three legal documents to process a vehicle theft claim.
+                    <strong>Burglary, Housebreaking, or Theft Protocol:</strong> You must provide all three legal documents to process a vehicle Burglary, Housebreaking, or Theft claim.
                   </p>
                 </div>
 

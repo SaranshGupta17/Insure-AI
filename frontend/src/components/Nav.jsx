@@ -1,6 +1,6 @@
-import React from 'react';
+import {} from 'react';
 
-export default function Nav({ Id, Name, view, setView, handleLogout, role = sessionStorage.getItem('role') }) {
+export default function Nav({ Id, Name, view, setView, handleLogout, backToTable, role = sessionStorage.getItem('role') }) {
   // 1. Set dynamic styles and text based on the user's role
   const isEmployee = role === 'employee';
   
@@ -61,7 +61,10 @@ export default function Nav({ Id, Name, view, setView, handleLogout, role = sess
                   name="nav" 
                   value="pending" 
                   checked={view === 'pending'} 
-                  onChange={() => setView('pending')}
+                  onChange={() => {
+                    setView('pending')
+                    backToTable()
+                  }}
                   className={`w-4 h-4 ${themeColor} ${focusRing}`}
                 />
                 <span className={`font-medium transition-colors ${view === 'pending' ? activeText : `text-slate-700 ${hoverColor}`}`}>
@@ -75,7 +78,10 @@ export default function Nav({ Id, Name, view, setView, handleLogout, role = sess
                   name="nav" 
                   value="approved" 
                   checked={view === 'approved'} 
-                  onChange={() => setView('approved')}
+                  onChange={() => {
+                    setView('approved')
+                    backToTable()
+                }}
                   className={`w-4 h-4 ${themeColor} ${focusRing}`}
                 />
                 <span className={`font-medium transition-colors ${view === 'approved' ? activeText : `text-slate-700 ${hoverColor}`}`}>
@@ -89,7 +95,10 @@ export default function Nav({ Id, Name, view, setView, handleLogout, role = sess
                   name="nav" 
                   value="rejected" 
                   checked={view === 'rejected'} 
-                  onChange={() => setView('rejected')}
+                  onChange={() => {
+                    setView('rejected')
+                    backToTable()
+                  }}
                   className={`w-4 h-4 ${themeColor} ${focusRing}`}
                 />
                 <span className={`font-medium transition-colors ${view === 'rejected' ? activeText : `text-slate-700 ${hoverColor}`}`}>

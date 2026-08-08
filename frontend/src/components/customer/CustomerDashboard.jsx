@@ -4,11 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 // Import our new components
-import Nav from './nav';
-import FileClaim from './file_claim';
+import Nav from '../nav';
+import FileClaim from './File_claim';
 
 export default function Chatbot() {
-  const backendUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+  const backendUrl = import.meta.env.VITE_API_BASE_URL;
   const navigate = useNavigate();
 
   const [customerId] = useState(() => sessionStorage.getItem('identifier'));
@@ -108,8 +108,29 @@ export default function Chatbot() {
                   <p className="text-lg font-medium">Multi-Agent Insurance Assistant</p>
                   <p className="text-sm mt-2">I can check your personal database records, search company policy documents, or just chat!</p>
                   <div className="mt-4 flex justify-center gap-2 text-xs">
-                    <span className="px-2 py-1 bg-portal-teal/10 text-portal-teal rounded-md border border-portal-teal/20">Try: "What is my vehicle number?"</span>
-                    <span className="px-2 py-1 bg-emerald-50 text-emerald-600 rounded-md border border-emerald-100">Try: "How do I file a claim?"</span>
+                    <span className="px-2 py-1 text-portal-teal">Try: "</span>
+                    <span 
+                      className="px-2 py-1 bg-emerald-50 text-emerald-600 rounded-md border border-emerald-100"
+                      onClick={(e) => {
+                        setQuery(e.target.innerText)
+                        
+                      }}
+                      onMouseEnter={(e) => {
+                        e.target.style.cursor = 'pointer'
+                        
+                      }}
+                    >What is my vehicle number?</span>
+                      
+                    <span className="px-2 py-1 bg-emerald-50 text-emerald-600 rounded-md border border-emerald-100"
+                      onClick={(e) => {
+                        setQuery(e.target.innerText)
+                        
+                      }}
+                      onMouseEnter={(e) => {
+                        e.target.style.cursor = 'pointer'
+                      }}
+                    >How do I file a claim?</span>
+
                   </div>
                 </div>
               ) : (
@@ -139,7 +160,6 @@ export default function Chatbot() {
                   <div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce"></div>
                   <div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
                   <div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
-                  <span className="text-sm ml-1">Agents are thinking...</span>
                 </div>
               )}
               
