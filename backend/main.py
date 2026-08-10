@@ -1,4 +1,6 @@
 # main.py
+import asyncio
+import importlib
 import json
 import os
 import jwt
@@ -26,10 +28,23 @@ from models.Update_model import UpdateStatus
 
 from services.pinecone_updater import sync_drive_to_pinecone
 
+
+# 🔥 Function to execute register_webhook.py asynchronously on startup
+async def auto_register_webhook():
+    try:
+        logger.info("[Startup] Attempting to auto-register Google Drive Webhook...")
+        loop = asyncio.get_event_loop()
+        # Imports and executes register_webhook.py without blocking the main server thread
+        await loop.run_in_executor(None, lambda: importlib.import_module("register_webhook"))
+        logger.info("[Startup] Google Drive Webhook script executed.")
+    except Exception as e:
+        logger.error(f"[Startup Error] Failed to run register_webhook.py: {e}")
+        
 #NOTE:_________________________________________________LIFESPAN & FASTAPI SETUP____________________________________________________
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     logger.info("Server starting up. Vector DB initialized lazily.")
+    asyncio.create_task(auto_register_webhook())
     yield
     logger.info("Shutting down server...")
 
