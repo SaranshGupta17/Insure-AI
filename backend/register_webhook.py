@@ -1,5 +1,6 @@
 import os
 import uuid
+import json
 from google.oauth2.service_account import Credentials # <-- Changed this import
 from googleapiclient.discovery import build
 from dotenv import load_dotenv
@@ -15,9 +16,15 @@ def setup_drive_webhook():
     
     # 1. Use the token.json file that Langchain generates, NOT a service account
     # Authenticate silently using the service account JSON
-    creds_path = os.getenv("GOOGLE_DRIVE_CREDENTIALS_PATH")
-    creds = Credentials.from_service_account_file(
-        creds_path,
+    # Fetch the raw JSON string from your .env
+    creds_json_string = os.getenv("GOOGLE_DRIVE_CREDENTIALS_PATH")
+    
+    # Parse the string into a Python dictionary
+    creds_info = json.loads(creds_json_string)
+
+    # Use _info instead of _file
+    creds = Credentials.from_service_account_info(
+        creds_info,
         scopes=["https://www.googleapis.com/auth/drive.readonly"]
     )
     
