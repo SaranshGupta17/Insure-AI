@@ -57,7 +57,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
-        "https://insure-ai-eciz-eight.vercel.app/"
+        "https://insure-ai-eciz-eight.vercel.app"
         ],
     allow_credentials=True,
     allow_methods=["*"],
