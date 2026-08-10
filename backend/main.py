@@ -55,9 +55,9 @@ app.add_middleware(
 # ONLY IF USING NGROK: This is required for Google to verify your domain for the webhook. If you are using a custom domain, you can remove this endpoint and verify your domain in Google Search Console instead.
 @app.get("/")
 async def root():
-    return HTMLResponse(content='<html><head><meta name="google-site-verification" content="AfZnW6vLcO-0FAnB2xMQ8LaPqLQOD4iJffQCjY2IdoU" /></head><body></body></html>')
+    return HTMLResponse(content='<html><head><meta name="google-site-verification" content="a5oun_ycn9cjDeQBuoqc1b54enm1tmIyZRf-sRrebM8" /></head><body></body></html>')
 
-@app.get("/health")
+@app.get("/health") 
 async def health_check():
     return {"status": "ok", "message": "Server is running (LangGraph Enabled)"}
 
