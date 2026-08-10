@@ -227,7 +227,7 @@ export default function ClaimDashboard({ claimId, onBack, setView }) {
       </div>
 
       {/* Main Dossier Content */}
-      <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden flex-1 overflow-y-auto">
+      <div className="bg-white rounded-2xl shadow-sm border border-slate-200 flex-1 overflow-y-auto overflow-hidden">
         
         {/* Header */}
         <div className="bg-slate-800 text-white p-6 border-b border-slate-200 flex justify-between items-end">
@@ -237,21 +237,43 @@ export default function ClaimDashboard({ claimId, onBack, setView }) {
               Submitted on: <span className="text-slate-200 font-medium">{claimData.claim_date}</span>
             </p>
           </div>
-          {
-            claimData.claim_status == "Rejected" ? (
-              <span className="px-4 py-1.5 bg-red-700 rounded-full text-sm font-bold uppercase tracking-widest border border-slate-600">
-                {claimData.claim_status}
-            </span>
-            ): claimData.claim_status == "Approved" ? (
-              <span className="px-4 py-1.5 bg-green-600 rounded-full text-sm font-bold uppercase tracking-widest border border-slate-600">
-                {claimData.claim_status}
-              </span>
-            ):(
-              <span className="px-4 py-1.5 bg-slate-700 rounded-full text-sm font-bold uppercase tracking-widest border border-slate-600">
-                {claimData.claim_status}
-              </span>
-            )
-          }
+          
+            {
+              claimData.claim_status == "Rejected" ? (
+              <div className='h-full flex flex-col justify-around items-end'>
+                <span className="px-4 py-1.5 bg-red-700 rounded-full text-sm font-bold uppercase tracking-widest border border-slate-600">
+                  {claimData.claim_status}
+                </span>
+                <p className="text-slate-400 mt-1 flex items-center gap-2">
+                  {claimData.claim_status} By: <span className="text-slate-200 font-medium">{claimData.employee_id ? claimData.employee_id : claimData.action_by}</span>
+                </p>
+              </div>
+              ): claimData.claim_status == "Approved" ? (
+              <div className='h-full flex flex-col justify-between items-end'>
+                <span className="px-4 py-1.5 bg-green-600 rounded-full text-sm font-bold uppercase tracking-widest border border-slate-600">
+                  {claimData.claim_status}
+                </span>
+                <p className="text-slate-400 mt-1 flex items-center gap-2">
+                  {claimData.claim_status} By: <span className="text-slate-200 font-medium">{claimData.employee_id ? claimData.employee_id : claimData.action_by}</span>
+                </p>
+              </div>
+              ): claimData.claim_status == "Forwarded" ? (
+              <div className='h-full flex flex-col justify-between items-end'>
+                <span className="px-4 py-1.5 bg-slate-700 rounded-full text-sm font-bold uppercase tracking-widest border border-slate-600">
+                  {claimData.claim_status}
+                </span>
+                <p className="text-slate-400 mt-1 flex items-center gap-2">
+                  {claimData.claim_status} By: <span className="text-slate-200 font-medium">{claimData.employee_id ? claimData.employee_id : claimData.action_by}</span>
+                </p>
+              </div>
+              ): (
+                <span className="px-4 py-1.5 bg-slate-700 rounded-full text-sm font-bold uppercase tracking-widest border border-slate-600">
+                  {claimData.claim_status}
+                </span>
+              )
+            }
+            
+          
         </div>
 
         <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -316,7 +338,7 @@ export default function ClaimDashboard({ claimId, onBack, setView }) {
                 </div>
                 <div>
                   <span className="text-slate-500 text-sm block mb-2">Description provided by customer</span>
-                  <div className="bg-white p-3 rounded-lg border border-slate-200 text-sm text-slate-700 leading-relaxed italic break-words whitespace-pre-wrap">
+                  <div className="bg-white p-3 rounded-lg border border-slate-200 text-sm text-slate-700 leading-relaxed italic wrap-break-word whitespace-pre-wrap">
                     "{claimData.description || 'No description provided.'}"
                   </div>
                 </div>
@@ -372,7 +394,7 @@ export default function ClaimDashboard({ claimId, onBack, setView }) {
                     )}
                   </ul>
                 </div>
-
+                
               </div>
             </section>
 
