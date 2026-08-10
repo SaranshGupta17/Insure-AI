@@ -24,7 +24,7 @@ export default function ClaimDashboard({ claimId, onBack, setView }) {
         
         // You will need to build this specific route in FastAPI: /api/claims/{claimId}
         const response = await axios.get(`${backendUrl}/review/claims/${claimId}`, {
-          headers: { 'Authorization': `Bearer ${token}`, "ngrok-skip-browser-warning": "69420" }
+          headers: { 'Authorization': `Bearer ${token}`}
         });
 
         setClaimData(response.data);
@@ -79,7 +79,7 @@ export default function ClaimDashboard({ claimId, onBack, setView }) {
           rejection_reason: reason,
           employee_id:employee_id
         },
-        { headers: { 'Authorization': `Bearer ${token}`,"ngrok-skip-browser-warning": "69420" } }
+        { headers: { 'Authorization': `Bearer ${token}`} }
       );
       
       if(response){
@@ -108,12 +108,11 @@ export default function ClaimDashboard({ claimId, onBack, setView }) {
       return null;
     }
 
-    console.log(url)
     // We split the URL at the '?' and check the actual path
     const urlWithoutParams = url.split('?')[0].toLowerCase();
     const isPdf = urlWithoutParams.endsWith('.pdf');
 
-    console.log(isPdf)
+    
     return (
       <div className="bg-white p-3 rounded-xl border border-slate-200 shadow-sm flex flex-col h-full">
         <h4 className="text-xs font-bold text-slate-600 uppercase tracking-wider mb-3">{title}</h4>

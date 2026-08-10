@@ -49,7 +49,7 @@ export default function EmployeeDashboard() {
 
         // Note: You will need to create this GET route in your FastAPI backend later
         const response = await axios.get(`${backendUrl}/api/claims`, {
-          headers: { 'Authorization': `Bearer ${token}`,"ngrok-skip-browser-warning": "69420" }
+          headers: { 'Authorization': `Bearer ${token}`}
         });
         
         // Assuming the backend returns an array of claims
