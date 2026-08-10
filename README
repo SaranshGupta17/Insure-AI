@@ -1,3 +1,10 @@
+EMPLOYEE LOGIN(PREVIEW):
+   EMP1001
+   4821
+CUSTOMER LOGIN(PREVIEW):
+   CUST-1001
+   6364
+
 ++++++++++++++++++++++++++++++++++++++++++++ DIRECTION TO RUN using ngrok +++++++++++++++++++++++++++++++++++++++++++++++++
 
 0. Update CORS in main.py
