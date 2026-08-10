@@ -8,9 +8,10 @@ from langgraph.graph.message import add_messages
 from langgraph.prebuilt import ToolNode, tools_condition
 from langgraph.checkpoint.memory import MemorySaver
 
-# Note: We now import the factory function instead of the static tool
+# Note: Import the factory function instead of the static tool
 from agents.Db_Retriever_Tool import get_secure_database_tool
 from agents.Policy_Retriever_Tool import search_company_policies
+from config.logger import logger
 
 memory = MemorySaver()
 
@@ -25,14 +26,18 @@ class State(TypedDict):
     # 2. Matching file claim incident details from policy documents
 async def orchestrator_graph_runner(customer_id: str, incident_details: Optional[str]=None, query: Optional[str]=None) -> str:
     """Dynamically builds and runs the graph for the specific logged-in user."""
+    logger.info(f"Initializing agent graph execution for customer ID: {customer_id}")
     
     api_key = os.getenv("GOOGLE_API_KEY")
+    if not api_key:
+        logger.error("GOOGLE_API_KEY missing from environment variables.")
+        raise RuntimeError("GOOGLE_API_KEY is required.")
     
     # 1. Generate the secure DB tool locked specifically to this user's ID
     secure_db_tool = get_secure_database_tool(customer_id)
     
     # Bind our Agent 2 (Secure) and Agent 3 tools to the LLM
-    tools = [secure_db_tool, search_company_policies]
+    tools = [*secure_db_tool, search_company_policies]
     
     # Initialize the LLM
     llm = ChatGoogleGenerativeAI(
@@ -44,14 +49,15 @@ async def orchestrator_graph_runner(customer_id: str, incident_details: Optional
     
     # 2. Define the Node Function
     def chatbot_node(state: State):
+        logger.debug("Chatbot node invoked.")
         content = ""
         
         if(query):
             content=(
                             "You are a helpful and polite insurance assistant. "
                             "If the user greets you, respond conversationally and naturally. "
-                            "If they ask about their personal details, personal car information, personal insurance policy type, or personal claim information, call the `secure_db_tool` tool. "
-                            "If they ask about general company policies or rules, use the `search_company_policies` tool. "
+                            "If they ask about their personal details, personal car information, personal insurance policy information, or personal claim information, call the `secure_db_tool` tool. "
+                            "If they ask about general insurance policies or rules, use the `search_company_policies` tool. "
                             "If you use a tool, read the result and synthesize a friendly final clean answer for the user."
                             "Dont assume anything from your own knowledge. Only answer based on the tools and information provided."
                             "Provide answers in a concise and clear manner Dont use so many special characters. If you don't know the answer, say 'I don't know' or 'I am not sure'."
@@ -70,6 +76,7 @@ async def orchestrator_graph_runner(customer_id: str, incident_details: Optional
                             "Provide answers in a concise and clear manner Dont use so many special characters."
                             "Your answer should be in json format with the following keys: 'is_covered' (boolean), 'message' (string), and 'policy_references' list of (comma separated strings )."
                         )
+            
         sys_msg = SystemMessage(
             content=content
         )
@@ -99,8 +106,16 @@ async def orchestrator_graph_runner(customer_id: str, incident_details: Optional
     config = {"configurable": {"thread_id": customer_id}}
     
     # 4. Run the graph with the user's initial query
-    initial_state = {"messages": [HumanMessage(content= query if query else incident_details)]}
-    final_state = await graph.ainvoke(initial_state, config=config)
+    user_input = query if query else incident_details
+    initial_state = {"messages": [HumanMessage(content=user_input)]}
     
-    # Return the final message content
-    return final_state["messages"][-1].content
+    try:
+        final_state = await graph.ainvoke(initial_state, config=config)
+        final_response = final_state["messages"][-1].content
+        logger.info(f"Agent execution completed successfully for customer: {customer_id}")
+        
+        # return the final response
+        return final_response
+    except Exception as e:
+        logger.exception(f"Error executing agent graph for customer {customer_id}: {e}")
+        raise e

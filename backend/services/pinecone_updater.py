@@ -1,11 +1,9 @@
 # services/pinecone_updater.py
 import os
-from pathlib import Path
 from dotenv import load_dotenv
-
 from pinecone import Pinecone
-
 from services.Document_embedder import Load_embedd_and_update
+from config.logger import logger
 
 # Setup Environment and Paths
 load_dotenv()
@@ -19,10 +17,11 @@ def sync_drive_to_pinecone():
     and upserts the new embeddings. Designed to run as a background task.
     """
     try:
-        print("[Sync] Starting Google Drive to Pinecone sync...")
+        logger.info("Starting Google Drive to Pinecone sync background task...")
         api_key = os.getenv("PINECONE_API_KEY")
         
         if not api_key:
+            logger.error("PINECONE_API_KEY missing from environment variables.")
             raise RuntimeError("PINECONE_API_KEY is missing from the .env file.")
             
         pc = Pinecone(api_key=api_key)
@@ -30,7 +29,7 @@ def sync_drive_to_pinecone():
 
         # 1. Fetch latest from Google Drive and update Pinecone
         Load_embedd_and_update(index, namespace=NAMESPACE)
-        
+        logger.info("Background sync completed successfully.")
         
     except Exception as e:
-        print(f"[Sync Error] Failed to update Pinecone: {str(e)}")
+        logger.exception(f"Failed to update Pinecone: {e}")

@@ -1,13 +1,12 @@
 """Agent 3: Optimized Google Drive RAG Tool for LangGraph via Pinecone."""
 
 import os
-from pathlib import Path
 from dotenv import load_dotenv
 
 from langchain.tools import tool
 from pinecone import Pinecone
-
 from services.Document_embedder import Load_embedd_and_update
+from config.logger import logger
 
 load_dotenv()
 
@@ -20,14 +19,14 @@ def get_pinecone_index():
     api_key = os.getenv("PINECONE_API_KEY")
             
     if not api_key:
+        logger.error("PINECONE_API_KEY missing in environment variables.")
         raise RuntimeError("PINECONE_API_KEY is missing from the .env file.")
 
     pc = Pinecone(api_key=api_key)
 
     # 1. Check if index exists. If not, create it and populate from Google Drive
     if not pc.has_index(INDEX_NAME):
-        print(f"[Agent 3] Creating Pinecone index '{INDEX_NAME}' with integrated embeddings...")
-        
+        logger.info(f"Creating Pinecone index '{INDEX_NAME}' with integrated embeddings...")
         # Creating index using Pinecone's Integrated Inference (Llama Embeddings)
         pc.create_index_for_model(
             name=INDEX_NAME,
@@ -40,15 +39,18 @@ def get_pinecone_index():
         )
         
         index = pc.Index(INDEX_NAME)
-
+        logger.info(f"Index '{INDEX_NAME}' created successfully.")
+        
+        logger.info(f"Loding documents to '{INDEX_NAME}'.")
         # Populate the new index with documents from Google Drive and upsert them
         Load_embedd_and_update(index, namespace=NAMESPACE)
+        logger.info(f"Documents Loaded to '{INDEX_NAME}' successfully.")
         
         return index
 
     else:
         # 2. If index already exists, just connect to it
-        print(f"[Agent 3] Connected to existing Pinecone index '{INDEX_NAME}'.")
+        logger.info(f" Connected to existing Pinecone index '{INDEX_NAME}'.")
         return pc.Index(INDEX_NAME)
 
 
@@ -60,6 +62,7 @@ async def search_company_policies(query: str) -> str:
     Call this when the user asks to "summarize policy documents", asks about general company rules, or asks how to file a claim.
     DO NOT use this tool for looking up a specific customer's personal data, vehicle number, or personal database records.
     """
+    logger.info(f"Executing policy search for query: '{query}'")
     try:
         index = get_pinecone_index()
         
@@ -82,6 +85,7 @@ async def search_company_policies(query: str) -> str:
 
         hits = reranked_results.get("result", {}).get("hits", [])
         if not hits:
+            logger.warning("No relevant document hits found in Pinecone.")
             return "No relevant information found in the policy documents."
 
         # Format retrieved text chunks for Agent 1 to read
@@ -92,8 +96,10 @@ async def search_company_policies(query: str) -> str:
             content = fields.get("chunk_text", "")
             
             retrieved_texts.append(f"--- Excerpt {i} (Source: {source}) ---\n{content}")
-
+            
+        logger.info(f"Retrieved {len(hits)} relevant excerpts for the query.")
         return "\n\n".join(retrieved_texts)
 
     except Exception as drive_err:
+        logger.exception(f"Error querying Pinecone index: {drive_err}")
         return f"Error searching policy documents: {str(drive_err)}"

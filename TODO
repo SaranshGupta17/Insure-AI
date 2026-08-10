@@ -1,19 +1,18 @@
 DATABASE:
     UPDATE COMPLETE DATASET FOR SMOOTH RETRIEVAL IN DB_TOOL
-    APPLY ROW LEVEL POLICIES IN ALL TABLES TO RESTRICT AGENT FROM UPDATING DATA IN DATABASE 
-    REMOVE MESSAE HEADER    
+    ✅ APPLY ROW LEVEL POLICIES IN ALL TABLES TO RESTRICT AGENT FROM UPDATING DATA IN DATABASE 
+    ✅ REMOVE MESSAE HEADER    
     
 GENERAL
-        ADD lOGGER
+        ✅ ADD lOGGER
         ✅ modify the code so that user does not have to login to mail for authorization for document
         ✅ Automate google identication from backend to remove the browser pop up step on first run of app
 
 CUSTOMER SIDE:
 
     Agent
-        UPDATE CODE TO ALLOW AGENT TO WRITE QUERIES ITSELF IN DATABASE AND FETCH DATA
-        REFINE PROMPT FOR DATABASE QUERY + POLICY DOCUMENT
-        ✅ Remove source document from the chatbot response
+        ✅ UPDATE CODE TO ALLOW AGENT TO FETCH CORRECT CUSTOMER DATA FROM DB
+        ✅ REFINE PROMPT FOR DATABASE QUERY + POLICY DOCUMENT
         ✅ REFINE PROMPT FOR DESCRIPTION + POLICY document
         ✅ Add new document upload trigger to update vector store for new policy document 
         ✅ Restrict User from accessing other users data.

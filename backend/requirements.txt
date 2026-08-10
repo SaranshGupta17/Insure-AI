@@ -18,7 +18,7 @@ google-auth-httplib2
 google-auth-oauthlib
 google-genai
 
-# --- Vector Database & Document Processing ---
+# --- PostreSQL DB, Vector Database & Document Processing ---
 faiss-cpu
 pypdf2
 langchain-text-splitters
