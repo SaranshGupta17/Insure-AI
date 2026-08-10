@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 // Import our new components
-import Nav from '../nav';
+import Nav from '../Nav';
 import FileClaim from './File_claim';
 
 export default function Chatbot() {
