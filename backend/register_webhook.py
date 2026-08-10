@@ -40,7 +40,12 @@ def setup_drive_webhook():
             scopes=["https://www.googleapis.com/auth/drive.readonly"]
         )
         
-        service = build('drive', 'v3', credentials=creds)
+        service = build(
+            'drive', 
+            'v3', 
+            credentials=creds,
+            cache_discovery=False
+        )
         
         # Generate a unique ID for this specific webhook connection
         channel_id = str(uuid.uuid4())
@@ -50,17 +55,29 @@ def setup_drive_webhook():
             "address": WEBHOOK_URL
         }
             
-        logger.info(f"Sending watch request to Google Drive for Folder ID: '{folder_id}' -> Target Endpoint: '{webhook_url}'")
+        logger.info(f"Sending watch request to Google Drive for Folder ID: '{folder_id}' -> Target Endpoint: '{WEBHOOK_URL}'")
         
         response = service.files().watch(fileId=folder_id, body=body).execute()
         
         logger.info("✅ Google Drive Webhook Registered Successfully!")
         logger.info(f"Channel ID: {response.get('id')}")
         logger.info(f"Resource ID: {response.get('resourceId')}")
+        logger.info("Resource ID: %s", response.get("resourceId"))
+        logger.info("Expiration: %s", response.get("expiration"))
         logger.info("Now, drop a PDF into your Google Drive folder and watch your FastAPI terminal!")
-    except Exception as e:
-        logger.exception(f"❌ Error registering Google Drive webhook: {e}")
-        logger.warning("Note: Ensure your Render/Ngrok URL is verified in Google Cloud Console / Google Search Console.")
+        
+    except json.JSONDecodeError as exc:
+        logger.exception("GOOGLE_DRIVE_CREDENTIALS is not valid JSON.")
+        raise ValueError(
+            "GOOGLE_DRIVE_CREDENTIALS must contain valid JSON."
+        ) from exc
+
+    except Exception as exc:
+        logger.exception(
+            "Error registering Google Drive webhook: %s",
+            exc,
+        )
+        raise
 
 if __name__ == "__main__":
     setup_drive_webhook()

@@ -1,6 +1,5 @@
 # main.py
 import asyncio
-import importlib
 import json
 import os
 import jwt
@@ -35,7 +34,12 @@ async def auto_register_webhook():
         logger.info("[Startup] Attempting to auto-register Google Drive Webhook...")
         loop = asyncio.get_event_loop()
         # Imports and executes register_webhook.py without blocking the main server thread
-        await loop.run_in_executor(None, lambda: importlib.import_module("register_webhook"))
+        def register():
+            from register_webhook import setup_drive_webhook
+            return setup_drive_webhook()
+
+        result = await asyncio.to_thread(register)
+        
         logger.info("[Startup] Google Drive Webhook script executed.")
     except Exception as e:
         logger.error(f"[Startup Error] Failed to run register_webhook.py: {e}")
@@ -165,7 +169,8 @@ async def drive_webhook_endpoint(request: Request, background_tasks: BackgroundT
         return {"status": "Webhook connected successfully!"}
         
     # 3. Handle actual file changes (uploads, edits, deletions)
-    if resource_state in ["update", "add", "trash", "change"]:
+    if resource_state in {"add","update","change","trash","untrash","remove",
+    }:
         logger.info("[Webhook] Change detected in Drive folder. Starting background Pinecone sync...")
         background_tasks.add_task(sync_drive_to_pinecone)
         
