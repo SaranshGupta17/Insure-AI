@@ -1,5 +1,5 @@
 import os
-from pathlib import Path
+import tempfile
 from dotenv import load_dotenv
 from langchain_google_community import GoogleDriveLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
@@ -12,22 +12,34 @@ def Load_embedd_and_update(index,namespace="ns1"):
     
     
     print("[Agent 3] Fetching documents from Google Drive to populate Pinecone...")
+    
     folder_id = os.getenv("GOOGLE_DRIVE_FOLDER_ID")
-    credentials_path = os.getenv("GOOGLE_DRIVE_CREDENTIALS_PATH", "service_account.json")
+    credentials_path = os.getenv("GOOGLE_DRIVE_CREDENTIALS_PATH")
 
     if not folder_id or not credentials_path:
         raise RuntimeError("Missing Google Drive credentials/folder ID in .env")
 
-    loader = GoogleDriveLoader(
-        folder_id=folder_id,
-        service_account_key=str(credentials_path),
-        recursive=False,
-        file_types=["pdf"],
-        scopes=["https://www.googleapis.com/auth/drive.readonly"],
-    )
-    documents = loader.load()
-    if not documents:
-        raise RuntimeError("No PDF documents found in Google Drive folder.")
+    # Create a secure, temporary JSON file in the server's memory/temp space
+    with tempfile.NamedTemporaryFile(mode="w+", delete=False, suffix=".json") as temp_file:
+        temp_file.write(credentials_path)
+        temp_creds_path = temp_file.name  # Get the path to this temporary file
+        
+    try:
+        loader = GoogleDriveLoader(
+            folder_id=folder_id,
+            service_account_key=temp_creds_path, # Using the temp path here!
+            recursive=False,
+            file_types=["pdf"],
+            scopes=["https://www.googleapis.com/auth/drive.readonly"],
+        )
+        documents = loader.load()
+        if not documents:
+            raise RuntimeError("No PDF documents found in Google Drive folder.")
+    
+    finally:
+        # CLEANUP: Always delete the temporary file immediately after you are done loading
+        if os.path.exists(temp_creds_path):
+            os.remove(temp_creds_path)
     
     # Chunk the PDFs
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=800, chunk_overlap=100)

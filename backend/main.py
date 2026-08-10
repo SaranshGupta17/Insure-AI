@@ -5,14 +5,16 @@ import jwt
 import uuid
 import base64
 import datetime
+from typing import List, Optional
 from contextlib import asynccontextmanager
 from dotenv import load_dotenv
-from typing import List, Optional
-from fastapi import FastAPI, HTTPException, BackgroundTasks, Request, UploadFile, File, Form 
+from fastapi import FastAPI, HTTPException, BackgroundTasks, Request, UploadFile, File, Form, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse
 
 
+from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
+import jwt
 
 
 load_dotenv()
@@ -25,9 +27,10 @@ from models.Chat_models import ChatResponse, ChatRequest
 from models.Login_model import LoginRequest
 from models.Update_model import UpdateStatus
 
+
 from services.pinecone_updater import sync_drive_to_pinecone
 
-# _________________________________________________LIFESPAN & FASTAPI SETUP____________________________________________________
+#NOTE:_________________________________________________LIFESPAN & FASTAPI SETUP____________________________________________________
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     print("Server starting up. Vector DB will be built lazily on the first Agent 3 query.")
@@ -48,7 +51,7 @@ app.add_middleware(
 )
 
 
-# ____________________________________________________ROOT & HEALTH CHECK ENDPOINTS___________________________________________
+#NOTE:____________________________________________________ROOT & HEALTH CHECK ENDPOINTS___________________________________________
 # Root endpoint for Google site verification
 # ONLY IF USING NGROK: This is required for Google to verify your domain for the webhook. If you are using a custom domain, you can remove this endpoint and verify your domain in Google Search Console instead.
 @app.get("/")
@@ -60,7 +63,7 @@ async def health_check():
     return {"status": "ok", "message": "Server is running (LangGraph Enabled)"}
 
 
-# ______________________________________________AUTENTICATION & JWT TOKEN MANAGEMENT__________________________________
+#NOTE:______________________________________________AUTENTICATION & JWT TOKEN MANAGEMENT__________________________________
 # Pull the key securely from your environment variables
 SECRET_KEY = os.getenv("JWT_SECRET_KEY")
 
@@ -72,84 +75,54 @@ supabase_service = get_supabase(role="service")
 if not SECRET_KEY:
     raise ValueError("No JWT_SECRET_KEY found in .env file!")
 
-@app.post("/api/auth/login")
-async def login(req: LoginRequest):
-    print(req.role)
-    if req.role == "customer":
-        if not req.identifier.startswith("CUST-"):
-            raise HTTPException(status_code=401, detail="Invalid Customer ID.")
-        table_name = "customer"
-        
-    elif req.role == "employee":
-        # NEW: Validate the Employee prefix
-        if not req.identifier.startswith("EMP"):
-            raise HTTPException(status_code=401, detail="Invalid Employee ID.")
-        table_name = "employee"    
-    
-    # 1. Database Check Simulation
-    response = supabase_safe.table(table_name).select("*").eq(f"{req.role}_id", req.identifier).execute()
-    
-    if not response.data or len(response.data) == 0:
-        raise HTTPException(status_code=401, detail="Account not found or invalid Id.")
+# Tells FastAPI to look for the "Authorization: Bearer <token>" header
+security = HTTPBearer()
 
-    user = response.data[0]
-    name = user.get("name")
-    
-    print(response)
-    if str(user.get("pin")) != req.pin:
-        raise HTTPException(status_code=401, detail="Incorrect PIN.")
-
-    # 2. Generate a secure JWT Token valid for 2 hours
-    expiration = datetime.datetime.utcnow() + datetime.timedelta(hours=2)
-    token = jwt.encode(
-        {"sub": req.identifier, "role": req.role, "exp": expiration},
-        SECRET_KEY,
-        algorithm="HS256"
-    )
-    
-    # 3. Send the token back to React
-    return {
-        "message": "Login successful",
-        "token": token,
-        "role": req.role,
-        "identifier": req.identifier,
-        "name": name 
-    }
-
-
-# ______________________________________________________CHAT ENDPOINT________________________________________________________
-@app.post("/chat", response_model=ChatResponse)
-async def chat_endpoint(request: ChatRequest):
-    # 2. VALIDATION: Check for both the query AND the secure customer_id
-    if not request.query.strip():
-        raise HTTPException(status_code=400, detail="No query provided.")
-    
-    # Note: Ensure your frontend is actually sending this customer_id in the JSON body!
-    if not hasattr(request, 'customer_id') or not request.customer_id.strip():
-        raise HTTPException(status_code=401, detail="Unauthorized: No Customer ID provided.")
-
+def verify_employee_token(credentials: HTTPAuthorizationCredentials = Depends(security)):
+    """
+    Validates the JWT token and ensures the user is an employee.
+    If the token is missing, expired, or belongs to a customer, it throws a 401 error.
+    """
+    token = credentials.credentials
     try:
-        # 3. RUN THE DYNAMIC GRAPH: Pass BOTH the query and the ID into the orchestrator
-        # The runner function we wrote in agent1.py already handles the state and extracts the final text
-        raw_answer = await orchestrator_graph_runner(customer_id = request.customer_id, query = request.query)
+        # Decode the token using the exact same secret used in the login route
+        payload = jwt.decode(token, SECRET_KEY, algorithms=["HS256"])
         
-        # Extract the pure string answer in case Gemini returns a complex block
-        if isinstance(raw_answer, list):
-            final_answer = raw_answer[0].get('text', str(raw_answer))
-        else:
-            final_answer = str(raw_answer)
-
-        return ChatResponse(
-            answer=final_answer,
-            source_documents=[] # LangGraph synthesizes the outputs natively
-        )
+        # Check if the role inside the token is 'employee'
+        if payload.get("role") != "employee":
+            raise HTTPException(status_code=403, detail="Access denied. Employees only.")
+            
+        # Return the decoded payload so the route can use the employee_id if needed
+        return payload
         
-    except Exception as e:
-        print(f"Error processing chat request: {e}")
-        raise HTTPException(status_code=500, detail="An internal server error occurred.")
+    except jwt.ExpiredSignatureError:
+        raise HTTPException(status_code=401, detail="Token has expired. Please log in again.")
+    except jwt.InvalidTokenError:
+        raise HTTPException(status_code=401, detail="Invalid token. Authentication failed.")
 
 
-# ___________________________________________________DRIVE WEBHOOK ENDPOINT____________________________________________________
+def verify_customer_token(credentials: HTTPAuthorizationCredentials = Depends(security)):
+    """
+    Validates the JWT token and ensures the user is a customer.
+    """
+    token = credentials.credentials
+    try:
+        payload = jwt.decode(token, SECRET_KEY, algorithms=["HS256"])
+        
+        # Check if the role inside the token is 'customer'
+        if payload.get("role") != "customer":
+            raise HTTPException(status_code=403, detail="Access denied. Customers only.")
+            
+        return payload
+        
+    except jwt.ExpiredSignatureError:
+        raise HTTPException(status_code=401, detail="Token has expired. Please log in again.")
+    except jwt.InvalidTokenError:
+        raise HTTPException(status_code=401, detail="Invalid token. Authentication failed.")
+
+
+
+#NOTE:___________________________________________________DRIVE WEBHOOK ENDPOINT____________________________________________________
 @app.post("/api/admin/sync-policies")
 async def drive_webhook_endpoint(request: Request, background_tasks: BackgroundTasks):
     """
@@ -177,6 +150,89 @@ async def drive_webhook_endpoint(request: Request, background_tasks: BackgroundT
 
 
 
+#NOTE:_______________________________________________________LOGIN ENDPOINT___________________________________________________________-
+@app.post("/api/auth/login")
+async def login(req: LoginRequest):
+    
+    if req.role == "customer":
+        if not req.identifier.startswith("CUST-"):
+            raise HTTPException(status_code=401, detail="Invalid Customer ID.")
+        table_name = "customer"
+        
+    elif req.role == "employee":
+        # NEW: Validate the Employee prefix
+        if not req.identifier.startswith("EMP"):
+            raise HTTPException(status_code=401, detail="Invalid Employee ID.")
+        table_name = "employee"    
+    
+    # 1. Database Check Simulation
+    response = supabase_safe.table(table_name).select("*").eq(f"{req.role}_id", req.identifier).execute()
+    
+    if not response.data or len(response.data) == 0:
+        raise HTTPException(status_code=401, detail="Account not found or invalid Id.")
+
+    user = response.data[0]
+    name = user.get("name")
+    
+    if str(user.get("pin")) != req.pin:
+        raise HTTPException(status_code=401, detail="Incorrect PIN.")
+
+    # 2. Generate a secure JWT Token valid for 2 hours
+    expiration = datetime.datetime.utcnow() + datetime.timedelta(hours=2)
+    token = jwt.encode(
+        {"sub": req.identifier, "role": req.role, "exp": expiration},
+        SECRET_KEY,
+        algorithm="HS256"
+    )
+    
+    # 3. Send the token back to React
+    return {
+        "message": "Login successful",
+        "token": token,
+        "role": req.role,
+        "identifier": req.identifier,
+        "name": name 
+    }
+
+
+#NOTE:______________________________________________________CHATBOT ENDPOINT________________________________________________________
+@app.post("/chat", response_model=ChatResponse)
+async def chat_endpoint(request: ChatRequest,user: dict = Depends(verify_customer_token)):
+    # 2. VALIDATION: Check for both the query AND the secure customer_id
+    if not request.query.strip():
+        raise HTTPException(status_code=400, detail="No query provided.")
+    
+    # Note: Ensure your frontend is actually sending this customer_id in the JSON body!
+    if not hasattr(request, 'customer_id') or not request.customer_id.strip():
+        raise HTTPException(status_code=401, detail="Unauthorized: No Customer ID provided.")
+
+    try:
+        
+        secure_customer_id = user['sub'] # Taking the ID from the trusted token
+        
+        # 3. RUN THE DYNAMIC GRAPH: Pass BOTH the query and the ID into the orchestrator
+        # The runner function we wrote in agent1.py already handles the state and extracts the final text
+        raw_answer = await orchestrator_graph_runner(customer_id = secure_customer_id, query = request.query)
+        
+        # Extract the pure string answer in case Gemini returns a complex block
+        if isinstance(raw_answer, list):
+            final_answer = raw_answer[0].get('text', str(raw_answer))
+        else:
+            final_answer = str(raw_answer)
+
+        return ChatResponse(
+            answer=final_answer,
+            source_documents=[] # LangGraph synthesizes the outputs natively
+        )
+        
+    except Exception as e:
+        print(f"Error processing chat request: {e}")
+        raise HTTPException(status_code=500, detail="An internal server error occurred.")
+
+
+
+#NOTE:______________________________________________________________NEW CLAIM FILIN ENDPOINT_____________________________________________________________- 
+
 def generate_unique_claim_id() -> str:
     """Generates a unique CLM- ID and checks the database to prevent duplicates."""
     while True:
@@ -192,7 +248,6 @@ def generate_unique_claim_id() -> str:
 
 @app.post("/file_claim")
 async def process_file_claim(
-    # Text Fields
     customer_id: str = Form(...),
     policy_no: str = Form(...),
     incident_date: str = Form(...),
@@ -206,8 +261,13 @@ async def process_file_claim(
     fir_document: Optional[UploadFile] = File(None),
     ntr_document: Optional[UploadFile] = File(None),
     rto_document: Optional[UploadFile] = File(None),
+    
+    # Security Token
+    user: dict = Depends(verify_customer_token)
 ):
     try:
+        secure_customer_id = user['sub']
+        
         # 1. Validate Policy in Database
         policy_check = supabase_safe.table("customer").select("*").eq("policy_no", policy_no).execute()
        
@@ -220,10 +280,10 @@ async def process_file_claim(
             if not file: return None
             file_bytes = await file.read()
             # Create a unique filename to prevent overwriting
-            file_path = f"{customer_id}/{folder}/{uuid.uuid4()}_{file.filename}"
+            file_path = f"{secure_customer_id}/{folder}/{uuid.uuid4()}_{file.filename}"
             
-            # NOTE: You must create a storage bucket in Supabase called "claim_documents" first!
-            supabase_service.storage.from_("claim_documents").upload(file_path, file_bytes)
+            # You must create a storage bucket in Supabase called "claim_documents" first!
+            supabase_service.storage.from_("claim_documents").upload(file_path, file_bytes, file_options={"content-type": file.content_type})
             
             # Get the public URL to save in your database
             public_url = supabase_service.storage.from_("claim_documents").get_public_url(file_path)
@@ -251,19 +311,17 @@ async def process_file_claim(
             "incident_description": description
         }
         
-        summary = await orchestrator_graph_runner(customer_id=customer_id, incident_details=str(incident_details))
+        summary = await orchestrator_graph_runner(customer_id=secure_customer_id, incident_details=str(incident_details))
         
         clean_string = summary[0]['text'].strip().removeprefix("```json").removesuffix("```").strip()
 
         # 2. Parse the clean string into a real Python dictionary
         summary = json.loads(clean_string)
-        print(summary)
-        
         
         # 4. Save the Claim Details to the Supabase Database
         claim_data = {
             "claim_id": unique_claim_id, 
-            "customer_id": customer_id,
+            "customer_id": secure_customer_id,
             "incident_date": incident_date,
             "incident_type": custom_incident_type if incident_type == "other" else incident_type,
             "description": description,
@@ -288,10 +346,10 @@ async def process_file_claim(
         return {"success": False, "error": str(e)}
     
     
-    
+#NOTE:___________________________________________________LIST ALL CLAIM REQUESTS TO OFFICER ENDPOINT____________________________________________________     
     
 @app.get("/api/claims")
-async def get_all_claims():
+async def get_all_claims(user: dict = Depends(verify_employee_token)):
     try:
         print("Fetching all claims...")
          
@@ -331,9 +389,10 @@ async def get_all_claims():
         print(f"Error fetching claims: {e}")
         raise HTTPException(status_code=500, detail="Failed to fetch claims from database.")
     
-    
+
+#NOTE:_______________________________________________________REVIEW CLAIM REQUEST ENDPOINT_______________________________________________________
 @app.get("/review/claims/{claim_id}")
-async def get_claim_review_data(claim_id: str):
+async def get_claim_review_data(claim_id: str,user: dict = Depends(verify_employee_token)):
     try:
         # Fetch the specific claim by its ID
         response = supabase_safe.table("claims").select(
@@ -344,50 +403,50 @@ async def get_claim_review_data(claim_id: str):
             raise HTTPException(status_code=404, detail="Claim not found")
 
         claim = response.data[0]
-
-        async def read_file_from_storage(file_url: str):
-            if not file_url: return None
-            
-            try:
-                # The file_url looks like: 
-                # https://your-project.supabase.co/storage/v1/object/public/claim_documents/CUST-1001/rc_docs/filename.pdf
-                
-                # We need to extract everything AFTER the bucket name ("claim_documents/")
-                bucket_name_in_url = "claim_documents/"
-                if bucket_name_in_url in file_url:
-                    file_path = file_url.split(bucket_name_in_url)[1]
-                else:
-                    return None # Safety check if the URL format is unexpected
-
-                
-                file_byte = supabase_safe.storage.from_("claim_documents").download(path=file_path)
-                base64_string = base64.b64encode(file_byte).decode('utf-8')
-                return base64_string
-                
-            except Exception as e:
-                print(f"Failed to download file {file_url}: {e}")
+        
+        # Signed URL Generator ---
+        def generate_signed_url(stored_url: str):
+            if not stored_url: 
                 return None
+            try:
+                # 1. Extract the relative path from the stored public URL
+                bucket_string = "claim_documents/"
+                if bucket_string in stored_url:
+                    file_path = stored_url.split(bucket_string)[1]
+                    
+                    # 2. Generate a Signed URL valid for 300 seconds (5 minutes)
+                    # We use supabase_service (Admin) so it bypasses RLS to generate the signature
+                    sign_response = supabase_safe.storage.from_("claim_documents").create_signed_url(
+                        file_path, 
+                        expires_in=300
+                    )
+                    # The Supabase Python client returns a dictionary with the URL
+                    return sign_response.get("signedURL")
+                    
+            except Exception as e:
+                raise HTTPException(status_code = 404, detail = "URL not found")
+            return None
         
-        rc_url = claim["rc_doc_url"]
-        fir_url = claim["fir_doc_url"]
-        ntr_url = claim["ntr_doc_url"]
-        rto_url = claim["rto_doc_url"]
+        rc_doc_url = claim["rc_doc_url"]
+        fir_doc_url = claim["fir_doc_url"]
+        ntr_doc_url = claim["ntr_doc_url"]
+        rto_doc_url = claim["rto_doc_url"]
         
-        # 3. read all received files
+        signed_rc_url = generate_signed_url(rc_doc_url),
+        signed_fir_url = generate_signed_url(fir_doc_url) if fir_doc_url else None,
+        signed_ntr_url = generate_signed_url(ntr_doc_url) if ntr_doc_url else None,
+        signed_rto_url = generate_signed_url(rto_doc_url) if rto_doc_url else None
 
-        rc_byte = await read_file_from_storage(rc_url)
-        fir_byte = await read_file_from_storage(fir_url) if fir_url else None
-        ntr_byte = await read_file_from_storage(ntr_url) if ntr_url else None
-        rto_byte = await read_file_from_storage(rto_url) if rto_url else None
-        
-        # Handle multiple evidence urls
-        evidence_urls = claim["evidence_urls"]
-        evidence_bytes = []
-        if evidence_urls:
-            for ev_file_url in evidence_urls:
-                evidence_byte = await read_file_from_storage(ev_file_url)
-                if evidence_byte: evidence_bytes.append(evidence_byte)        
-       
+        # Convert multiple evidence URLs to Signed URLs
+        if len(claim["evidence_urls"]) > 0: 
+            signed_evidence_urls = []
+            for ev_url in claim.get("evidence_urls", []):
+                signed_url = generate_signed_url(ev_url)
+                if signed_url:
+                    signed_evidence_urls.append(signed_url)
+        else: 
+            signed_evidence_urls = None           
+            
         claim_date = claim["claim_date_time"]          # 2026-08-07T12:24:11.816876+00:00
         claim_date = list(claim_date.split("T"))[0]
         
@@ -405,11 +464,11 @@ async def get_claim_review_data(claim_id: str):
             "incident_type": claim["incident_type"],
             "description": claim["description"],
             "summary": claim["summary"],
-            "evidence_bytes":evidence_bytes,
-            "rc_byte":rc_byte,
-            "fir_byte":fir_byte,
-            "ntr_byte":ntr_byte,
-            "rto_byte":rto_byte
+            "evidence_urls":signed_evidence_urls,
+            "rc_url":signed_rc_url,
+            "fir_url":signed_fir_url,
+            "ntr_url":signed_ntr_url,
+            "rto_url":signed_rto_url
         }
         return formatted_claim
 
@@ -418,17 +477,21 @@ async def get_claim_review_data(claim_id: str):
         raise HTTPException(status_code=500, detail="Failed to fetch claim review data from database.")
     
     
+#NOTE:__________________________________________________________________________________UPDATE OFFICER ACTION FOR CLAIM REQUEST ENDPOINT____________________________________________________________    
+    
 @app.post("/officer/approvalaction")
-def update_claim_status(request:UpdateStatus):
+def update_claim_status(request:UpdateStatus,user: dict = Depends(verify_employee_token)):
     try:
+        
+        secure_employee_id = user['sub']
         update_status = {
             "claim_status":request.claim_status,
             "rejection_reason":request.rejection_reason,
             "rejected_by":"Insurance Officer",
-            "employee_id":request.employee_id
+            "employee_id":secure_employee_id
             }
         response = supabase_service.table("claims").update(dict(update_status)).eq("claim_id",request.claim_id).execute()
-        print(response)
-        return True
+        return response
+    
     except Exception as e:
         raise HTTPException(e)

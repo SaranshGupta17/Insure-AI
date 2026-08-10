@@ -8,7 +8,8 @@ import Nav from '../Nav';
 import ClaimDashboard from './ClaimDasboard';
 
 export default function EmployeeDashboard() {
-  const backendUrl = import.meta.env.VITE_API_BASE_URL;
+  const backendUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+
   const navigate = useNavigate();
 
   // 1. Retrieve officer credentials from sessionStorage
@@ -65,7 +66,7 @@ export default function EmployeeDashboard() {
     if (employeeId) {
       fetchClaims();
     }
-  }, [employeeId, backendUrl,view]);
+  }, [employeeId, backendUrl,view,selectedClaimId]);
 
   const handleLogout = () => {
     sessionStorage.clear();

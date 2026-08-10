@@ -70,11 +70,13 @@ export default function FileClaim() {
       }
     }
 
+    const token = sessionStorage.getItem('token');
+
     try {
       console.log("Submitting claim...");
       // 3. Send as multipart/form-data
       const response = await axios.post(`${backendUrl}/file_claim`, formData, {
-        headers: { 'Content-Type': 'multipart/form-data' }
+        headers: {'Authorization': `Bearer ${token}` , 'Content-Type': 'multipart/form-data' }
       });
 
       if (response.data.success) {
@@ -119,7 +121,7 @@ export default function FileClaim() {
         }`}
       >
         {toast.show && (
-          <div className={`px-6 py-4 rounded-xl shadow-lg border font-semibold flex items-center gap-3 min-w-[300px] ${
+          <div className={`px-6 py-4 rounded-xl shadow-lg border font-semibold flex items-center gap-3 min-w-75 ${
             toast.type === 'success' 
               ? 'bg-white border-green-200 text-green-700' 
               : 'bg-white border-red-200 text-red-700'

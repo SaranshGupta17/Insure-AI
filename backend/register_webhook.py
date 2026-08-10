@@ -15,8 +15,9 @@ def setup_drive_webhook():
     
     # 1. Use the token.json file that Langchain generates, NOT a service account
     # Authenticate silently using the service account JSON
+    creds_path = os.getenv("GOOGLE_DRIVE_CREDENTIALS_PATH")
     creds = Credentials.from_service_account_file(
-        os.getenv("GOOGLE_DRIVE_CREDENTIALS_PATH"),
+        creds_path,
         scopes=["https://www.googleapis.com/auth/drive.readonly"]
     )
     

@@ -2,10 +2,11 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 export default function ClaimDashboard({ claimId, onBack, setView }) {
+  
+  const backendUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
 
   const employee_id = sessionStorage.getItem("identifier")
 
-  const backendUrl = import.meta.env.VITE_API_BASE_URL;
   const [claimData, setClaimData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -64,29 +65,6 @@ export default function ClaimDashboard({ claimId, onBack, setView }) {
     );
   }
 
-  // NEW: Helper function to safely open Base64 files in a new tab using Blobs
-  const handleOpenInNewTab = (base64String, mimeType) => {
-    try {
-      // 1. Decode the base64 string into raw binary characters
-      const byteCharacters = atob(base64String);
-      // 2. Create an array of byte numbers
-      const byteNumbers = new Array(byteCharacters.length);
-      for (let i = 0; i < byteCharacters.length; i++) {
-          byteNumbers[i] = byteCharacters.charCodeAt(i);
-      }
-      // 3. Convert to a typed array
-      const byteArray = new Uint8Array(byteNumbers);
-      // 4. Create a Blob (a file-like object in browser memory)
-      const blob = new Blob([byteArray], { type: mimeType });
-      // 5. Generate a safe temporary URL and open it
-      const blobUrl = URL.createObjectURL(blob);
-      window.open(blobUrl, '_blank');
-    } catch (e) {
-      console.error("Failed to open file in new tab:", e);
-      alert("Unable to open this file format.");
-    }
-  };
-
   // Updated to receive the optional rejectionReason
   const handleApproval = async (claim_id, newStatus, reason = null) => {
     try {
@@ -104,12 +82,13 @@ export default function ClaimDashboard({ claimId, onBack, setView }) {
         { headers: { 'Authorization': `Bearer ${token}`,"ngrok-skip-browser-warning": "69420" } }
       );
       
-      if(response.data == true){
-        setView(newStatus.toLowerCase())
+      if(response){
+        setView(newStatus.toLowerCase() == "forwarded" ? "pending" : newStatus.toLowerCase())
       }
       
       // Update local state to trigger a refresh of the claim data
       setApprovalStatus(newStatus);
+      setClaimData(prev => ({...prev, claim_status: newStatus}));
       setIsRejecting(false); 
       setRejectionReason("");
     } catch (e) {
@@ -118,49 +97,64 @@ export default function ClaimDashboard({ claimId, onBack, setView }) {
     }
   }
 
-  //NEW: Detect file type from Base64 magic string and render accordingly
-  const renderDocument = (base64String, title) => {
-    if (!base64String) return null;
+  //document renderer using direct URLs
+  const renderDocument = (urlData, title) => {
 
-    let mimeType = "application/octet-stream";
-    // Detect magic bytes in base64
-    if (base64String.startsWith("JVBER")) mimeType = "application/pdf";
-    else if (base64String.startsWith("/9j/")) mimeType = "image/jpeg";
-    else if (base64String.startsWith("iVBORw")) mimeType = "image/png";
+    // If the data is an array ["https://..."], extract the first string
+    const url = Array.isArray(urlData) ? urlData[0] : urlData;
 
-    const dataUrl = `data:${mimeType};base64,${base64String}`;
+    // Safety check: ensure we now have a valid string
+    if (!url || typeof url !== 'string') {
+      return null;
+    }
 
+    console.log(url)
+    // We split the URL at the '?' and check the actual path
+    const urlWithoutParams = url.split('?')[0].toLowerCase();
+    const isPdf = urlWithoutParams.endsWith('.pdf');
+
+    console.log(isPdf)
     return (
       <div className="bg-white p-3 rounded-xl border border-slate-200 shadow-sm flex flex-col h-full">
         <h4 className="text-xs font-bold text-slate-600 uppercase tracking-wider mb-3">{title}</h4>
         
-        <div className="flex-1 w-full bg-slate-100 rounded-lg overflow-hidden flex items-center justify-center min-h-62.5">
-          {mimeType === "application/pdf" ? (
-            <iframe src={dataUrl} className="w-full h-full min-h-100" title={title} />
-          ) : mimeType.startsWith("image/") ? (
-            <img src={dataUrl} alt={title} className="w-full h-auto object-contain max-h-100" />
+        <div className="flex-1 w-full bg-slate-100 rounded-lg overflow-hidden flex items-center justify-center min-h-62.5 relative group">
+          {isPdf ? (
+            // 🔥 Fix 2: Use an <object> tag which handles PDFs better than <iframe> for signed URLs
+            <object 
+              data={url} 
+              type="application/pdf" 
+              className="w-full h-full min-h-75"
+            >
+              {/* Fallback if the browser blocks embedding the signed URL */}
+              <div className="flex flex-col items-center justify-center p-6 text-center">
+                <svg className="w-12 h-12 text-slate-400 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                <p className="text-sm text-slate-500 mb-4">Preview not available.</p>
+                <button 
+                  onClick={() => window.open(url, '_blank')}
+                  className="px-4 py-2 bg-portal-teal text-white text-sm font-bold rounded-lg hover:bg-portal-teal-strong transition-colors"
+                >
+                  View PDF
+                </button>
+              </div>
+            </object>
           ) : (
-            <div className="text-center p-6">
-              <p className="text-sm text-slate-500 mb-3">Preview not available for this file type.</p>
-              <a href={dataUrl} download={`${title}-document`} className="text-portal-teal font-semibold hover:underline">
-                Download {title}
-              </a>
-            </div>
+            <img src={url} alt={title} className="w-full h-full object-cover max-h-75" loading="lazy" />
           )}
         </div>
 
-        {/* NEW: Open in New Tab Button */}
+        {/* Super simple window.open for URLs */}
         <button 
-          onClick={() => handleOpenInNewTab(base64String, mimeType)}
-          className="flex items-center gap-1 px-2 py-1 bg-portal-teal/10 text-portal-teal hover:bg-portal-teal/20 text-xs font-bold rounded transition-colors"
-          title="Open in new tab"
+          onClick={() => window.open(url, '_blank')}
+          className="flex items-center justify-center gap-2 w-full mt-3 py-2 bg-portal-teal/10 text-portal-teal hover:bg-portal-teal/20 text-sm font-bold rounded-lg transition-colors"
         >
-          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-          Open
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+          Open in New Tab
         </button>
       </div>
     );
   };
+
   return (
     <div className="flex flex-col h-full">
       {/* Top Navigation / Action Bar */}
@@ -212,12 +206,21 @@ export default function ClaimDashboard({ claimId, onBack, setView }) {
               >
                 Reject Claim
               </button>
-              <button 
-                className="px-4 py-2 bg-emerald-500 text-white font-semibold rounded-lg shadow-sm hover:bg-emerald-600 transition-colors"
-                onClick={() => handleApproval(claimData.claim_id, "Approved", null)}
-              >
-                Approve Claim
-              </button>
+
+              {/* Conditional Forward or Approve Button */}
+              { claimData.incident_type != "Burglary, Housebreaking, or Theft" ? (
+                <button 
+                  className="px-4 py-2 bg-emerald-500 text-white font-semibold rounded-lg shadow-sm hover:bg-emerald-600 transition-colors"
+                  onClick={() => handleApproval(claimData.claim_id, "Approved", null)}
+                >Approve Claim
+                </button> 
+              ):(
+                <button 
+                  className="px-4 py-2 bg-emerald-500 text-white font-semibold rounded-lg shadow-sm hover:bg-emerald-600 transition-colors"
+                  onClick={() => handleApproval(claimData.claim_id, "Forwarded", null)}
+                >Forward Claim
+                </button>
+              )}
             </div>
           )
         ) : null}
@@ -313,7 +316,7 @@ export default function ClaimDashboard({ claimId, onBack, setView }) {
                 </div>
                 <div>
                   <span className="text-slate-500 text-sm block mb-2">Description provided by customer</span>
-                  <div className="bg-white p-3 rounded-lg border border-slate-200 text-sm text-slate-700 leading-relaxed italic">
+                  <div className="bg-white p-3 rounded-lg border border-slate-200 text-sm text-slate-700 leading-relaxed italic break-words whitespace-pre-wrap">
                     "{claimData.description || 'No description provided.'}"
                   </div>
                 </div>
@@ -322,16 +325,16 @@ export default function ClaimDashboard({ claimId, onBack, setView }) {
           </div>
 
           {/* RIGHT COLUMN (AI Agent Space) */}
-          <div className="space-y-8">
+          <div className="h-full">
             
             {/* 2. AI Generated Summary */}
-            <section className="h-full">
-              <h3 className="text-sm font-bold text-indigo-900 uppercase tracking-wider mb-4 pb-2 border-b border-indigo-200 flex items-center gap-2">
+            <section className="h-full flex flex-col">
+              <h3 className="text-sm font-bold text-indigo-900 uppercase tracking-wider mb-4 pb-2 border-b border-indigo-200 flex items-center gap-2 shrink-0">
                 <svg className="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
                 2. AI Agent Analysis
               </h3>
               
-              <div className="bg-indigo-50/50 p-5 rounded-2xl border border-indigo-100 h-full">
+              <div className="bg-indigo-50/50 p-5 rounded-2xl border border-indigo-100 flex-1">
                 
                 {/* 2.1 Policy Match Badge */}
                 <div className="mb-5 flex items-center justify-between bg-white p-3 rounded-xl border border-indigo-100 shadow-sm">
@@ -385,24 +388,38 @@ export default function ClaimDashboard({ claimId, onBack, setView }) {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
             
-            {/* Static Mandatory/Legal Documents */}
-            {claimData.rc_byte && renderDocument(claimData.rc_byte, "Registration Certificate (RC)")}
-            {claimData.fir_byte && renderDocument(claimData.fir_byte, "FIR Document")}
-            {claimData.ntr_byte && renderDocument(claimData.ntr_byte, "Non-Traceable Report (NTR)")}
-            {claimData.rto_byte && renderDocument(claimData.rto_byte, "RTO Document")}
+            {/* 1. ALWAYS SHOW RC DOCUMENT */}
+            {/* (Assuming you switched to _url from my previous Signed URL fix. If you are still using _byte, just change rc_url to rc_byte, etc.) */}
+            {claimData.rc_url && renderDocument(claimData.rc_url, "Registration Certificate (RC)")}
             
-            {/* Dynamic Evidence Files array */}
-            {claimData.evidence_bytes && claimData.evidence_bytes.length > 0 && 
-              claimData.evidence_bytes.map((evidenceBase64, index) => (
-                <div key={index}>
-                  {renderDocument(evidenceBase64, `Evidence File ${index + 1}`)}
-                </div>
-              ))
-            }
+            {/* 2. CONDITIONAL RENDERING BASED ON INCIDENT TYPE */}
+            {claimData.incident_type === 'Burglary, Housebreaking, or Theft' ? (
+              
+              /* IF THEFT: Show Legal Documents */
+              <>
+                {claimData.fir_url && renderDocument(claimData.fir_url, "FIR Document")}
+                {claimData.ntr_url && renderDocument(claimData.ntr_url, "Non-Traceable Report (NTR)")}
+                {claimData.rto_url && renderDocument(claimData.rto_url, "RTO Document")}
+              </>
+
+            ) : (
+              
+              /* IF NOT THEFT: Show Standard Evidence Files */
+              <>
+                {claimData.evidence_urls && claimData.evidence_urls.length > 0 && 
+                  claimData.evidence_urls.map((evidence_url, index) => (
+                    <div key={index}>
+                      {renderDocument(evidence_url, `Evidence File ${index + 1}`)}
+                    </div>
+                  ))
+                }
+              </>
+
+            )}
           </div>
 
           {/* Fallback if absolutely no files exist */}
-          {!claimData.rc_file && !claimData.fir_file && !claimData.ntr_file && !claimData.rto_byte && (!claimData.evidence_files || claimData.evidence_files.length === 0) && (
+          {!claimData.rc_url && !claimData.fir_url && !claimData.ntr_url && !claimData.rto_url && (!claimData.evidence_urls || claimData.evidence_urls.length === 0) && (
             <div className="text-center p-8 text-slate-500 italic bg-white rounded-xl border border-slate-200">
               No documents were uploaded with this claim.
             </div>

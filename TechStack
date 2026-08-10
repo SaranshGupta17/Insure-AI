@@ -4,7 +4,7 @@ React
 Axios
 google Drive Api
 gemini Api
-Supabase-Postresql
-Pinecone
+Supabase-Postresql AND FileStorage
+Pinecone - VectorDB
 Langgraph 
 ngrok
