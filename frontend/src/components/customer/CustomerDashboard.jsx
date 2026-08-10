@@ -8,7 +8,7 @@ import Nav from '../Nav';
 import FileClaim from './File_claim';
 
 export default function Chatbot() {
-  const backendUrl = import.meta.env.VITE_API_BASE_URL;
+  const backendUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
   const navigate = useNavigate();
 
   const [customerId] = useState(() => sessionStorage.getItem('identifier'));
