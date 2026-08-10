@@ -14,14 +14,14 @@ def Load_embedd_and_update(index,namespace="ns1"):
     print("[Agent 3] Fetching documents from Google Drive to populate Pinecone...")
     
     folder_id = os.getenv("GOOGLE_DRIVE_FOLDER_ID")
-    credentials_path = os.getenv("GOOGLE_DRIVE_CREDENTIALS_PATH")
+    credentials = os.getenv("GOOGLE_DRIVE_CREDENTIALS")
 
-    if not folder_id or not credentials_path:
+    if not folder_id or not credentials:
         raise RuntimeError("Missing Google Drive credentials/folder ID in .env")
 
     # Create a secure, temporary JSON file in the server's memory/temp space
     with tempfile.NamedTemporaryFile(mode="w+", delete=False, suffix=".json") as temp_file:
-        temp_file.write(credentials_path)
+        temp_file.write(credentials)
         temp_creds_path = temp_file.name  # Get the path to this temporary file
         
     try:

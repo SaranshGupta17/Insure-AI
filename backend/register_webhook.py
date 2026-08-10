@@ -17,7 +17,7 @@ def setup_drive_webhook():
     # 1. Use the token.json file that Langchain generates, NOT a service account
     # Authenticate silently using the service account JSON
     # Fetch the raw JSON string from your .env
-    creds_json_string = os.getenv("GOOGLE_DRIVE_CREDENTIALS_PATH")
+    creds_json_string = os.getenv("GOOGLE_DRIVE_CREDENTIALS")
     
     # Parse the string into a Python dictionary
     creds_info = json.loads(creds_json_string)
