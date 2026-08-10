@@ -68,9 +68,12 @@ app.add_middleware(
 #NOTE:____________________________________________________ROOT & HEALTH CHECK ENDPOINTS___________________________________________
 # Root endpoint for Google site verification
 # ONLY IF USING NGROK: This is required for Google to verify your domain for the webhook. If you are using a custom domain, you can remove this endpoint and verify your domain in Google Search Console instead.
-@app.get("/")
+@app.api_route("/", methods=["GET", "HEAD"])
 async def root():
-    return HTMLResponse(content='<html><head><meta name="google-site-verification" content="a5oun_ycn9cjDeQBuoqc1b54enm1tmIyZRf-sRrebM8" /></head><body></body></html>')
+    logger.info("Root endpoint accessed (Google site verification / Health probe).")
+    return HTMLResponse(
+        content='<html><head><meta name="google-site-verification" content="a5oun_ycn9cjDeQBuoqc1b54enm1tmIyZRf-sRrebM8" /></head><body></body></html>'
+    )
 
 @app.get("/health") 
 async def health_check():
