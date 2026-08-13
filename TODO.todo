@@ -1,0 +1,73 @@
+DATABASE:
+    UPDATE COMPLETE DATASET FOR SMOOTH RETRIEVAL IN DB_TOOL
+    ✅ APPLY ROW LEVEL POLICIES IN ALL TABLES TO RESTRICT AGENT FROM UPDATING DATA IN DATABASE 
+    ✅ REMOVE MESSAE HEADER    
+    
+GENERAL:
+        ✅ ADD lOGGER
+        ✅ modify the code so that user does not have to login to mail for authorization for document
+        ✅ Automate google identication from backend to remove the browser pop up step on first run of app
+
+CUSTOMER SIDE:
+
+    Agent:
+        ✅ UPDATE CODE TO ALLOW AGENT TO FETCH CORRECT CUSTOMER DATA FROM DB
+        ✅ REFINE PROMPT FOR DATABASE QUERY + POLICY DOCUMENT
+        ✅ REFINE PROMPT FOR DESCRIPTION + POLICY document
+        ✅ Add new document upload trigger to update vector store for new policy document 
+        ✅ Restrict User from accessing other users data.
+        ✅ Dont fetch customer data everytime Customer asks for its personal info - Use Langgraph state memory
+
+    Login:
+        ✅ Customer and Employee - id and pin verification locally(meaning in proper format) and from database 
+        ✅ Keep User logged in if page refresh
+        ✅ Add logout button for proper logout and deleting session data 
+
+    File Claim:
+        ✅ CHECK POLICY NO
+        ✅ RC UPLOAD
+        ✅ INCIDENT DETAILS: 
+            INCIDENT TYPE
+            INCIDENT DESCRIPTION
+            EVIDENCE PHOTOS OR VIDEOS
+
+        ✅ IF THEFT:
+            FILE UPLOAD:
+                FIR
+                NTR 
+                RTO 
+        ✅ MATCH INCIDENT DESCRIPTION WITH INCIDENT TYPE
+        ✅ ANALYZE THE DESCRIPTION AND MATCH WITH POLICY DOCS AND SAVE THE SUMMARY IN JSON FORMAT 
+        ✅ SAVE UPLOADED DATA IN DATABASE
+        ✅ SEND FULL INCIDENT TYPE OPTIONS(NAME) TO BACKEND
+
+OFFICER SIDE:
+
+    ✅ LIST ALL THE CLAIMS:
+        PENDING
+        APPROVED
+        REJECTED
+
+    SHOW:
+        ✅ CUSTOMER ID
+        ✅ NAME
+        ✅ POLICY NO    
+        ✅ AI SUMMARY:
+            POLICY MATCH
+            AI MESSAGE TO OFFICER
+            POLICIES REFERENCE
+        ✅ INCIDENT DATE 
+        ✅ CLAIM ID
+        ✅ CLAIM DATE
+        ✅ INCIDENT TYPE
+        ✅ DESCRIPTION
+        
+        ✅ RC
+        ✅ EVIDENCE PHOTOS
+
+    ✅ IN CASE OF THEFT PROVIDE BUTTON TO FORWARD TO PRIVATE INVESTIGATOR and update in database as "Forwarded"
+    ✅ REDUCE REVIEW CLAIM API RESPONSE TIME FROM 30sec TO 1-2sec
+
+
+
+

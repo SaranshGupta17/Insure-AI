@@ -114,9 +114,11 @@ export default function EmployeeDashboard() {
   };
 
   return (
-    <div className="flex h-screen bg-slate-50">
-      
-      {/* 1. Inject the Employee Navigation Component */}
+    <div className="flex flex-col md:flex-row h-screen bg-slate-50">
+
+      {/* 1. Inject the Employee Navigation Component.
+          Nav renders its own mobile top bar + slide-in drawer below md,
+          and its own static sidebar at md and up, so it's just rendered once here. */}
       <Nav 
         Id={employeeId} 
         Name={employeeName} 
@@ -128,7 +130,7 @@ export default function EmployeeDashboard() {
       />
 
       {/* 2. Main Content Area */}
-      <main className="flex-1 flex flex-col p-8 overflow-y-auto">
+      <main className="flex-1 flex flex-col p-4 sm:p-6 md:p-8 overflow-y-auto min-w-0">
         
         {/* Conditional Rendering: Show ClaimDashboard OR the Table */}
         {selectedClaimId ? (
@@ -142,18 +144,18 @@ export default function EmployeeDashboard() {
         ) : (
           <>
             {/* Header section (Only visible when table is showing) */}
-            <header className="mb-6 flex justify-between items-end">
+            <header className="mb-6 flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-end">
               <div>
-                <h1 className="text-3xl font-bold text-slate-800 capitalize">
+                <h1 className="text-2xl sm:text-3xl font-bold text-slate-800 capitalize">
                   {view} Requests
                 </h1>
-                <p className="text-slate-500 mt-2">
+                <p className="text-slate-500 mt-1 md:mt-2 text-sm sm:text-base">
                   Review and manage {view} claim submissions from customers.
                 </p>
               </div>
               
               {/* Search Bar UI */}
-              <div className="w-72">
+              <div className="w-full sm:w-72">
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                     <svg className="h-5 w-5 text-slate-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -174,16 +176,16 @@ export default function EmployeeDashboard() {
             {/* Dynamic Table UI */}
             <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden flex-1 flex flex-col">
               {isLoading ? (
-                <div className="flex flex-col items-center justify-center flex-1 min-h-100">
+                <div className="flex flex-col items-center justify-center flex-1 min-h-[16rem] sm:min-h-100 px-4 text-center">
                   <svg className="animate-spin h-10 w-10 text-portal-teal mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                   </svg>
-                  <p className="text-slate-500 font-medium">Fetching claims from database...</p>
+                  <p className="text-slate-500 font-medium text-sm sm:text-base">Fetching claims from database...</p>
                 </div>
               ) : error ? (
-                <div className="flex flex-col items-center justify-center flex-1 min-h-100">
-                  <div className="bg-red-50 text-red-600 p-6 rounded-xl border border-red-200 text-center max-w-md">
+                <div className="flex flex-col items-center justify-center flex-1 min-h-[16rem] sm:min-h-100 px-4">
+                  <div className="bg-red-50 text-red-600 p-4 sm:p-6 rounded-xl border border-red-200 text-center w-full max-w-md">
                     <svg className="mx-auto h-10 w-10 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                     </svg>
@@ -198,60 +200,94 @@ export default function EmployeeDashboard() {
                   </div>
                 </div>
               ) : displayedClaims.length === 0 ? (
-                <div className="flex flex-col items-center justify-center flex-1 min-h-100">
+                <div className="flex flex-col items-center justify-center flex-1 min-h-[16rem] sm:min-h-100 px-4 text-center">
                   <div className="text-center text-slate-400">
                     <svg className="mx-auto h-12 w-12 text-slate-300 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                     </svg>
-                    <p className="text-lg font-medium">
+                    <p className="text-base sm:text-lg font-medium">
                       {searchQuery ? `No ${view} requests match "${searchQuery}"` : `No ${view} requests found.`}
                     </p>
                     <p className="text-sm mt-1">{searchQuery ? "Try a different Customer ID." : "You're all caught up!"}</p>
                   </div>
                 </div>
               ) : (
-                <div className="overflow-x-auto">
-                  <table className="w-full text-left border-collapse">
-                    <thead>
-                      <tr className="bg-slate-50 border-b border-slate-200 text-sm text-slate-500 uppercase tracking-wider">
-                        <th className="px-6 py-4 font-semibold">Claim ID</th>
-                        <th className="px-6 py-4 font-semibold">Customer ID</th>
-                        <th className="px-6 py-4 font-semibold">Customer Name</th>
-                        <th className="px-6 py-4 font-semibold">Policy No.</th>
-                        <th className="px-6 py-4 font-semibold">Type</th>
-                        <th className="px-6 py-4 font-semibold">Date</th>
-                        <th className="px-6 py-4 font-semibold text-center">Status</th>
-                        <th className="px-6 py-4 font-semibold text-center">Action</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-slate-100">
-                      {displayedClaims.map((claim) => (
-                        <tr key={claim.claim_id} className="hover:bg-slate-50 transition-colors" >
-                          <td className="px-6 py-4 font-mono text-sm text-slate-700 font-medium">{claim.claim_id}</td>
-                          <td className="px-6 py-4 font-mono text-sm text-portal-teal font-medium">{claim.customer_id}</td>
-                          <td className="px-6 py-4 text-sm text-slate-800 font-semibold">{claim.customer_name}</td>
-                          <td className="px-6 py-4 font-mono text-sm text-slate-500">{claim.policy_no}</td>
-                          <td className="px-6 py-4 text-sm text-slate-600">{claim.incident_type}</td>
-                          <td className="px-6 py-4 text-sm text-slate-500">{claim.claim_date}</td>
-                          
-                          <td className="px-6 py-4 text-center">
-                            <span className={`inline-block px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full border ${getStatusBadge(claim.claim_status)}`}>
-                              {claim.claim_status}
-                            </span>
-                          </td>
-                          <td className="px-6 py-4 text-center">
-                            <button 
-                              className="text-sm p-2 font-semibold text-portal-amber hover:bg-slate-100 cursor-pointer border border-slate-200 rounded-md transition-colors shadow-sm"
-                              onClick={()=>{handleReviewClaim(claim.claim_id)}}
-                            >
-                              Review →
-                            </button>
-                          </td>
+                <>
+                  {/* Table view: shown from sm breakpoint up, horizontally scrollable if still tight */}
+                  <div className="hidden sm:block overflow-x-auto">
+                    <table className="w-full text-left border-collapse">
+                      <thead>
+                        <tr className="bg-slate-50 border-b border-slate-200 text-xs md:text-sm text-slate-500 uppercase tracking-wider">
+                          <th className="px-4 md:px-6 py-3 md:py-4 font-semibold">Claim ID</th>
+                          <th className="px-4 md:px-6 py-3 md:py-4 font-semibold">Customer ID</th>
+                          <th className="px-4 md:px-6 py-3 md:py-4 font-semibold">Customer Name</th>
+                          <th className="px-4 md:px-6 py-3 md:py-4 font-semibold">Policy No.</th>
+                          <th className="px-4 md:px-6 py-3 md:py-4 font-semibold">Type</th>
+                          <th className="px-4 md:px-6 py-3 md:py-4 font-semibold">Date</th>
+                          <th className="px-4 md:px-6 py-3 md:py-4 font-semibold text-center">Status</th>
+                          <th className="px-4 md:px-6 py-3 md:py-4 font-semibold text-center">Action</th>
                         </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
+                      </thead>
+                      <tbody className="divide-y divide-slate-100">
+                        {displayedClaims.map((claim) => (
+                          <tr key={claim.claim_id} className="hover:bg-slate-50 transition-colors" >
+                            <td className="px-4 md:px-6 py-3 md:py-4 font-mono text-sm text-slate-700 font-medium">{claim.claim_id}</td>
+                            <td className="px-4 md:px-6 py-3 md:py-4 font-mono text-sm text-portal-teal font-medium">{claim.customer_id}</td>
+                            <td className="px-4 md:px-6 py-3 md:py-4 text-sm text-slate-800 font-semibold">{claim.customer_name}</td>
+                            <td className="px-4 md:px-6 py-3 md:py-4 font-mono text-sm text-slate-500">{claim.policy_no}</td>
+                            <td className="px-4 md:px-6 py-3 md:py-4 text-sm text-slate-600">{claim.incident_type}</td>
+                            <td className="px-4 md:px-6 py-3 md:py-4 text-sm text-slate-500">{claim.claim_date}</td>
+
+                            <td className="px-4 md:px-6 py-3 md:py-4 text-center">
+                              <span className={`inline-block px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full border ${getStatusBadge(claim.claim_status)}`}>
+                                {claim.claim_status}
+                              </span>
+                            </td>
+                            <td className="px-4 md:px-6 py-3 md:py-4 text-center">
+                              <button 
+                                className="text-sm p-2 font-semibold text-portal-amber hover:bg-slate-100 cursor-pointer border border-slate-200 rounded-md transition-colors shadow-sm"
+                                onClick={()=>{handleReviewClaim(claim.claim_id)}}
+                              >
+                                Review →
+                              </button>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+
+                  {/* Card list view: shown only below sm, so nothing forces horizontal scrolling on phones */}
+                  <div className="sm:hidden divide-y divide-slate-100 overflow-y-auto">
+                    {displayedClaims.map((claim) => (
+                      <div key={claim.claim_id} className="p-4 flex flex-col gap-2">
+                        <div className="flex items-start justify-between gap-2">
+                          <div className="min-w-0">
+                            <p className="text-sm font-semibold text-slate-800 truncate">{claim.customer_name}</p>
+                            <p className="text-xs font-mono text-portal-teal">{claim.customer_id}</p>
+                          </div>
+                          <span className={`shrink-0 inline-block px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded-full border ${getStatusBadge(claim.claim_status)}`}>
+                            {claim.claim_status}
+                          </span>
+                        </div>
+
+                        <div className="grid grid-cols-2 gap-x-3 gap-y-1 text-xs text-slate-500">
+                          <p><span className="text-slate-400">Claim ID: </span><span className="font-mono text-slate-700">{claim.claim_id}</span></p>
+                          <p><span className="text-slate-400">Policy: </span><span className="font-mono">{claim.policy_no}</span></p>
+                          <p><span className="text-slate-400">Type: </span>{claim.incident_type}</p>
+                          <p><span className="text-slate-400">Date: </span>{claim.claim_date}</p>
+                        </div>
+
+                        <button
+                          className="mt-1 self-start text-sm px-3 py-2 font-semibold text-portal-amber hover:bg-slate-100 cursor-pointer border border-slate-200 rounded-md transition-colors shadow-sm"
+                          onClick={() => { handleReviewClaim(claim.claim_id) }}
+                        >
+                          Review →
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                </>
               )}
             </div>
           </>

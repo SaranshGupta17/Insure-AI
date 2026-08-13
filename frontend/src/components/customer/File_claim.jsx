@@ -108,76 +108,75 @@ export default function FileClaim() {
     }
   };
 
-  // Helper class for styling file inputs
-  const fileInputStyles = "w-full text-sm text-slate-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-portal-teal/10 file:text-portal-teal hover:file:bg-portal-teal/20 transition-colors cursor-pointer border border-slate-300 rounded-xl px-2 py-2 bg-white";
+  // Helper class for styling file inputs (Responsive adjustments added for button & padding)
+  const fileInputStyles = "w-full text-xs sm:text-sm text-slate-500 file:mr-2 sm:file:mr-4 file:py-2 file:px-3 sm:file:py-2.5 sm:file:px-4 file:rounded-xl file:border-0 file:text-xs sm:file:text-sm file:font-semibold file:bg-portal-teal/10 file:text-portal-teal hover:file:bg-portal-teal/20 transition-colors cursor-pointer border border-slate-300 rounded-xl px-2 py-2 bg-white";
 
   return (
 
-    <div className="relative">
-      {/* TOAST NOTIFICATION (Fixed to top-right of viewport) */}
+    <div className="relative px-2 sm:px-4">
+      {/* TOAST NOTIFICATION (Full width on small phones, fixed right on sm+) */}
       <div 
-        className={`fixed top-6 right-6 z-50 transform transition-all duration-300 ease-in-out ${
-          toast.show ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
+        className={`fixed top-4 left-4 right-4 sm:left-auto sm:right-6 z-50 transform transition-all duration-300 ease-in-out ${
+          toast.show ? 'translate-y-0 sm:translate-x-0 opacity-100' : '-translate-y-12 sm:translate-y-0 sm:translate-x-full opacity-0'
         }`}
       >
         {toast.show && (
-          <div className={`px-6 py-4 rounded-xl shadow-lg border font-semibold flex items-center gap-3 min-w-75 ${
+          <div className={`px-4 sm:px-6 py-3 sm:py-4 rounded-xl shadow-lg border font-semibold flex items-center gap-3 w-full sm:min-w-75 ${
             toast.type === 'success' 
               ? 'bg-white border-green-200 text-green-700' 
               : 'bg-white border-red-200 text-red-700'
           }`}>
-            {/* Simple icon based on type */}
             {toast.type === 'success' ? (
-              <svg className="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 sm:w-6 sm:h-6 shrink-0 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
               </svg>
             ) : (
-              <svg className="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 sm:w-6 sm:h-6 shrink-0 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             )}
-            {toast.message}
+            <span className="text-sm sm:text-base leading-snug">{toast.message}</span>
           </div>
         )}
       </div>
 
-      <div className="max-w-3xl mx-auto w-full bg-white rounded-2xl shadow-sm border border-slate-200 p-8 mt-4 overflow-y-auto max-h-[85vh]">
-        <div className="border-b border-slate-200 pb-5 mb-6">
-          <h2 className="text-2xl font-bold text-slate-800">File a New Claim</h2>
-          <p className="text-slate-500 mt-1">All fields are mandatory to process your request.</p>
+      <div className="max-w-3xl mx-auto w-full bg-white rounded-2xl shadow-sm border border-slate-200 p-4 sm:p-6 md:p-8 my-2 sm:my-4 overflow-y-auto max-h-[85vh]">
+        <div className="border-b border-slate-200 pb-4 sm:pb-5 mb-5 sm:mb-6">
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-800">File a New Claim</h2>
+          <p className="text-xs sm:text-sm text-slate-500 mt-1">All fields are mandatory to process your request.</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
           
-          {/* BASIC DETAILS */}
-          <div className="grid grid-cols-2 gap-6">
+          {/* BASIC DETAILS (Grid stacks on small screens, 2 cols on sm+) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">Policy Number <span className="text-red-500">*</span></label>
+              <label className="block text-xs sm:text-sm font-semibold text-slate-700 mb-1.5 sm:mb-2">Policy Number <span className="text-red-500">*</span></label>
               <input 
                 type="text" 
                 placeholder="e.g. POL-12345"
                 value={policyNumber}
                 onChange={(e) => setPolicyNumber(e.target.value)}
-                className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-portal-teal"
+                className="w-full px-3.5 py-2.5 sm:px-4 sm:py-3 text-sm border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-portal-teal"
                 required
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">Incident Date <span className="text-red-500">*</span></label>
+              <label className="block text-xs sm:text-sm font-semibold text-slate-700 mb-1.5 sm:mb-2">Incident Date <span className="text-red-500">*</span></label>
               <input 
                 type="date" 
                 value={incidentDate}
                 onChange={(e) => setIncidentDate(e.target.value)}
-                className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-portal-teal text-slate-700"
+                className="w-full px-3.5 py-2.5 sm:px-4 sm:py-3 text-sm border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-portal-teal text-slate-700"
                 required
               />
             </div>
           </div>
 
           {/* 1. RC UPLOAD */}
-          <div className="bg-slate-50 p-5 rounded-xl border border-slate-200">
-            <h3 className="text-sm font-bold text-slate-800 mb-3 uppercase tracking-wide">1. Vehicle Documents</h3>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">RC (Registration Certificate) Upload <span className="text-red-500">*</span></label>
+          <div className="bg-slate-50 p-4 sm:p-5 rounded-xl border border-slate-200">
+            <h3 className="text-xs sm:text-sm font-bold text-slate-800 mb-2.5 sm:mb-3 uppercase tracking-wide">1. Vehicle Documents</h3>
+            <label className="block text-xs sm:text-sm font-semibold text-slate-700 mb-1.5 sm:mb-2">RC (Registration Certificate) Upload <span className="text-red-500">*</span></label>
             <input 
               type="file" 
               accept=".pdf,.jpg,.jpeg,.png"
@@ -188,18 +187,18 @@ export default function FileClaim() {
           </div>
 
           {/* 2. INCIDENT DETAILS */}
-          <div className="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-5">
-            <h3 className="text-sm font-bold text-slate-800 mb-1 uppercase tracking-wide">2. Incident Details</h3>
+          <div className="bg-slate-50 p-4 sm:p-5 rounded-xl border border-slate-200 space-y-4 sm:space-y-5">
+            <h3 className="text-xs sm:text-sm font-bold text-slate-800 mb-1 uppercase tracking-wide">2. Incident Details</h3>
             
             {/* 2.1 INCIDENT TYPE */}
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">
+              <label className="block text-xs sm:text-sm font-semibold text-slate-700 mb-1.5 sm:mb-2">
                 Incident Type <span className="text-red-500">*</span>
               </label>
               <select 
                 value={incidentType}
                 onChange={(e) => setIncidentType(e.target.value)}
-                className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-portal-teal bg-white font-medium text-slate-700"
+                className="w-full px-3.5 py-2.5 sm:px-4 sm:py-3 text-sm border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-portal-teal bg-white font-medium text-slate-700"
                 required
               >
                 <option value="accidental_external">Accidental External Means</option>
@@ -219,7 +218,7 @@ export default function FileClaim() {
           {/* 2.1.1 CUSTOM INCIDENT TYPE (Shows only if 'other' is selected) */}
           {incidentType === 'other' && (
             <div className="mt-3 animate-in fade-in slide-in-from-top-2 duration-300">
-              <label className="block text-sm font-semibold text-slate-700 mb-2">
+              <label className="block text-xs sm:text-sm font-semibold text-slate-700 mb-1.5 sm:mb-2">
                 Please Specify Incident Type <span className="text-red-500">*</span>
               </label>
               <input 
@@ -227,7 +226,7 @@ export default function FileClaim() {
                 placeholder="e.g., Tree fell on parked car"
                 value={customIncidentType}
                 onChange={(e) => setCustomIncidentType(e.target.value)}
-                className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-portal-teal text-slate-700 bg-white"
+                className="w-full px-3.5 py-2.5 sm:px-4 sm:py-3 text-sm border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-portal-teal text-slate-700 bg-white"
                 required={incidentType === 'other'}
               />
             </div>
@@ -237,15 +236,15 @@ export default function FileClaim() {
             {incidentType === 'Burglary, Housebreaking, or Theft' ? (
               
               /* 3. Burglary, Housebreaking, or Theft SPECIFIC FIELDS (SPLIT INTO 3) */
-              <div className="pt-2 animate-in fade-in slide-in-from-top-2 duration-300 space-y-5">
-                <div className="bg-portal-amber/10 border border-portal-amber/30 rounded-xl p-4 mb-4">
-                  <p className="text-sm text-portal-amber-strong font-medium">
+              <div className="pt-1 sm:pt-2 animate-in fade-in slide-in-from-top-2 duration-300 space-y-4 sm:space-y-5">
+                <div className="bg-portal-amber/10 border border-portal-amber/30 rounded-xl p-3.5 sm:p-4 mb-3 sm:mb-4">
+                  <p className="text-xs sm:text-sm text-portal-amber-strong font-medium">
                     <strong>Burglary, Housebreaking, or Theft Protocol:</strong> You must provide all three legal documents to process a vehicle Burglary, Housebreaking, or Theft claim.
                   </p>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">
+                  <label className="block text-xs sm:text-sm font-semibold text-slate-700 mb-1.5 sm:mb-2">
                     3.1 FIR (First Information Report) <span className="text-red-500">*</span>
                   </label>
                   <input 
@@ -258,7 +257,7 @@ export default function FileClaim() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">
+                  <label className="block text-xs sm:text-sm font-semibold text-slate-700 mb-1.5 sm:mb-2">
                     3.2 NTR (Non-Traceable Report) <span className="text-red-500">*</span>
                   </label>
                   <input 
@@ -271,7 +270,7 @@ export default function FileClaim() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">
+                  <label className="block text-xs sm:text-sm font-semibold text-slate-700 mb-1.5 sm:mb-2">
                     3.3 RTO Documents <span className="text-red-500">*</span>
                   </label>
                   <input 
@@ -287,21 +286,21 @@ export default function FileClaim() {
             ) : (
               
               /* 2.2 & 2.3 STANDARD INCIDENT FIELDS */
-              <div className="space-y-5 animate-in fade-in slide-in-from-top-2 duration-300">
+              <div className="space-y-4 sm:space-y-5 animate-in fade-in slide-in-from-top-2 duration-300">
                 <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">2.2 Incident Description <span className="text-red-500">*</span></label>
+                  <label className="block text-xs sm:text-sm font-semibold text-slate-700 mb-1.5 sm:mb-2">2.2 Incident Description <span className="text-red-500">*</span></label>
                   <textarea 
                     rows="4"
                     placeholder="Please describe exactly what happened..."
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-portal-teal resize-none bg-white"
+                    className="w-full px-3.5 py-2.5 sm:px-4 sm:py-3 text-sm border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-portal-teal resize-none bg-white"
                     required
                   ></textarea>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">2.3 Evidence Photos or Videos <span className="text-red-500">*</span></label>
+                  <label className="block text-xs sm:text-sm font-semibold text-slate-700 mb-1.5 sm:mb-2">2.3 Evidence Photos or Videos <span className="text-red-500">*</span></label>
                   <input 
                     type="file" 
                     multiple
@@ -316,7 +315,7 @@ export default function FileClaim() {
           </div>
 
           {/* SUBMIT */}
-          <div className="pt-4">
+          <div className="pt-2 sm:pt-4">
             <button 
               type="submit" 
               onSubmit={handleSubmit}
